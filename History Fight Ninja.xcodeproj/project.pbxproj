@@ -8,17 +8,43 @@
 
 /* Begin PBXBuildFile section */
 		A7A21FF42BB5BE0E005D062B /* History_Fight_NinjaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */; };
-		A7A21FF62BB5BE0E005D062B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A21FF52BB5BE0E005D062B /* ContentView.swift */; };
 		A7A21FF82BB5BE10005D062B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A21FF72BB5BE10005D062B /* Assets.xcassets */; };
 		A7A21FFB2BB5BE10005D062B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A21FFA2BB5BE10005D062B /* Preview Assets.xcassets */; };
+		A7E2C9A12BEA97BA0040B8E5 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C99E2BEA97BA0040B8E5 /* CountryModel.swift */; };
+		A7E2C9A22BEA97BA0040B8E5 /* HealthBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C99F2BEA97BA0040B8E5 /* HealthBarModel.swift */; };
+		A7E2C9A92BEA97CC0040B8E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C9A32BEA97CC0040B8E5 /* ContentView.swift */; };
+		A7E2C9AA2BEA97CC0040B8E5 /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C9A42BEA97CC0040B8E5 /* GameOver.swift */; };
+		A7E2C9AB2BEA97CC0040B8E5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C9A52BEA97CC0040B8E5 /* GameScene.swift */; };
+		A7E2C9AC2BEA97CC0040B8E5 /* GameWin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C9A62BEA97CC0040B8E5 /* GameWin.swift */; };
+		A7E2C9AD2BEA97CC0040B8E5 /* Streak.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C9A72BEA97CC0040B8E5 /* Streak.swift */; };
+		A7E2C9B62BEA97D50040B8E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7E2C9AE2BEA97D50040B8E5 /* Assets.xcassets */; };
+		A7E2C9B72BEA97D50040B8E5 /* explousion.sks in Resources */ = {isa = PBXBuildFile; fileRef = A7E2C9AF2BEA97D50040B8E5 /* explousion.sks */; };
+		A7E2C9B82BEA97D50040B8E5 /* game.sks in Resources */ = {isa = PBXBuildFile; fileRef = A7E2C9B02BEA97D50040B8E5 /* game.sks */; };
+		A7E2C9B92BEA97D50040B8E5 /* GameOver.sks in Resources */ = {isa = PBXBuildFile; fileRef = A7E2C9B12BEA97D50040B8E5 /* GameOver.sks */; };
+		A7E2C9BA2BEA97D50040B8E5 /* GameWin.sks in Resources */ = {isa = PBXBuildFile; fileRef = A7E2C9B22BEA97D50040B8E5 /* GameWin.sks */; };
+		A7E2C9BB2BEA97D50040B8E5 /* smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = A7E2C9B32BEA97D50040B8E5 /* smoke.sks */; };
+		A7E2C9BC2BEA97D50040B8E5 /* Start.sks in Resources */ = {isa = PBXBuildFile; fileRef = A7E2C9B42BEA97D50040B8E5 /* Start.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A7A21FF02BB5BE0E005D062B /* History Fight Ninja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "History Fight Ninja.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History_Fight_NinjaApp.swift; sourceTree = "<group>"; };
-		A7A21FF52BB5BE0E005D062B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A7A21FF72BB5BE10005D062B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7A21FFA2BB5BE10005D062B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A7E2C99E2BEA97BA0040B8E5 /* CountryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
+		A7E2C99F2BEA97BA0040B8E5 /* HealthBarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthBarModel.swift; sourceTree = "<group>"; };
+		A7E2C9A32BEA97CC0040B8E5 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A7E2C9A42BEA97CC0040B8E5 /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
+		A7E2C9A52BEA97CC0040B8E5 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		A7E2C9A62BEA97CC0040B8E5 /* GameWin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameWin.swift; sourceTree = "<group>"; };
+		A7E2C9A72BEA97CC0040B8E5 /* Streak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Streak.swift; sourceTree = "<group>"; };
+		A7E2C9AE2BEA97D50040B8E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A7E2C9AF2BEA97D50040B8E5 /* explousion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explousion.sks; sourceTree = "<group>"; };
+		A7E2C9B02BEA97D50040B8E5 /* game.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = game.sks; sourceTree = "<group>"; };
+		A7E2C9B12BEA97D50040B8E5 /* GameOver.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOver.sks; sourceTree = "<group>"; };
+		A7E2C9B22BEA97D50040B8E5 /* GameWin.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameWin.sks; sourceTree = "<group>"; };
+		A7E2C9B32BEA97D50040B8E5 /* smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smoke.sks; sourceTree = "<group>"; };
+		A7E2C9B42BEA97D50040B8E5 /* Start.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Start.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +77,10 @@
 		A7A21FF22BB5BE0E005D062B /* History Fight Ninja */ = {
 			isa = PBXGroup;
 			children = (
+				A7E2C9B52BEA97D50040B8E5 /* Scene */,
+				A7E2C9A82BEA97CC0040B8E5 /* View */,
+				A7E2C9A02BEA97BA0040B8E5 /* Model */,
 				A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */,
-				A7A21FF52BB5BE0E005D062B /* ContentView.swift */,
 				A7A21FF72BB5BE10005D062B /* Assets.xcassets */,
 				A7A21FF92BB5BE10005D062B /* Preview Content */,
 			);
@@ -65,6 +93,41 @@
 				A7A21FFA2BB5BE10005D062B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A7E2C9A02BEA97BA0040B8E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A7E2C99E2BEA97BA0040B8E5 /* CountryModel.swift */,
+				A7E2C99F2BEA97BA0040B8E5 /* HealthBarModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A7E2C9A82BEA97CC0040B8E5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A7E2C9A32BEA97CC0040B8E5 /* ContentView.swift */,
+				A7E2C9A42BEA97CC0040B8E5 /* GameOver.swift */,
+				A7E2C9A52BEA97CC0040B8E5 /* GameScene.swift */,
+				A7E2C9A62BEA97CC0040B8E5 /* GameWin.swift */,
+				A7E2C9A72BEA97CC0040B8E5 /* Streak.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A7E2C9B52BEA97D50040B8E5 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				A7E2C9AE2BEA97D50040B8E5 /* Assets.xcassets */,
+				A7E2C9AF2BEA97D50040B8E5 /* explousion.sks */,
+				A7E2C9B02BEA97D50040B8E5 /* game.sks */,
+				A7E2C9B12BEA97D50040B8E5 /* GameOver.sks */,
+				A7E2C9B22BEA97D50040B8E5 /* GameWin.sks */,
+				A7E2C9B32BEA97D50040B8E5 /* smoke.sks */,
+				A7E2C9B42BEA97D50040B8E5 /* Start.sks */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +189,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7A21FFB2BB5BE10005D062B /* Preview Assets.xcassets in Resources */,
+				A7E2C9B92BEA97D50040B8E5 /* GameOver.sks in Resources */,
+				A7E2C9B62BEA97D50040B8E5 /* Assets.xcassets in Resources */,
+				A7E2C9B82BEA97D50040B8E5 /* game.sks in Resources */,
 				A7A21FF82BB5BE10005D062B /* Assets.xcassets in Resources */,
+				A7E2C9B72BEA97D50040B8E5 /* explousion.sks in Resources */,
+				A7E2C9BA2BEA97D50040B8E5 /* GameWin.sks in Resources */,
+				A7E2C9BB2BEA97D50040B8E5 /* smoke.sks in Resources */,
+				A7E2C9BC2BEA97D50040B8E5 /* Start.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +207,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7A21FF62BB5BE0E005D062B /* ContentView.swift in Sources */,
+				A7E2C9AC2BEA97CC0040B8E5 /* GameWin.swift in Sources */,
+				A7E2C9A92BEA97CC0040B8E5 /* ContentView.swift in Sources */,
 				A7A21FF42BB5BE0E005D062B /* History_Fight_NinjaApp.swift in Sources */,
+				A7E2C9AA2BEA97CC0040B8E5 /* GameOver.swift in Sources */,
+				A7E2C9A12BEA97BA0040B8E5 /* CountryModel.swift in Sources */,
+				A7E2C9AB2BEA97CC0040B8E5 /* GameScene.swift in Sources */,
+				A7E2C9AD2BEA97CC0040B8E5 /* Streak.swift in Sources */,
+				A7E2C9A22BEA97BA0040B8E5 /* HealthBarModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
