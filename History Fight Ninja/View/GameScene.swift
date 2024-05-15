@@ -48,7 +48,6 @@ class GameScene: SKScene {
         enemyHealthBar.position = CGPoint(x: size.height * 1.7, y: size.width / 4)
         addChild(enemyHealthBar)
         
-        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A70164C22BEE217E00C0D98B /* MapsModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70164C12BEE217E00C0D98B /* MapsModelData.swift */; };
+		A79A57992BED2F2400ED3A67 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A57982BED2F2400ED3A67 /* StartScene.swift */; };
+		A79A579B2BED315200ED3A67 /* SideMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A579A2BED315200ED3A67 /* SideMapView.swift */; };
+		A79A579D2BED39CF00ED3A67 /* PlayerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A579C2BED39CF00ED3A67 /* PlayerDataModel.swift */; };
 		A7A21FF42BB5BE0E005D062B /* History_Fight_NinjaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */; };
 		A7A21FF82BB5BE10005D062B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A21FF72BB5BE10005D062B /* Assets.xcassets */; };
 		A7A21FFB2BB5BE10005D062B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A21FFA2BB5BE10005D062B /* Preview Assets.xcassets */; };
@@ -24,9 +28,20 @@
 		A7E2C9BA2BEA97D50040B8E5 /* GameWin.sks in Resources */ = {isa = PBXBuildFile; fileRef = A7E2C9B22BEA97D50040B8E5 /* GameWin.sks */; };
 		A7E2C9BB2BEA97D50040B8E5 /* smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = A7E2C9B32BEA97D50040B8E5 /* smoke.sks */; };
 		A7E2C9BC2BEA97D50040B8E5 /* Start.sks in Resources */ = {isa = PBXBuildFile; fileRef = A7E2C9B42BEA97D50040B8E5 /* Start.sks */; };
+		A7E2C9BE2BEAA0B40040B8E5 /* world-low.svg in Resources */ = {isa = PBXBuildFile; fileRef = A7E2C9BD2BEAA0B40040B8E5 /* world-low.svg */; };
+		A7E2C9C52BEAA25F0040B8E5 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C9C42BEAA25F0040B8E5 /* MapModel.swift */; };
+		A7E2C9CC2BEAA2760040B8E5 /* Centering.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C9C62BEAA2760040B8E5 /* Centering.swift */; };
+		A7E2C9CD2BEAA2760040B8E5 /* MapParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C9C72BEAA2760040B8E5 /* MapParser.swift */; };
+		A7E2C9CE2BEAA2760040B8E5 /* MapRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C9C82BEAA2760040B8E5 /* MapRenderer.swift */; };
+		A7E2C9CF2BEAA2760040B8E5 /* MapUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C9C92BEAA2760040B8E5 /* MapUtils.swift */; };
+		A7E2C9D12BEAA29C0040B8E5 /* WorldMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C9D02BEAA29C0040B8E5 /* WorldMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A70164C12BEE217E00C0D98B /* MapsModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsModelData.swift; sourceTree = "<group>"; };
+		A79A57982BED2F2400ED3A67 /* StartScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
+		A79A579A2BED315200ED3A67 /* SideMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMapView.swift; sourceTree = "<group>"; };
+		A79A579C2BED39CF00ED3A67 /* PlayerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDataModel.swift; sourceTree = "<group>"; };
 		A7A21FF02BB5BE0E005D062B /* History Fight Ninja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "History Fight Ninja.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History_Fight_NinjaApp.swift; sourceTree = "<group>"; };
 		A7A21FF72BB5BE10005D062B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,6 +60,13 @@
 		A7E2C9B22BEA97D50040B8E5 /* GameWin.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameWin.sks; sourceTree = "<group>"; };
 		A7E2C9B32BEA97D50040B8E5 /* smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smoke.sks; sourceTree = "<group>"; };
 		A7E2C9B42BEA97D50040B8E5 /* Start.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Start.sks; sourceTree = "<group>"; };
+		A7E2C9BD2BEAA0B40040B8E5 /* world-low.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "world-low.svg"; sourceTree = "<group>"; };
+		A7E2C9C42BEAA25F0040B8E5 /* MapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
+		A7E2C9C62BEAA2760040B8E5 /* Centering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Centering.swift; sourceTree = "<group>"; };
+		A7E2C9C72BEAA2760040B8E5 /* MapParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapParser.swift; sourceTree = "<group>"; };
+		A7E2C9C82BEAA2760040B8E5 /* MapRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRenderer.swift; sourceTree = "<group>"; };
+		A7E2C9C92BEAA2760040B8E5 /* MapUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapUtils.swift; sourceTree = "<group>"; };
+		A7E2C9D02BEAA29C0040B8E5 /* WorldMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,10 +99,11 @@
 		A7A21FF22BB5BE0E005D062B /* History Fight Ninja */ = {
 			isa = PBXGroup;
 			children = (
-				A7E2C9B52BEA97D50040B8E5 /* Scene */,
-				A7E2C9A82BEA97CC0040B8E5 /* View */,
-				A7E2C9A02BEA97BA0040B8E5 /* Model */,
 				A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */,
+				A7E2C9A82BEA97CC0040B8E5 /* View */,
+				A7E2C9BF2BEAA1C70040B8E5 /* WorldMap */,
+				A7E2C9B52BEA97D50040B8E5 /* Scene */,
+				A7E2C9A02BEA97BA0040B8E5 /* Model */,
 				A7A21FF72BB5BE10005D062B /* Assets.xcassets */,
 				A7A21FF92BB5BE10005D062B /* Preview Content */,
 			);
@@ -98,8 +121,11 @@
 		A7E2C9A02BEA97BA0040B8E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A7E2C9CB2BEAA2760040B8E5 /* Sources */,
+				A7E2C9C32BEAA24E0040B8E5 /* MapModel */,
 				A7E2C99E2BEA97BA0040B8E5 /* CountryModel.swift */,
 				A7E2C99F2BEA97BA0040B8E5 /* HealthBarModel.swift */,
+				A79A579C2BED39CF00ED3A67 /* PlayerDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -108,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				A7E2C9A32BEA97CC0040B8E5 /* ContentView.swift */,
+				A79A57982BED2F2400ED3A67 /* StartScene.swift */,
+				A7E2C9C02BEAA2290040B8E5 /* MapView */,
 				A7E2C9A42BEA97CC0040B8E5 /* GameOver.swift */,
 				A7E2C9A52BEA97CC0040B8E5 /* GameScene.swift */,
 				A7E2C9A62BEA97CC0040B8E5 /* GameWin.swift */,
@@ -128,6 +156,51 @@
 				A7E2C9B42BEA97D50040B8E5 /* Start.sks */,
 			);
 			path = Scene;
+			sourceTree = "<group>";
+		};
+		A7E2C9BF2BEAA1C70040B8E5 /* WorldMap */ = {
+			isa = PBXGroup;
+			children = (
+				A7E2C9BD2BEAA0B40040B8E5 /* world-low.svg */,
+			);
+			path = WorldMap;
+			sourceTree = "<group>";
+		};
+		A7E2C9C02BEAA2290040B8E5 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				A7E2C9D02BEAA29C0040B8E5 /* WorldMapView.swift */,
+				A79A579A2BED315200ED3A67 /* SideMapView.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		A7E2C9C32BEAA24E0040B8E5 /* MapModel */ = {
+			isa = PBXGroup;
+			children = (
+				A7E2C9C42BEAA25F0040B8E5 /* MapModel.swift */,
+				A70164C12BEE217E00C0D98B /* MapsModelData.swift */,
+			);
+			path = MapModel;
+			sourceTree = "<group>";
+		};
+		A7E2C9CA2BEAA2760040B8E5 /* InteractiveMap */ = {
+			isa = PBXGroup;
+			children = (
+				A7E2C9C62BEAA2760040B8E5 /* Centering.swift */,
+				A7E2C9C72BEAA2760040B8E5 /* MapParser.swift */,
+				A7E2C9C82BEAA2760040B8E5 /* MapRenderer.swift */,
+				A7E2C9C92BEAA2760040B8E5 /* MapUtils.swift */,
+			);
+			path = InteractiveMap;
+			sourceTree = "<group>";
+		};
+		A7E2C9CB2BEAA2760040B8E5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A7E2C9CA2BEAA2760040B8E5 /* InteractiveMap */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +263,7 @@
 			files = (
 				A7A21FFB2BB5BE10005D062B /* Preview Assets.xcassets in Resources */,
 				A7E2C9B92BEA97D50040B8E5 /* GameOver.sks in Resources */,
+				A7E2C9BE2BEAA0B40040B8E5 /* world-low.svg in Resources */,
 				A7E2C9B62BEA97D50040B8E5 /* Assets.xcassets in Resources */,
 				A7E2C9B82BEA97D50040B8E5 /* game.sks in Resources */,
 				A7A21FF82BB5BE10005D062B /* Assets.xcassets in Resources */,
@@ -207,14 +281,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A79A579B2BED315200ED3A67 /* SideMapView.swift in Sources */,
 				A7E2C9AC2BEA97CC0040B8E5 /* GameWin.swift in Sources */,
+				A7E2C9CF2BEAA2760040B8E5 /* MapUtils.swift in Sources */,
 				A7E2C9A92BEA97CC0040B8E5 /* ContentView.swift in Sources */,
 				A7A21FF42BB5BE0E005D062B /* History_Fight_NinjaApp.swift in Sources */,
+				A7E2C9CE2BEAA2760040B8E5 /* MapRenderer.swift in Sources */,
 				A7E2C9AA2BEA97CC0040B8E5 /* GameOver.swift in Sources */,
+				A79A579D2BED39CF00ED3A67 /* PlayerDataModel.swift in Sources */,
+				A79A57992BED2F2400ED3A67 /* StartScene.swift in Sources */,
 				A7E2C9A12BEA97BA0040B8E5 /* CountryModel.swift in Sources */,
+				A7E2C9C52BEAA25F0040B8E5 /* MapModel.swift in Sources */,
 				A7E2C9AB2BEA97CC0040B8E5 /* GameScene.swift in Sources */,
+				A70164C22BEE217E00C0D98B /* MapsModelData.swift in Sources */,
 				A7E2C9AD2BEA97CC0040B8E5 /* Streak.swift in Sources */,
+				A7E2C9D12BEAA29C0040B8E5 /* WorldMapView.swift in Sources */,
+				A7E2C9CD2BEAA2760040B8E5 /* MapParser.swift in Sources */,
 				A7E2C9A22BEA97BA0040B8E5 /* HealthBarModel.swift in Sources */,
+				A7E2C9CC2BEAA2760040B8E5 /* Centering.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +440,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -385,6 +470,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
