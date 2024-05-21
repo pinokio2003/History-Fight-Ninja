@@ -74,7 +74,6 @@ public struct InteractiveMap<Content> : View where Content : View {
             }
 //            .scaledToFill()
 //            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-//            .frame(width: <#T##CGFloat?#>, height: <#T##CGFloat?#>, alignment: <#T##Alignment#>)
             .onAppear {
                 let parser = MapParser(svgName: svgName, size: geo.size)
                 pathData = parser.pathDatas

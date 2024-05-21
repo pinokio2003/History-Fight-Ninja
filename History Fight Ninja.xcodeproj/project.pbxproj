@@ -11,9 +11,12 @@
 		A79A57992BED2F2400ED3A67 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A57982BED2F2400ED3A67 /* StartScene.swift */; };
 		A79A579B2BED315200ED3A67 /* SideMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A579A2BED315200ED3A67 /* SideMapView.swift */; };
 		A79A579D2BED39CF00ED3A67 /* PlayerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A579C2BED39CF00ED3A67 /* PlayerDataModel.swift */; };
+		A79ACB012BF76DC200769EB7 /* FightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79ACB002BF76DC200769EB7 /* FightButton.swift */; };
 		A7A21FF42BB5BE0E005D062B /* History_Fight_NinjaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */; };
 		A7A21FF82BB5BE10005D062B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A21FF72BB5BE10005D062B /* Assets.xcassets */; };
 		A7A21FFB2BB5BE10005D062B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A21FFA2BB5BE10005D062B /* Preview Assets.xcassets */; };
+		A7CFDACB2BF92A8500937CE0 /* FieldForButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFDACA2BF92A8500937CE0 /* FieldForButton.swift */; };
+		A7CFDACD2BF92ABF00937CE0 /* AttacButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFDACC2BF92ABF00937CE0 /* AttacButton.swift */; };
 		A7E2C9A12BEA97BA0040B8E5 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C99E2BEA97BA0040B8E5 /* CountryModel.swift */; };
 		A7E2C9A22BEA97BA0040B8E5 /* HealthBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C99F2BEA97BA0040B8E5 /* HealthBarModel.swift */; };
 		A7E2C9A92BEA97CC0040B8E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C9A32BEA97CC0040B8E5 /* ContentView.swift */; };
@@ -42,10 +45,13 @@
 		A79A57982BED2F2400ED3A67 /* StartScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 		A79A579A2BED315200ED3A67 /* SideMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMapView.swift; sourceTree = "<group>"; };
 		A79A579C2BED39CF00ED3A67 /* PlayerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDataModel.swift; sourceTree = "<group>"; };
+		A79ACB002BF76DC200769EB7 /* FightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightButton.swift; sourceTree = "<group>"; };
 		A7A21FF02BB5BE0E005D062B /* History Fight Ninja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "History Fight Ninja.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History_Fight_NinjaApp.swift; sourceTree = "<group>"; };
 		A7A21FF72BB5BE10005D062B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7A21FFA2BB5BE10005D062B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A7CFDACA2BF92A8500937CE0 /* FieldForButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldForButton.swift; sourceTree = "<group>"; };
+		A7CFDACC2BF92ABF00937CE0 /* AttacButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttacButton.swift; sourceTree = "<group>"; };
 		A7E2C99E2BEA97BA0040B8E5 /* CountryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		A7E2C99F2BEA97BA0040B8E5 /* HealthBarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthBarModel.swift; sourceTree = "<group>"; };
 		A7E2C9A32BEA97CC0040B8E5 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -118,6 +124,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		A7CFDAC92BF9287D00937CE0 /* FightButton */ = {
+			isa = PBXGroup;
+			children = (
+				A79ACB002BF76DC200769EB7 /* FightButton.swift */,
+				A7CFDACA2BF92A8500937CE0 /* FieldForButton.swift */,
+				A7CFDACC2BF92ABF00937CE0 /* AttacButton.swift */,
+			);
+			path = FightButton;
+			sourceTree = "<group>";
+		};
 		A7E2C9A02BEA97BA0040B8E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +185,7 @@
 		A7E2C9C02BEAA2290040B8E5 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				A7CFDAC92BF9287D00937CE0 /* FightButton */,
 				A7E2C9D02BEAA29C0040B8E5 /* WorldMapView.swift */,
 				A79A579A2BED315200ED3A67 /* SideMapView.swift */,
 			);
@@ -282,9 +299,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A79A579B2BED315200ED3A67 /* SideMapView.swift in Sources */,
+				A79ACB012BF76DC200769EB7 /* FightButton.swift in Sources */,
 				A7E2C9AC2BEA97CC0040B8E5 /* GameWin.swift in Sources */,
 				A7E2C9CF2BEAA2760040B8E5 /* MapUtils.swift in Sources */,
 				A7E2C9A92BEA97CC0040B8E5 /* ContentView.swift in Sources */,
+				A7CFDACD2BF92ABF00937CE0 /* AttacButton.swift in Sources */,
 				A7A21FF42BB5BE0E005D062B /* History_Fight_NinjaApp.swift in Sources */,
 				A7E2C9CE2BEAA2760040B8E5 /* MapRenderer.swift in Sources */,
 				A7E2C9AA2BEA97CC0040B8E5 /* GameOver.swift in Sources */,
@@ -293,6 +312,7 @@
 				A7E2C9A12BEA97BA0040B8E5 /* CountryModel.swift in Sources */,
 				A7E2C9C52BEAA25F0040B8E5 /* MapModel.swift in Sources */,
 				A7E2C9AB2BEA97CC0040B8E5 /* GameScene.swift in Sources */,
+				A7CFDACB2BF92A8500937CE0 /* FieldForButton.swift in Sources */,
 				A70164C22BEE217E00C0D98B /* MapsModelData.swift in Sources */,
 				A7E2C9AD2BEA97CC0040B8E5 /* Streak.swift in Sources */,
 				A7E2C9D12BEAA29C0040B8E5 /* WorldMapView.swift in Sources */,
@@ -438,8 +458,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -468,8 +489,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

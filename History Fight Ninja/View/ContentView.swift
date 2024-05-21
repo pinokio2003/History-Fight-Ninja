@@ -16,18 +16,23 @@ struct ContentView: View {
 //    let startScene = MapScene(fileNamed: "map")!
     
     var body: some View {
-//        SpriteView(scene: startScene)
-        HStack {
-//            if heroData.isSelected {
-//                SideMapView()
-//                    .frame(width: 50)
-//                    .transition(.slide.animation(.easeInOut(duration: 1.3)))
-//            }
+        ZStack(alignment: .leading) {
             WorldMapView()
-//                .ignoresSafeArea()
+                .environmentObject(heroData)
+        
+                HStack() {
+              
+                    if heroData.isSelected {
+                        SideMapView()
+                    
+                }
+            }
+
+//            .padding(.leading, 20)
+            .environmentObject(heroData)
+            .environmentObject(mapsDict)
         }
-        .environmentObject(heroData)
-        .environmentObject(mapsDict)
+
     }
 }
 

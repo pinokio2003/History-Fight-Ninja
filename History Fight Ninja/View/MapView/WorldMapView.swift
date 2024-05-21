@@ -9,16 +9,21 @@ import SwiftUI
 
 struct WorldMapView: View {
   
-    @State private var scale: CGFloat = 0.5
     @State private var clickedPath: PathData?
     @State private var pathDataArray: [PathData] = []///temp
-    ///
-//    @StateObject private var herodata = HeroData()
+    ///Gesture:
+    @State private var scale: CGFloat = 1
+    @State private var lastScale: CGFloat = 0
+    @State private var offset: CGSize = .zero
+    @State private var lasteStoredOffset: CGSize = .zero
+    @GestureState private var isInteracting: Bool = false
     
     @State var imageWidth: CGFloat = UIScreen.main.bounds.width
     @State var imageHeight: CGFloat = UIScreen.main.bounds.height
     
     @EnvironmentObject var heroData: HeroData
+    //Test:
+    @EnvironmentObject var mapsDict: MapsModelData 
     
     @State private var mapArray: [String: Color] = {
         var map = [String: Color]()
@@ -29,25 +34,28 @@ struct WorldMapView: View {
     }()
     
     var body: some View {
-        ZStack() {
-            ScrollView([.horizontal, .vertical]) {
+        ZStack() {    
+            GeometryReader { geo in
+                let size = geo.size
+                
+                
+//View MAP:
                 InteractiveMap(svgName: "world-low") { pathData in
-            
                     let attributes = InteractiveShape.Attributes(
                         strokeWidth: 1.2,
                         strokeColor: .black,
                         background: Color(.sRGB, white: 0.5, opacity: 1),
                         countryColors: mapArray
                     )
-                          
+//Countries:
                     InteractiveShape(pathData)
                         .initWithAttributes(attributes)
                         .shadow(color: clickedPath?.id == pathData.id ? .white : .clear, radius: 6)
                         .onTapGesture {
+                            
                             heroData.isSelected = false
-                            if clickedPath?.id == pathData.id {
+                            if clickedPath?.id == pathData.id && heroData.isSelected == false {
                                 clickedPath = nil
-                                
                             } else {
                                 clickedPath = pathData
                                 heroData.name = pathData.name
@@ -59,35 +67,91 @@ struct WorldMapView: View {
                         .scaleEffect(clickedPath?.id == pathData.id ? 1.05 : 1)
                         .animation(.easeInOut(duration: 0.2), value: clickedPath?.id)
                         .zIndex(clickedPath?.id == pathData.id ? 2 : 1)
+                    
                 }
-                .frame(width: 1334, height: 750 , alignment: .center)
-                .aspectRatio(CGSize(width: 16, height: 9), contentMode: .fill)
-                .scaleEffect(scale)
-            }
-            .background(Color.blue.opacity(0.5))
-            .ignoresSafeArea()
-            .environmentObject(heroData)
-            
-            //MARK: - zoom slider:
-            GeometryReader { geometry in
-                Slider(value: $scale, in: 0.5...4)
-                    .labelsHidden()
-                    .frame(width: geometry.size.height / 2, height: geometry.size.width)
-                    .position(x: geometry.size.width * 0.85 , y: geometry.size.height / 10)
-                
-                            if heroData.isSelected {
-                                SideMapView()
-                                    .frame(width: geometry.size.height * 0.85, alignment: .leading)
-                                    .transition(.slide)
+                .aspectRatio(contentMode: .fill)
+                .overlay {
+                    GeometryReader { proxy in
+                        let rect = proxy.frame(in: .named("MAPSCALES"))
+                        
+                        Color.clear
+                            .onChange(of: isInteracting) { newValue in
+                                
+                                withAnimation(.easeInOut(duration: 0.2)) {
+                                    if rect.minX > 0 {
+                                        offset.width = (offset.width - rect.minX)
+                                        haptics(.medium)
+                                    }
+                                    if rect.minY > 0 {
+                                        offset.height = (offset.height - rect.minY)
+                                        haptics(.medium)
+                                    }
+                                    if rect.maxX < size.width {
+                                        offset.width = (rect.minX - offset.width)
+                                        haptics(.medium)
+                                    }
+                                    if rect.maxY < size.height {
+                                        offset.height = (rect.minY - offset.height)
+                                        haptics(.medium)
+                                    }
+                                }
+                                
+                                if !newValue {
+                                    lasteStoredOffset = offset
+                                }
                             }
+                    }
+                }
+                .background(Color.blue.opacity(0.001))
             }
+       
+                //Scale gesture:
+                .scaleEffect(scale)
+                .offset(offset)
+                .coordinateSpace(name: "MAPSCALES")
+                .gesture(
+                    DragGesture()
+                        .updating($isInteracting, body: { _, out, _ in
+                            out = true
+                        }).onChanged({ value in
+                            let translation = value.translation
+                            offset = CGSize(width: translation.width + lasteStoredOffset.width,
+                                            height: translation.height + lasteStoredOffset.height)
+                        })
+                )
+                .gesture(
+                MagnificationGesture()
+                    .updating($isInteracting, body: {_, out, _ in
+                        out = true
+                    }).onChanged({ value in
+                        let updatedScale = value + lastScale
+                        scale = (updatedScale < 1 ? 1 : updatedScale)
+                    }).onEnded({ value in
+                        withAnimation(.easeInOut(duration: 0.2)){
+                            if scale < 1 {
+                                scale = 1
+                                lastScale = 0
+                            } else {
+                                lastScale = scale - 1
+                            }
+                        }
+                    })
+                )
+                .frame(width: imageWidth, height: imageHeight)
+                .environmentObject(heroData)
+            
         }
+        .background(Color.blue.opacity(0.5))
     }
     
     func printAllPathNames() {
         for pathData in pathDataArray {
             print(pathData.name)
         }
+    }
+    
+    func haptics(_ style: UIImpactFeedbackGenerator.FeedbackStyle) {
+        UIImpactFeedbackGenerator(style: style).impactOccurred()
     }
 }
 
