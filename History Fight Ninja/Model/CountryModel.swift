@@ -11,33 +11,21 @@ import GameKit
 
 class CountryModel: SKNode {
     
-    override init() {
-        super.init()
+        override init() {
+            super.init()
         
-        let germanyTexture = SKTexture(imageNamed: "Germany")
-        let greceTexture  = SKTexture(imageNamed: "Grece")
-        let russianEmpireTexture  =  SKTexture(imageNamed: "RussianEmpire")
-        let serbiaTexture  = SKTexture(imageNamed: "Serbia")
-        
-//        let lable = SKLabelNode()
+        let enemyTexture = SKTexture(imageNamed: HeroData.shared.enemyName)
+        let playerName = SKTexture(imageNamed: HeroData.shared.playerCountry)
+
         var country: SKTexture!
         
-        switch arc4random_uniform(4) {
+        switch arc4random_uniform(2) {
         case 1:
-            country = germanyTexture
+            country = enemyTexture
             name = "no"
-        case 2:
-            country = greceTexture
-            name = "yes"
-        case 3:
-            country = russianEmpireTexture
-            name = "yes"
-        case 4:
-            country = serbiaTexture
-            name = "yes"
         default:
-            country = germanyTexture
-            name = "no"
+            country = playerName
+            name = "yes"
         }
         
         let countrySprite = SKSpriteNode(texture: country)

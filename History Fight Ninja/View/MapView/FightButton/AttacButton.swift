@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct AttacButton: View {
-    @State var isPushing: Bool = false
-   
+    @State private var isPushing: Bool = false
+    @StateObject var heroData = HeroData.shared
+    @StateObject var mapsDict = MapsModelData()
+    
     let centerCircleStart: Color = Color(red: 241 / 255, green: 195 / 255, blue: 2 / 255)
     let centerCircleEnd: Color = Color(red: 241 / 255, green: 171 / 255, blue: 2 / 255)
     let secondStart: Color = Color(red: 215 / 255, green: 87 / 255, blue: 97 / 255)
@@ -80,13 +82,28 @@ struct AttacButton: View {
                 .offset(x: -17.0, y: -17.0)
             
             Text("Attack")
-                .font(.custom("Chalkduster", size: 15))
+                .font(.custom("Chalkduster", size: isPushing ? 14 : 15))
                 .fontWeight(.medium)
                 .foregroundStyle(.white)
                 .shadow(color: Color.black.opacity(0.5), radius:  2, x: 1, y: 1)
-        } .onTapGesture {
-            isPushing.toggle()
+        } 
+       
+        .onTapGesture {
+            guard !isPushing else { return }
+            withAnimation(.easeInOut(duration: 0.2)) {
+                isPushing.toggle()
+                heroData.enemyName = mapsDict.countriesDict[heroData.name]!
+//                print("Test name: \(heroData.enemyName)")
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    isPushing.toggle()
+                    heroData.isFightStartButton = true
+                }
+            }
         }
+        .environmentObject(heroData)
+        .environmentObject(mapsDict)
     }
     //blick
     struct Blick: Shape {

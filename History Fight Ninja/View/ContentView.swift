@@ -10,31 +10,49 @@ import SpriteKit
 
 struct ContentView: View {
     
-    @StateObject var heroData = HeroData()
+    @StateObject var heroData = HeroData.shared
     @StateObject var mapsDict = MapsModelData()
-    let startScene = StartScene(fileNamed: "Start")!
-//    let startScene = MapScene(fileNamed: "map")!
+    let game = GameScene(fileNamed: "game")
     
     var body: some View {
         ZStack(alignment: .leading) {
-            WorldMapView()
-                .environmentObject(heroData)
-        
-                HStack() {
-              
-                    if heroData.isSelected {
-                        SideMapView()
+            if !heroData.isFightStartButton {
+                WorldMapView()
+
+            }
+            
+            if heroData.isCountrySelected && !heroData.isFightStartButton {
+                HStack {
+                    SideMapView()
+                    Spacer()
                     
+                    VStack {
+                        CountryNameView()
+                            .padding(.top, 20)
+                        Spacer()
+                    }
+                    .frame(height: UIScreen.main.bounds.height, alignment: .top)
+                    Spacer()
+                    Text("Menu button")
+                        .padding(.top, 20)
+                        .frame(height: UIScreen.main.bounds.height, alignment: .top)
                 }
             }
-
-//            .padding(.leading, 20)
-            .environmentObject(heroData)
-            .environmentObject(mapsDict)
+            
+            if heroData.isFightStartButton {
+                SpriteView(scene: game!)
+                    .ignoresSafeArea()
+            }
         }
-
+        .environmentObject(heroData)
+        .environmentObject(mapsDict)
+        .onDisappear {
+            heroData.isFightStartButton = false
+        }
     }
 }
+
+
 
 //#Preview {
 //    ContentView(isSelected: false)

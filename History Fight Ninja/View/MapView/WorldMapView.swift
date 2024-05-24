@@ -22,21 +22,21 @@ struct WorldMapView: View {
     @State var imageHeight: CGFloat = UIScreen.main.bounds.height
     
     @EnvironmentObject var heroData: HeroData
-    //Test:
-    @EnvironmentObject var mapsDict: MapsModelData 
-    
-    @State private var mapArray: [String: Color] = {
-        var map = [String: Color]()
-        for country in countryData {
-            map[country.countryCode.uppercased()] = country.color.toSwiftUIColor()
-        }
-        return map
-    }()
+    var countryManager = CountryDataManager.shared
+//    @State private var mapArray: [String: Color] = {
+//        let countryManager = CountryDataManager()
+//        var map = [String: Color]()
+//        for country in countryManager.countriesData {
+//            map[country.countryCode.uppercased()] = country.color.toSwiftUIColor()
+//        }
+//        return map
+//    }()
     
     var body: some View {
         ZStack() {    
             GeometryReader { geo in
                 let size = geo.size
+                
                 
                 
 //View MAP:
@@ -45,7 +45,7 @@ struct WorldMapView: View {
                         strokeWidth: 1.2,
                         strokeColor: .black,
                         background: Color(.sRGB, white: 0.5, opacity: 1),
-                        countryColors: mapArray
+                        countryColors: countryManager.colorMap
                     )
 //Countries:
                     InteractiveShape(pathData)
@@ -53,15 +53,15 @@ struct WorldMapView: View {
                         .shadow(color: clickedPath?.id == pathData.id ? .white : .clear, radius: 6)
                         .onTapGesture {
                             
-                            heroData.isSelected = false
-                            if clickedPath?.id == pathData.id && heroData.isSelected == false {
+                            heroData.isCountrySelected = false
+                            if clickedPath?.id == pathData.id && heroData.isCountrySelected == false {
                                 clickedPath = nil
                             } else {
                                 clickedPath = pathData
                                 heroData.name = pathData.name
                                 print(heroData.name)
-                                heroData.isSelected = true
-                                print("is selected: \(heroData.isSelected)")
+                                heroData.isCountrySelected = true
+                                print("is selected: \(heroData.isCountrySelected)")
                             }
                         }
                         .scaleEffect(clickedPath?.id == pathData.id ? 1.05 : 1)
@@ -73,10 +73,8 @@ struct WorldMapView: View {
                 .overlay {
                     GeometryReader { proxy in
                         let rect = proxy.frame(in: .named("MAPSCALES"))
-                        
                         Color.clear
                             .onChange(of: isInteracting) { newValue in
-                                
                                 withAnimation(.easeInOut(duration: 0.2)) {
                                     if rect.minX > 0 {
                                         offset.width = (offset.width - rect.minX)
@@ -138,10 +136,14 @@ struct WorldMapView: View {
                     })
                 )
                 .frame(width: imageWidth, height: imageHeight)
-                .environmentObject(heroData)
-            
+
+        }
+        .onAppear {
+            countryManager.addColorArray()
         }
         .background(Color.blue.opacity(0.5))
+//        .environmentObject(heroData)
+//        .environmentObject(countryManager)
     }
     
     func printAllPathNames() {

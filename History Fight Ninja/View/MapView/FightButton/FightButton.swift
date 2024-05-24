@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct FightButton: View {
+    @StateObject var heroData = HeroData.shared
     
     var body: some View {
         ZStack {
             FieldForButton()
-            AttacButton()
+            AttacButton(heroData: heroData)
         }
+        .environmentObject(heroData)
     }
 }
 #Preview {

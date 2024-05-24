@@ -19,33 +19,35 @@ struct SideMapView: View {
             HStack(alignment: .top) {
                 Spacer()
                 VStack(alignment: .center) {
-//                    Spacer()
                     if let countryCode = mapsDict.countriesDict[heroData.name] {
-                    
-                        Text(countryCode)
-                            .padding()
-                            .multilineTextAlignment(.leading)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .font(.custom("Chalkduster", size: 25))
-                            .foregroundStyle(.red)
-                            .shadow(color: Color.black.opacity(0.8), radius: 2, x: 1, y: 1)
-                        
+             
                         Image(countryCode)
                             .resizable()
                             .scaledToFill()
                             .frame(width: UIScreen.main.bounds.height / 4,height: UIScreen.main.bounds.height / 4)
                             .padding()
                        
+                        Text("Power: ")
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .font(.custom("Chalkduster", size: 15))
+                            .foregroundStyle(.black)
+                            .shadow(color: Color.white.opacity(0.8), radius: 2, x: 1, y: 1)
+                        
+                        Text("Difficulty: ")
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .font(.custom("Chalkduster", size: 15))
+                            .foregroundStyle(.black)
+                            .shadow(color: Color.white.opacity(0.8), radius: 2, x: 1, y: 1)
+                        
                     } else {
                         Text("   ")
                     }
 
-//                    Text(heroData.name)
-//                    Spacer()
-                    FightButton()
+                    FightButton(heroData: heroData)
                     
                 }
-//                .frame(maxHeight: .infinity)
                 Spacer()
             }
 

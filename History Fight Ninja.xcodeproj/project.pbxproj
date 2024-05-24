@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A70164C22BEE217E00C0D98B /* MapsModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70164C12BEE217E00C0D98B /* MapsModelData.swift */; };
+		A72470862BFC924800E771D8 /* CountryNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72470852BFC924800E771D8 /* CountryNameView.swift */; };
 		A79A57992BED2F2400ED3A67 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A57982BED2F2400ED3A67 /* StartScene.swift */; };
 		A79A579B2BED315200ED3A67 /* SideMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A579A2BED315200ED3A67 /* SideMapView.swift */; };
 		A79A579D2BED39CF00ED3A67 /* PlayerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A579C2BED39CF00ED3A67 /* PlayerDataModel.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		A70164C12BEE217E00C0D98B /* MapsModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsModelData.swift; sourceTree = "<group>"; };
+		A72470852BFC924800E771D8 /* CountryNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryNameView.swift; sourceTree = "<group>"; };
 		A79A57982BED2F2400ED3A67 /* StartScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 		A79A579A2BED315200ED3A67 /* SideMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMapView.swift; sourceTree = "<group>"; };
 		A79A579C2BED39CF00ED3A67 /* PlayerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDataModel.swift; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A72470842BFC922200E771D8 /* CountryNameView */ = {
+			isa = PBXGroup;
+			children = (
+				A72470852BFC924800E771D8 /* CountryNameView.swift */,
+			);
+			path = CountryNameView;
+			sourceTree = "<group>";
+		};
 		A7A21FE72BB5BE0E005D062B = {
 			isa = PBXGroup;
 			children = (
@@ -149,10 +159,10 @@
 		A7E2C9A82BEA97CC0040B8E5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A7E2C9A32BEA97CC0040B8E5 /* ContentView.swift */,
 				A79A57982BED2F2400ED3A67 /* StartScene.swift */,
 				A7E2C9C02BEAA2290040B8E5 /* MapView */,
 				A7E2C9A42BEA97CC0040B8E5 /* GameOver.swift */,
+				A7E2C9A32BEA97CC0040B8E5 /* ContentView.swift */,
 				A7E2C9A52BEA97CC0040B8E5 /* GameScene.swift */,
 				A7E2C9A62BEA97CC0040B8E5 /* GameWin.swift */,
 				A7E2C9A72BEA97CC0040B8E5 /* Streak.swift */,
@@ -185,6 +195,7 @@
 		A7E2C9C02BEAA2290040B8E5 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				A72470842BFC922200E771D8 /* CountryNameView */,
 				A7CFDAC92BF9287D00937CE0 /* FightButton */,
 				A7E2C9D02BEAA29C0040B8E5 /* WorldMapView.swift */,
 				A79A579A2BED315200ED3A67 /* SideMapView.swift */,
@@ -308,6 +319,7 @@
 				A7E2C9CE2BEAA2760040B8E5 /* MapRenderer.swift in Sources */,
 				A7E2C9AA2BEA97CC0040B8E5 /* GameOver.swift in Sources */,
 				A79A579D2BED39CF00ED3A67 /* PlayerDataModel.swift in Sources */,
+				A72470862BFC924800E771D8 /* CountryNameView.swift in Sources */,
 				A79A57992BED2F2400ED3A67 /* StartScene.swift in Sources */,
 				A7E2C9A12BEA97BA0040B8E5 /* CountryModel.swift in Sources */,
 				A7E2C9C52BEAA25F0040B8E5 /* MapModel.swift in Sources */,

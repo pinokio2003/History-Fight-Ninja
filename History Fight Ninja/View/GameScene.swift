@@ -1,16 +1,22 @@
-import Foundation
+//import SwiftUI
 import SpriteKit
 import GameKit
+import SwiftUI
 
 class GameScene: SKScene {
+    //For callback ContentView
+    var levelCompleteCallback: (() -> Void)?
     //main
     private let smokeEffect = SKEmitterNode(fileNamed: "smoke")
-    private var timer = Timer()
+    private var spawnTimer = Timer()
     private var scoreLable = SKLabelNode()
     private var score: Int = 0
     //streak
     private var streakCount: CGFloat = 0
     private var streakIndex: Int = 1
+    //countdown
+    private var countdownTimerNode = SKLabelNode(fontNamed: "Chalkduster")
+    private var countdownTime: Int = 3
     //healthBar
     private var heroHealthBar = ProgressBar(size: CGSize(width: 20, height: 250),
                                             barColor: .green,
@@ -19,6 +25,7 @@ class GameScene: SKScene {
                                              barColor: .red,
                                              backgroundColor: .gray)
     //Lives
+    let countryManager = CountryDataManager.shared
     private var enemyLives: CGFloat = 0.00
     private var heroLives: CGFloat = 0.00
     
@@ -40,7 +47,7 @@ class GameScene: SKScene {
         anchorPoint = .zero
         physicsWorld.gravity = CGVector(dx: 0, dy: -2)
 
-        timer = .scheduledTimer(timeInterval: 2, target: self, selector: #selector(spawnCountry), userInfo: nil, repeats: true)
+        spawnTimer = .scheduledTimer(timeInterval: 2, target: self, selector: #selector(spawnCountry), userInfo: nil, repeats: true)
         
         heroHealthBar.position = CGPoint(x: size.height * 0.15, y: size.width / 4)
         addChild(heroHealthBar)
@@ -127,12 +134,29 @@ class GameScene: SKScene {
         let gameOverScene = GameOver(fileNamed: "GameOver")
         view?.presentScene(gameOverScene)
     }
-    
+//MARK: level complete
     func levelComplete() {
-        let levelCompleteScene = GameWin(fileNamed: "GameWin")
-        view?.presentScene(levelCompleteScene)
+            let heroData = HeroData.shared
+            let name = heroData.name
+          
+            countryManager.updateCountryColor(countryCode: heroData.name, newColor: .green)
+       
+        for country in countryManager.countriesData {
+            print("\(country.countryCode): \(country.color)")
+        }
+            heroData.resetAllData()
+        
+        if let view = view, let window = view.window {
+            // Удаление всех дочерних узлов и самой сцены
+            view.presentScene(nil)
+            let contentView = ContentView()
+            let hostController = UIHostingController(rootView: contentView)
+            let navController = UINavigationController(rootViewController: hostController)
+            window.rootViewController = navController
+        }
+        print("name \(name)")
     }
-    
+        
     func addScore() {
         scoreLable = childNode(withName: "scoreLable") as! SKLabelNode
         score += 1

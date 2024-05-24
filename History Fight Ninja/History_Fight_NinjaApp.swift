@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct History_Fight_NinjaApp: App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

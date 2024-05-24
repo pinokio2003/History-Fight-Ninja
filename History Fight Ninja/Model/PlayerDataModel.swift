@@ -9,15 +9,21 @@ import Foundation
 import SwiftUI
 
 class HeroData: ObservableObject {
-    @Published var name: String = ""
-    @Published var isSelected: Bool = false
-//    init(names: [String] = []) {
-//        self.names = names
-//    }
-//    
-//    func addNameTo(_ name: String) {
-//        names.append(name)
-//        print(names)
-//    }
+    static let shared = HeroData()
+    
+    @Published var name: String = "" // enemy
+    @Published var isCountrySelected: Bool = false
+    @Published var isFightStartButton: Bool = false
+    //player data:
+    @Published var playerCountry: String = "Ukraine"
+    @Published var enemyName: String = ""
+    @Published var allyArray: [String] = []
+    
+    private init() {}
+    
+    func resetAllData() {
+        isCountrySelected = false
+        isFightStartButton = false
+        enemyName = ""
+    }
 }
-
