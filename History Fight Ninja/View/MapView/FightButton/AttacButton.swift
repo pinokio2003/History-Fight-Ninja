@@ -91,13 +91,13 @@ struct AttacButton: View {
         .onTapGesture {
             guard !isPushing else { return }
             withAnimation(.easeInOut(duration: 0.2)) {
-                isPushing.toggle()
+                isPushing = true
                 heroData.enemyName = mapsDict.countriesDict[heroData.name]!
 //                print("Test name: \(heroData.enemyName)")
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
                 withAnimation(.easeInOut(duration: 0.3)) {
-                    isPushing.toggle()
+                    isPushing = false
                     heroData.isFightStartButton = true
                 }
             }

@@ -15,6 +15,7 @@ class GameScene: SKScene {
     private var streakCount: CGFloat = 0
     private var streakIndex: Int = 1
     //countdown
+    private var countTime = Timer()
     private var countdownTimerNode = SKLabelNode(fontNamed: "Chalkduster")
     private var countdownTime: Int = 3
     //healthBar
@@ -30,7 +31,6 @@ class GameScene: SKScene {
     private var heroLives: CGFloat = 0.00
     
     override func didMove(to view: SKView) {
-        
         //devices
         let device = UIDevice.current
         if device.userInterfaceIdiom == .pad {
@@ -46,15 +46,13 @@ class GameScene: SKScene {
         //main
         anchorPoint = .zero
         physicsWorld.gravity = CGVector(dx: 0, dy: -2)
-
-        spawnTimer = .scheduledTimer(timeInterval: 2, target: self, selector: #selector(spawnCountry), userInfo: nil, repeats: true)
-        
         heroHealthBar.position = CGPoint(x: size.height * 0.15, y: size.width / 4)
         addChild(heroHealthBar)
         
         enemyHealthBar.position = CGPoint(x: size.height * 1.7, y: size.width / 4)
         addChild(enemyHealthBar)
-        
+        // Start Countdown
+        startCountdown()
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -137,7 +135,7 @@ class GameScene: SKScene {
 //MARK: level complete
     func levelComplete() {
             let heroData = HeroData.shared
-            let name = heroData.name
+//            let name = heroData.name
           
             countryManager.updateCountryColor(countryCode: heroData.name, newColor: .green)
        
@@ -154,7 +152,6 @@ class GameScene: SKScene {
             let navController = UINavigationController(rootViewController: hostController)
             window.rootViewController = navController
         }
-        print("name \(name)")
     }
         
     func addScore() {
@@ -176,11 +173,41 @@ class GameScene: SKScene {
             streak.showFor(duration: 2, in: self, at: CGPoint(x: size.height/1.2, y: size.width/4))
         }
     }
-
     
     func minusLives() {
         enemyHealthBar.progress += 0.1
         enemyLives += 0.1
         streakCount = 1
+    }
+    
+    func startCountdown() {
+        countdownTimerNode.text = "\(countdownTime)"
+        countdownTimerNode.fontSize = 250
+        countdownTimerNode.fontColor = .red
+        countdownTimerNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        countdownTimerNode.zPosition = 100
+        addChild(countdownTimerNode)
+        
+        countTime = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateCountdown() {
+        countdownTime -= 1
+        if countdownTime > 0 {
+            countdownTimerNode.text = "\(countdownTime)"
+        }
+        if countdownTime == 0 {
+            countdownTimerNode.text = "GO !"
+            startSpawnTimer()
+        }
+        if countdownTime < 0 {
+            countTime.invalidate()
+            countdownTimerNode.removeFromParent()
+        }
+        print(countdownTime)
+    }
+    
+    func startSpawnTimer() {
+        spawnTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(spawnCountry), userInfo: nil, repeats: true)
     }
 }

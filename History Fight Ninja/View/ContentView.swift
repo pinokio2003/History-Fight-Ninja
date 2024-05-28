@@ -18,7 +18,6 @@ struct ContentView: View {
         ZStack(alignment: .leading) {
             if !heroData.isFightStartButton {
                 WorldMapView()
-
             }
             
             if heroData.isCountrySelected && !heroData.isFightStartButton {

@@ -36,7 +36,6 @@ class MapCountryModel: Identifiable, ObservableObject {
         self.name = name
         self.color = color
     }
-    
 }
 
 class CountryDataManager: ObservableObject {

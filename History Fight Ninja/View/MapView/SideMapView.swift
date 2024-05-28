@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct SideMapView: View {
+//    var heroData = HeroData.shared
     @EnvironmentObject var heroData: HeroData
     @EnvironmentObject var mapsDict: MapsModelData
 
     @State private var currentSize: CGFloat = UIScreen.main.bounds.width / 4
+    @State private var fightSize: CGFloat = UIScreen.main.bounds.width / 2
     
     var body: some View {
         ZStack(alignment: .trailing) {

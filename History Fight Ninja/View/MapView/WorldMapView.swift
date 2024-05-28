@@ -17,28 +17,17 @@ struct WorldMapView: View {
     @State private var offset: CGSize = .zero
     @State private var lasteStoredOffset: CGSize = .zero
     @GestureState private var isInteracting: Bool = false
-    
+    //Screen size:
     @State var imageWidth: CGFloat = UIScreen.main.bounds.width
     @State var imageHeight: CGFloat = UIScreen.main.bounds.height
     
     @EnvironmentObject var heroData: HeroData
     var countryManager = CountryDataManager.shared
-//    @State private var mapArray: [String: Color] = {
-//        let countryManager = CountryDataManager()
-//        var map = [String: Color]()
-//        for country in countryManager.countriesData {
-//            map[country.countryCode.uppercased()] = country.color.toSwiftUIColor()
-//        }
-//        return map
-//    }()
-    
+
     var body: some View {
         ZStack() {    
             GeometryReader { geo in
-                let size = geo.size
-                
-                
-                
+                let size = geo.size             
 //View MAP:
                 InteractiveMap(svgName: "world-low") { pathData in
                     let attributes = InteractiveShape.Attributes(
@@ -142,8 +131,6 @@ struct WorldMapView: View {
             countryManager.addColorArray()
         }
         .background(Color.blue.opacity(0.5))
-//        .environmentObject(heroData)
-//        .environmentObject(countryManager)
     }
     
     func printAllPathNames() {
