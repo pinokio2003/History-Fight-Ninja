@@ -136,12 +136,14 @@ class GameScene: SKScene {
     func levelComplete() {
             let heroData = HeroData.shared
 //            let name = heroData.name
-          
-            countryManager.updateCountryColor(countryCode: heroData.name, newColor: .green)
-       
-        for country in countryManager.countriesData {
-            print("\(country.countryCode): \(country.color)")
-        }
+        
+        
+        countryManager.updateCountryColor(byName: heroData.enemyName, newColor: .green)
+        print(heroData.name)
+        
+//        for country in countryManager.countriesData {
+//            print("\(country.name!): \(country.color)")
+//        }
             heroData.resetAllData()
         
         if let view = view, let window = view.window {

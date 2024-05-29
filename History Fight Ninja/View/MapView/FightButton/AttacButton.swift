@@ -10,7 +10,7 @@ import SwiftUI
 struct AttacButton: View {
     @State private var isPushing: Bool = false
     @StateObject var heroData = HeroData.shared
-    @StateObject var mapsDict = MapsModelData()
+    @StateObject var mapsDict = CountryDataManager.shared
     
     let centerCircleStart: Color = Color(red: 241 / 255, green: 195 / 255, blue: 2 / 255)
     let centerCircleEnd: Color = Color(red: 241 / 255, green: 171 / 255, blue: 2 / 255)
@@ -92,7 +92,7 @@ struct AttacButton: View {
             guard !isPushing else { return }
             withAnimation(.easeInOut(duration: 0.2)) {
                 isPushing = true
-                heroData.enemyName = mapsDict.countriesDict[heroData.name]!
+                heroData.enemyName = mapsDict.countryNameMap[heroData.name]!
 //                print("Test name: \(heroData.enemyName)")
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {

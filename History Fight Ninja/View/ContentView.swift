@@ -11,7 +11,7 @@ import SpriteKit
 struct ContentView: View {
     
     @StateObject var heroData = HeroData.shared
-    @StateObject var mapsDict = MapsModelData()
+    @StateObject var mapsDict = CountryDataManager()
     let game = GameScene(fileNamed: "game")
     
     var body: some View {

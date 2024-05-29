@@ -31,7 +31,7 @@ struct WorldMapView: View {
 //View MAP:
                 InteractiveMap(svgName: "world-low") { pathData in
                     let attributes = InteractiveShape.Attributes(
-                        strokeWidth: 1.2,
+                        strokeWidth: 0.5,
                         strokeColor: .black,
                         background: Color(.sRGB, white: 0.5, opacity: 1),
                         countryColors: countryManager.colorMap

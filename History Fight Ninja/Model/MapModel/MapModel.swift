@@ -219,18 +219,35 @@ class CountryDataManager: ObservableObject {
         MapCountryModel(countryCode: "PR", name: "Puerto Rico", color: .grey),
         MapCountryModel(countryCode: "BS", name: "Bahamas", color: .grey),
         MapCountryModel(countryCode: "US", name: "United States", color: .grey),
-        MapCountryModel(countryCode: "CA", name: "Canada", color: .grey)
+        MapCountryModel(countryCode: "CA", name: "Canada", color: .grey),
+        MapCountryModel(countryCode: "GM", name: "Gambia", color: .grey),
+        MapCountryModel(countryCode: "LS", name: "Lesotho", color: .grey),
+        MapCountryModel(countryCode: "SZ", name: "Eswatini", color: .grey)
+        
     ]
     
-    private init() {
+    var countryNameMap: [String: String] {
+        var map = [String: String]()
+        for country in countriesData {
+            if let name = country.name {
+                map[country.countryCode] = name
+            }
+        }
+        return map
+    }
+    
+    init() {
         addColorArray()
     }
     
-    func updateCountryColor(countryCode: String, newColor: MapCountryColor) {
-        if let index = countriesData.firstIndex(where: { $0.countryCode == countryCode }) {
-            countriesData[index].color = newColor
+    func updateCountryColor(byName name: String, newColor: MapCountryColor) {
+        for index in countriesData.indices {
+            if countriesData[index].name == name {
+                countriesData[index].color = newColor
+            }
         }
     }
+    
     func addColorArray() {
         for country in countriesData {
             colorMap[country.countryCode.uppercased()] = country.color.toSwiftUIColor()

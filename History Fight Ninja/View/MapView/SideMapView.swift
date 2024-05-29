@@ -10,7 +10,7 @@ import SwiftUI
 struct SideMapView: View {
 //    var heroData = HeroData.shared
     @EnvironmentObject var heroData: HeroData
-    @EnvironmentObject var mapsDict: MapsModelData
+    @EnvironmentObject var countryDataManager: CountryDataManager
 
     @State private var currentSize: CGFloat = UIScreen.main.bounds.width / 4
     @State private var fightSize: CGFloat = UIScreen.main.bounds.width / 2
@@ -21,9 +21,9 @@ struct SideMapView: View {
             HStack(alignment: .top) {
                 Spacer()
                 VStack(alignment: .center) {
-                    if let countryCode = mapsDict.countriesDict[heroData.name] {
+                    if let countryName = countryDataManager.countryNameMap[heroData.name] {
              
-                        Image(countryCode)
+                        Image(countryName)
                             .resizable()
                             .scaledToFill()
                             .frame(width: UIScreen.main.bounds.height / 4,height: UIScreen.main.bounds.height / 4)
@@ -52,7 +52,6 @@ struct SideMapView: View {
                 }
                 Spacer()
             }
-
         }
         .frame(maxHeight: .infinity)
         .frame(width: currentSize)
