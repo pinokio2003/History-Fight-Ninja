@@ -193,6 +193,7 @@ class GameScene: SKScene {
         countTime = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
     }
     
+    //Start timer before "Go"
     @objc func updateCountdown() {
         countdownTime -= 1
         if countdownTime > 0 {
@@ -209,6 +210,7 @@ class GameScene: SKScene {
         print(countdownTime)
     }
     
+  //Spawn timer for cointry node
     func startSpawnTimer() {
         spawnTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(spawnCountry), userInfo: nil, repeats: true)
     }
