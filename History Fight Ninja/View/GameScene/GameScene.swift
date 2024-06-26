@@ -11,13 +11,17 @@ class GameScene: SKScene {
     private var spawnTimer = Timer()
     private var scoreLable = SKLabelNode()
     private var score: Int = 0
+    private var gameTimerLable = SKLabelNode()
+    private var time: Int = 60
+    private var gameTimer = Timer()
     //streak
     private var streakCount: CGFloat = 0
     private var streakIndex: Int = 1
-    //countdown
+    //countdown timer preview
     private var countTime = Timer()
     private var countdownTimerNode = SKLabelNode(fontNamed: "Chalkduster")
     private var countdownTime: Int = 3
+    
     //healthBar
     private var heroHealthBar = ProgressBar(size: CGSize(width: 20, height: 250),
                                             barColor: .green,
@@ -43,6 +47,7 @@ class GameScene: SKScene {
             view.scene?.size = CGSize(width: 1334, height: 750)
             view.scene?.scaleMode = .aspectFill
         }
+        
         //main
         anchorPoint = .zero
         physicsWorld.gravity = CGVector(dx: 0, dy: -2)
@@ -60,7 +65,7 @@ class GameScene: SKScene {
             let location = touch.location(in: self)
             _ = atPoint(location)
             let previousLocation = touch.previousLocation(in: self)
-//            addStreak()
+            //            addStreak()
             
             for node in nodes(at: location){
                 if node.name == "yes" {
@@ -71,7 +76,6 @@ class GameScene: SKScene {
                     addChild(emitter!)
                     addScore()
                     addStreak()
-                    
                     node.removeFromParent()
                 }
                 
@@ -103,11 +107,10 @@ class GameScene: SKScene {
             line.run(sequence)
         }
     }
-    
+//MARK: - Spawn country models
     @objc func spawnCountry(){
         
         let randomNumber = Int(GKRandomDistribution(lowestValue: 3, highestValue: 6).nextInt())
-        
         for _ in 0..<randomNumber {
             let country = CountryModel()
             country.position = CGPoint(x: GKRandomDistribution(lowestValue: 20, highestValue: Int(size.width)).nextInt(), y: -50)
@@ -125,26 +128,53 @@ class GameScene: SKScene {
             country.physicsBody?.velocity.dy = CGFloat(GKRandomDistribution(lowestValue: 500, highestValue: 700).nextInt())
             country.physicsBody?.angularVelocity = CGFloat(GKRandomDistribution(lowestValue: -5, highestValue: 5).nextInt())
         }
+    }
+//MARK: - Game Over
+    func gameOver() {
+        let heroData = HeroData.shared
+        cancelTimers()
+        removeAllCountries()
         
+        heroData.isRestartPushing = false
+        
+        guard let view = view else {
+            print("Error: Scene is not available.")
+            return
+        }
+        
+        let fadeOutAction = SKAction.fadeOut(withDuration: 0.6)
+        
+        view.scene?.run(fadeOutAction) {
+            if let window = view.window {
+                UIView.transition(with: window, duration: 0.6, options: .transitionCrossDissolve, animations: {
+                    view.presentScene(nil)
+                    
+                    // Create the new SwiftUI view and hosting controller
+                    let gameOverView = GameOvewView()
+                    let hostController = UIHostingController(rootView: gameOverView)
+                    let navController = UINavigationController(rootViewController: hostController)
+                    
+                    // Set the new root view controller
+                    window.rootViewController = navController
+                }, completion: { _ in
+                    // Explicitly release the current scene to free up memory
+                    self.removeAllActions()
+                    self.removeAllChildren()
+                    self.removeFromParent()
+                })
+            }
+        }
     }
     
-    func gameOver() {
-        let gameOverScene = GameOver(fileNamed: "GameOver")
-        view?.presentScene(gameOverScene)
-    }
-//MARK: level complete
+    //MARK: level complete
     func levelComplete() {
-            let heroData = HeroData.shared
-//            let name = heroData.name
+        let heroData = HeroData.shared
         
-        
+        removeAllCountries()
+        cancelTimers()
         countryManager.updateCountryColor(byName: heroData.enemyName, newColor: .green)
         print(heroData.name)
-        
-//        for country in countryManager.countriesData {
-//            print("\(country.name!): \(country.color)")
-//        }
-            heroData.resetAllData()
+        heroData.resetAllData()
         
         if let view = view, let window = view.window {
             // Удаление всех дочерних узлов и самой сцены
@@ -155,7 +185,7 @@ class GameScene: SKScene {
             window.rootViewController = navController
         }
     }
-        
+    
     func addScore() {
         scoreLable = childNode(withName: "scoreLable") as! SKLabelNode
         score += 1
@@ -192,7 +222,6 @@ class GameScene: SKScene {
         
         countTime = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
     }
-    
     //Start timer before "Go"
     @objc func updateCountdown() {
         countdownTime -= 1
@@ -202,6 +231,7 @@ class GameScene: SKScene {
         if countdownTime == 0 {
             countdownTimerNode.text = "GO !"
             startSpawnTimer()
+            globalGameTimer()
         }
         if countdownTime < 0 {
             countTime.invalidate()
@@ -209,9 +239,48 @@ class GameScene: SKScene {
         }
         print(countdownTime)
     }
+    //Start global game timer
+    @objc func startGameTimer() {
+        gameTimerLable = childNode(withName: "timerLable") as! SKLabelNode
+        time -= 1
+        if time >= 0 {
+            if gameTimerLable.isHidden {
+                gameTimerLable.isHidden = false
+            }
+            gameTimerLable.text = ("\(time)")
+            print("time : \(time)")
+        } else {
+            gameOver()
+        }
+    }
     
-  //Spawn timer for cointry node
+    func globalGameTimer() {
+        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startGameTimer), userInfo: nil, repeats: true)
+    }
+    
+    func cancelTimers() {
+        gameTimer.invalidate()
+        spawnTimer.invalidate()
+        print("timers are canceled")
+    }
+    
+    //Spawn timer for cointry node
     func startSpawnTimer() {
         spawnTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(spawnCountry), userInfo: nil, repeats: true)
     }
+    
+    // Function to remove all country models from scene when game is over
+    private func removeAllCountries() {
+        for child in children {
+            if child is CountryModel {
+                child.removeFromParent()
+            }
+        }
+    }
+
+private func fadeOutWithColor(_ color: SKColor, duration: TimeInterval) -> SKAction {
+    let colorOverlay = SKAction.colorize(with: color, colorBlendFactor: 1.0, duration: duration)
+    let fadeOut = SKAction.fadeOut(withDuration: duration)
+    return SKAction.group([colorOverlay, fadeOut])
+}
 }

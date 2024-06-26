@@ -12,8 +12,11 @@ struct FightButton: View {
     
     var body: some View {
         ZStack {
-            FieldForButton()
-            AttacButton(heroData: heroData)
+            if heroData.isAnimationBeforeFight == false {
+                FieldForButton()
+                AttacButton(heroData: heroData)
+            }
+            
         }
         .environmentObject(heroData)
     }

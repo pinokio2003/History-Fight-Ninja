@@ -95,10 +95,15 @@ struct AttacButton: View {
                 heroData.enemyName = mapsDict.countryNameMap[heroData.name]!
 //                print("Test name: \(heroData.enemyName)")
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                heroData.isAnimationBeforeFight = true //for animation
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 withAnimation(.easeInOut(duration: 0.3)) {
                     isPushing = false
                     heroData.isFightStartButton = true
+                    heroData.isAnimationBeforeFight = false
                 }
             }
         }

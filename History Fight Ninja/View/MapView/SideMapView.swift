@@ -13,6 +13,7 @@ struct SideMapView: View {
     @EnvironmentObject var countryDataManager: CountryDataManager
 
     @State private var currentSize: CGFloat = UIScreen.main.bounds.width / 4
+    @State private var maxSize: CGFloat = UIScreen.main.bounds.width / 2
     @State private var fightSize: CGFloat = UIScreen.main.bounds.width / 2
     
     var body: some View {
@@ -54,16 +55,17 @@ struct SideMapView: View {
             }
         }
         .frame(maxHeight: .infinity)
-        .frame(width: currentSize)
+        .frame(width: heroData.isAnimationBeforeFight ? maxSize : currentSize, alignment: .leading)
         .background(
             ZStack{
                 RoundedRectangle(cornerRadius: 15)
                     .fill(Color.green.opacity(0.7))
                     .blur(radius: 7)
-                    .frame(width: currentSize)
+                    .frame(width: heroData.isAnimationBeforeFight ? maxSize + 75 : currentSize, alignment: .leading)
             }
                 .ignoresSafeArea()
         )
+        .animation(.easeInOut(duration: 0.3), value: heroData.isAnimationBeforeFight)
     }
 }
 

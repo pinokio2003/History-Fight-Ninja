@@ -14,6 +14,9 @@ class HeroData: ObservableObject {
     @Published var name: String = "" // enemy
     @Published var isCountrySelected: Bool = false
     @Published var isFightStartButton: Bool = false
+    @Published var isAnimationBeforeFight: Bool = false
+    @Published var isRestartPushing: Bool = false
+    @Published var isDisabled: Bool = false
     //player data:
     @Published var playerCountry: String = "Ukraine"
     @Published var enemyName: String = ""
@@ -24,6 +27,7 @@ class HeroData: ObservableObject {
     func resetAllData() {
         isCountrySelected = false
         isFightStartButton = false
+        isRestartPushing = false
         enemyName = ""
     }
 }

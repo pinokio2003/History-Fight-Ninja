@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A70164C22BEE217E00C0D98B /* MapsModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70164C12BEE217E00C0D98B /* MapsModelData.swift */; };
 		A72470862BFC924800E771D8 /* CountryNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72470852BFC924800E771D8 /* CountryNameView.swift */; };
+		A7580F182C0898CA00B3F4B4 /* SideMapRightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7580F172C0898CA00B3F4B4 /* SideMapRightView.swift */; };
+		A767856C2C08EBFA0089E342 /* MiddleVsText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A767856B2C08EBFA0089E342 /* MiddleVsText.swift */; };
 		A79A57992BED2F2400ED3A67 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A57982BED2F2400ED3A67 /* StartScene.swift */; };
 		A79A579B2BED315200ED3A67 /* SideMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A579A2BED315200ED3A67 /* SideMapView.swift */; };
 		A79A579D2BED39CF00ED3A67 /* PlayerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A579C2BED39CF00ED3A67 /* PlayerDataModel.swift */; };
@@ -39,11 +41,16 @@
 		A7E2C9CE2BEAA2760040B8E5 /* MapRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C9C82BEAA2760040B8E5 /* MapRenderer.swift */; };
 		A7E2C9CF2BEAA2760040B8E5 /* MapUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C9C92BEAA2760040B8E5 /* MapUtils.swift */; };
 		A7E2C9D12BEAA29C0040B8E5 /* WorldMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C9D02BEAA29C0040B8E5 /* WorldMapView.swift */; };
+		A7E6AC3E2C1892EA00572030 /* GameOvewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E6AC3D2C1892EA00572030 /* GameOvewView.swift */; };
+		A7FC90E02C2AB9AD00A9790B /* RestartButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FC90DF2C2AB9AD00A9790B /* RestartButtonView.swift */; };
+		A7FEF9E52C0F042000602D30 /* GameOverTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FEF9E42C0F042000602D30 /* GameOverTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A70164C12BEE217E00C0D98B /* MapsModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsModelData.swift; sourceTree = "<group>"; };
 		A72470852BFC924800E771D8 /* CountryNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryNameView.swift; sourceTree = "<group>"; };
+		A7580F172C0898CA00B3F4B4 /* SideMapRightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMapRightView.swift; sourceTree = "<group>"; };
+		A767856B2C08EBFA0089E342 /* MiddleVsText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleVsText.swift; sourceTree = "<group>"; };
 		A79A57982BED2F2400ED3A67 /* StartScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 		A79A579A2BED315200ED3A67 /* SideMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMapView.swift; sourceTree = "<group>"; };
 		A79A579C2BED39CF00ED3A67 /* PlayerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDataModel.swift; sourceTree = "<group>"; };
@@ -75,6 +82,9 @@
 		A7E2C9C82BEAA2760040B8E5 /* MapRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRenderer.swift; sourceTree = "<group>"; };
 		A7E2C9C92BEAA2760040B8E5 /* MapUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapUtils.swift; sourceTree = "<group>"; };
 		A7E2C9D02BEAA29C0040B8E5 /* WorldMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldMapView.swift; sourceTree = "<group>"; };
+		A7E6AC3D2C1892EA00572030 /* GameOvewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOvewView.swift; sourceTree = "<group>"; };
+		A7FC90DF2C2AB9AD00A9790B /* RestartButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartButtonView.swift; sourceTree = "<group>"; };
+		A7FEF9E42C0F042000602D30 /* GameOverTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,13 +169,11 @@
 		A7E2C9A82BEA97CC0040B8E5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A7E2C9A32BEA97CC0040B8E5 /* ContentView.swift */,
 				A79A57982BED2F2400ED3A67 /* StartScene.swift */,
+				A7FEF9E32C0F023000602D30 /* GameScene */,
 				A7E2C9C02BEAA2290040B8E5 /* MapView */,
 				A7E2C9A42BEA97CC0040B8E5 /* GameOver.swift */,
-				A7E2C9A32BEA97CC0040B8E5 /* ContentView.swift */,
-				A7E2C9A52BEA97CC0040B8E5 /* GameScene.swift */,
-				A7E2C9A62BEA97CC0040B8E5 /* GameWin.swift */,
-				A7E2C9A72BEA97CC0040B8E5 /* Streak.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -199,6 +207,8 @@
 				A7CFDAC92BF9287D00937CE0 /* FightButton */,
 				A7E2C9D02BEAA29C0040B8E5 /* WorldMapView.swift */,
 				A79A579A2BED315200ED3A67 /* SideMapView.swift */,
+				A7580F172C0898CA00B3F4B4 /* SideMapRightView.swift */,
+				A767856B2C08EBFA0089E342 /* MiddleVsText.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -229,6 +239,27 @@
 				A7E2C9CA2BEAA2760040B8E5 /* InteractiveMap */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		A7FC90DE2C2AB6B500A9790B /* GameOver */ = {
+			isa = PBXGroup;
+			children = (
+				A7E6AC3D2C1892EA00572030 /* GameOvewView.swift */,
+				A7FC90DF2C2AB9AD00A9790B /* RestartButtonView.swift */,
+			);
+			path = GameOver;
+			sourceTree = "<group>";
+		};
+		A7FEF9E32C0F023000602D30 /* GameScene */ = {
+			isa = PBXGroup;
+			children = (
+				A7FC90DE2C2AB6B500A9790B /* GameOver */,
+				A7FEF9E42C0F042000602D30 /* GameOverTimer.swift */,
+				A7E2C9A52BEA97CC0040B8E5 /* GameScene.swift */,
+				A7E2C9A62BEA97CC0040B8E5 /* GameWin.swift */,
+				A7E2C9A72BEA97CC0040B8E5 /* Streak.swift */,
+			);
+			path = GameScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,9 +350,12 @@
 				A7E2C9CE2BEAA2760040B8E5 /* MapRenderer.swift in Sources */,
 				A7E2C9AA2BEA97CC0040B8E5 /* GameOver.swift in Sources */,
 				A79A579D2BED39CF00ED3A67 /* PlayerDataModel.swift in Sources */,
+				A767856C2C08EBFA0089E342 /* MiddleVsText.swift in Sources */,
 				A72470862BFC924800E771D8 /* CountryNameView.swift in Sources */,
 				A79A57992BED2F2400ED3A67 /* StartScene.swift in Sources */,
 				A7E2C9A12BEA97BA0040B8E5 /* CountryModel.swift in Sources */,
+				A7FEF9E52C0F042000602D30 /* GameOverTimer.swift in Sources */,
+				A7E6AC3E2C1892EA00572030 /* GameOvewView.swift in Sources */,
 				A7E2C9C52BEAA25F0040B8E5 /* MapModel.swift in Sources */,
 				A7E2C9AB2BEA97CC0040B8E5 /* GameScene.swift in Sources */,
 				A7CFDACB2BF92A8500937CE0 /* FieldForButton.swift in Sources */,
@@ -329,8 +363,10 @@
 				A7E2C9AD2BEA97CC0040B8E5 /* Streak.swift in Sources */,
 				A7E2C9D12BEAA29C0040B8E5 /* WorldMapView.swift in Sources */,
 				A7E2C9CD2BEAA2760040B8E5 /* MapParser.swift in Sources */,
+				A7FC90E02C2AB9AD00A9790B /* RestartButtonView.swift in Sources */,
 				A7E2C9A22BEA97BA0040B8E5 /* HealthBarModel.swift in Sources */,
 				A7E2C9CC2BEAA2760040B8E5 /* Centering.swift in Sources */,
+				A7580F182C0898CA00B3F4B4 /* SideMapRightView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +517,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HistoryFightNinja.Ak.History-Fight-Ninja";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -512,6 +551,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HistoryFightNinja.Ak.History-Fight-Ninja";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

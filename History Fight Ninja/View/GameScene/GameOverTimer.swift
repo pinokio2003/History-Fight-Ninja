@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct FlipTimerEffect: View {
-    var width: CGFloat = 160
-    var height: CGFloat = 180
+    var width: CGFloat = 80
+    var height: CGFloat = 120
 
     var body: some View {
         RoundedRectangle(cornerRadius: 10, style: .continuous)
@@ -15,30 +15,15 @@ struct NumberView: View {
     var num: Int
     var body: some View {
         Text("\(num)")
-            .font(.system(size: 180))
+            .font(.system(size: 120))
             .foregroundColor(.white)
     }
 }
 
-//MARK: MainView
-
-struct GameOverTimer: View {
-    @State var timerStart: Int
-    @State private var start: Bool = false
-    @State private var stop: Bool = false
-    @State private var num: Int
-    @State private var numTwo: Int
-    @State private var numThree: Int
-    @State private var numFour: Int
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-
-    init(timerStart: Int) {
-        _timerStart = State(initialValue: timerStart)
-        _num = State(initialValue: timerStart)
-        _numTwo = State(initialValue: timerStart)
-        _numThree = State(initialValue: timerStart)
-        _numFour = State(initialValue: timerStart)
-    }
+struct FlipDigitView: View {
+    var num: Int
+    @Binding var start: Bool
+    @Binding var stop: Bool
 
     var body: some View {
         ZStack {
@@ -47,7 +32,7 @@ struct GameOverTimer: View {
 
             ZStack {
                 FlipTimerEffect()
-                NumberView(num: numTwo)
+                NumberView(num: num)
             }
             .mask {
                 FlipTimerEffect(height: 120)
@@ -61,7 +46,7 @@ struct GameOverTimer: View {
             )
             ZStack {
                 FlipTimerEffect()
-                NumberView(num: numThree)
+                NumberView(num: num)
             }
             .mask {
                 FlipTimerEffect(height: 120)
@@ -69,7 +54,7 @@ struct GameOverTimer: View {
             }
             ZStack {
                 FlipTimerEffect()
-                NumberView(num: numFour)
+                NumberView(num: num)
             }
             .mask {
                 FlipTimerEffect()
@@ -86,20 +71,46 @@ struct GameOverTimer: View {
                 .foregroundColor(.white)
                 .offset(y: 1.5)
         })
-        .onReceive(timer) { _ in
-            if num > 0 {
-                num -= 1
-                numTwo = num
-                numThree = num
-                numFour = num
-                
+    }
+}
+
+struct GameOverTimer: View {
+    @State private var timerStart: Int
+    @State private var start: Bool = false
+    @State private var stop: Bool = false
+
+    @State private var tens: Int
+    @State private var units: Int
+
+    @State private var timerActive: Bool = true
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    init(timerStart: Int) {
+        _timerStart = State(initialValue: timerStart)
+        _tens = State(initialValue: timerStart / 10)
+        _units = State(initialValue: timerStart % 10)
+    }
+
+    var body: some View {
+        HStack {
+            FlipDigitView(num: tens, start: $start, stop: $stop)
+            FlipDigitView(num: units, start: $start, stop: $stop)
+        }
+        .onReceive(timer) { time in
+            print(timerStart)
+            guard timerActive else { return }
+            if timerStart > 0 {
+                timerStart -= 1
+                tens = timerStart / 10
+                units = timerStart % 10
+
                 withAnimation(.spring().speed(3)) {
                     start.toggle()
                 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     start = false
                 }
-                
+
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     withAnimation(.spring().speed(3)) {
                         stop = true
@@ -108,11 +119,14 @@ struct GameOverTimer: View {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
                     stop = false
                 }
+            } else {
+                timerActive = false
+                timer.upstream.connect().cancel()  // Cancel the timer
             }
         }
     }
 }
 
 #Preview {
-    GameOverTimer(timerStart: 9)
+    GameOverTimer(timerStart: 8)
 }

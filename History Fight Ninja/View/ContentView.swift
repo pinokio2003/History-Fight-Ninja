@@ -32,15 +32,27 @@ struct ContentView: View {
                     }
                     .frame(height: UIScreen.main.bounds.height, alignment: .top)
                     Spacer()
-                    Text("Menu button")
-                        .padding(.top, 20)
-                        .frame(height: UIScreen.main.bounds.height, alignment: .top)
+                    
+//                    if heroData.isAnimationBeforeFight {
+                        SideMapRightView()
+                            .animation(Animation.easeInOut(duration: 0.3), value: heroData.isAnimationBeforeFight)
+//                    }
+                    Spacer()
+//                    Text("Menu button")
+//                        .padding(.top, 20)
+//                        .frame(height: UIScreen.main.bounds.height, alignment: .top)
                 }
             }
             
             if heroData.isFightStartButton {
                 SpriteView(scene: game!)
                     .ignoresSafeArea()
+            }
+            
+            if heroData.isAnimationBeforeFight {
+                MiddleVsText()
+                    .offset(x: UIScreen.main.bounds.width * 0.4)
+                    .animation(Animation.easeInOut(duration: 0.5), value: heroData.isAnimationBeforeFight)
             }
         }
         .environmentObject(heroData)
