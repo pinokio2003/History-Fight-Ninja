@@ -15,44 +15,60 @@ struct ContentView: View {
     let game = GameScene(fileNamed: "game")
     
     var body: some View {
-        ZStack(alignment: .leading) {
-            if !heroData.isFightStartButton {
-                WorldMapView()
-            }
-            
-            if heroData.isCountrySelected && !heroData.isFightStartButton {
-                HStack {
-                    SideMapView()
-                    Spacer()
-                    
-                    VStack {
-                        CountryNameView()
-                            .padding(.top, 20)
+        ZStack {
+            ZStack(alignment: .leading) {
+                if !heroData.isFightStartButton {
+                    WorldMapView()
+                }
+                
+                if heroData.isCountrySelected && !heroData.isFightStartButton {
+                    HStack {
+                        SideMapView()
                         Spacer()
-                    }
-                    .frame(height: UIScreen.main.bounds.height, alignment: .top)
-                    Spacer()
-                    
-//                    if heroData.isAnimationBeforeFight {
+                        
+                        VStack {
+                            CountryNameView()
+                                .padding(.top, 20)
+                            Spacer()
+                        }
+                        .frame(height: UIScreen.main.bounds.height, alignment: .top)
+                        Spacer()
+                        
+                        //                    if heroData.isAnimationBeforeFight {
                         SideMapRightView()
                             .animation(Animation.easeInOut(duration: 0.3), value: heroData.isAnimationBeforeFight)
-//                    }
-                    Spacer()
-//                    Text("Menu button")
-//                        .padding(.top, 20)
-//                        .frame(height: UIScreen.main.bounds.height, alignment: .top)
+                        //                    }
+                        Spacer()
+                        //                    Text("Menu button")
+                        //                        .padding(.top, 20)
+                        //                        .frame(height: UIScreen.main.bounds.height, alignment: .top)
+                    }
+                }
+                
+                if heroData.isFightStartButton {
+                    SpriteView(scene: game!)
+                        .ignoresSafeArea()
+                }
+                
+                if heroData.isAnimationBeforeFight {
+                    MiddleVsText()
+                        .offset(x: UIScreen.main.bounds.width * 0.4)
+                        .animation(Animation.easeInOut(duration: 0.5), value: heroData.isAnimationBeforeFight)
                 }
             }
-            
-            if heroData.isFightStartButton {
-                SpriteView(scene: game!)
-                    .ignoresSafeArea()
-            }
-            
-            if heroData.isAnimationBeforeFight {
-                MiddleVsText()
-                    .offset(x: UIScreen.main.bounds.width * 0.4)
-                    .animation(Animation.easeInOut(duration: 0.5), value: heroData.isAnimationBeforeFight)
+            HStack {
+                Spacer()
+                VStack {
+                   
+                    Image(systemName: "globe")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(.white.opacity(0.8))
+                        .font(.system(size: 20, weight: .bold))
+                        .padding([.top, .trailing], 30)
+                    Spacer()
+                }
             }
         }
         .environmentObject(heroData)

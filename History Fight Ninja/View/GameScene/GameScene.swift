@@ -17,7 +17,7 @@ class GameScene: SKScene {
     private var time: Int = 60
     private var gameTimer = Timer()
     //streak
-    private var streakCount: CGFloat = 0
+    private var streakCount: Int = 0
     private var streakIndex: Int = 1
     //countdown timer preview
     private var countTime = Timer()
