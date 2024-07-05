@@ -4,6 +4,8 @@ import GameKit
 import SwiftUI
 
 class GameScene: SKScene {
+    //hero Data
+    let heroData = HeroData.shared
     //For callback ContentView
     var levelCompleteCallback: (() -> Void)?
     //main
@@ -35,6 +37,7 @@ class GameScene: SKScene {
     private var heroLives: CGFloat = 0.00
     
     override func didMove(to view: SKView) {
+        heroData.resetScoreAndTime()
         //devices
         let device = UIDevice.current
         if device.userInterfaceIdiom == .pad {
@@ -68,7 +71,7 @@ class GameScene: SKScene {
             //            addStreak()
             
             for node in nodes(at: location){
-                if node.name == "yes" {
+                if node.name == "no" {
                     
                     let emitter = SKEmitterNode(fileNamed: "explousion")
                     emitter?.position = node.position
@@ -79,7 +82,7 @@ class GameScene: SKScene {
                     node.removeFromParent()
                 }
                 
-                if node.name == "no" {
+                if node.name == "yes" {
                     node.removeFromParent()
                     minusLives()
                 }
@@ -134,6 +137,8 @@ class GameScene: SKScene {
         let heroData = HeroData.shared
         cancelTimers()
         removeAllCountries()
+        print("game time: \(heroData.gameTime)")
+        print("scoresss : \(heroData.playerScore)")
         
         heroData.isRestartPushing = false
         
@@ -169,20 +174,27 @@ class GameScene: SKScene {
     //MARK: level complete
     func levelComplete() {
         let heroData = HeroData.shared
-        
+        heroData.gameTime = time
+        heroData.playerScore = score
         removeAllCountries()
         cancelTimers()
         countryManager.updateCountryColor(byName: heroData.enemyName, newColor: .green)
-        print(heroData.name)
+
         heroData.resetAllData()
         
         if let view = view, let window = view.window {
             // Удаление всех дочерних узлов и самой сцены
+            
             view.presentScene(nil)
-            let contentView = ContentView()
+            let contentView = ScoreBoardView()
             let hostController = UIHostingController(rootView: contentView)
             let navController = UINavigationController(rootViewController: hostController)
             window.rootViewController = navController
+//            window.rootViewController = navController
+//            UIView.transition(with: window,
+//                              duration: 3.8) {
+//                window.rootViewController = navController
+//            }
         }
     }
     
@@ -192,9 +204,9 @@ class GameScene: SKScene {
         streakCount += 1
         heroHealthBar.progress += (0.01 * CGFloat(streakIndex))
         heroLives = heroHealthBar.progress
-        print("lives: \(heroLives)")
-        print("bar: \(heroHealthBar.progress)")
         scoreLable.text = "Score: \(score)"
+        print("game time: \(heroData.gameTime)")
+        print("scoresss : \(heroData.playerScore)")
     }
     
     func addStreak() {

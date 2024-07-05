@@ -24,7 +24,7 @@ struct GameOvewView: View {
             LinearGradient(colors: [first, second],
                            startPoint: .topLeading,
                            endPoint: .bottomTrailing) // background
-            
+            .background(.quaternary)
             VStack {
                 
                 Text("YOU LOSE BATTLE")

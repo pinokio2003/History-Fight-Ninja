@@ -17,6 +17,9 @@ class HeroData: ObservableObject {
     @Published var isAnimationBeforeFight: Bool = false
     @Published var isRestartPushing: Bool = false
     @Published var isDisabled: Bool = false
+    //For Score:
+    @Published var gameTime: Int = 0
+    @Published var playerScore: Int = 0
     //player data:
     @Published var playerCountry: String = "Ukraine"
     @Published var enemyName: String = ""
@@ -29,5 +32,10 @@ class HeroData: ObservableObject {
         isFightStartButton = false
         isRestartPushing = false
         enemyName = ""
+    }
+    
+    func resetScoreAndTime() {
+        gameTime = 0
+        playerScore = 0
     }
 }
