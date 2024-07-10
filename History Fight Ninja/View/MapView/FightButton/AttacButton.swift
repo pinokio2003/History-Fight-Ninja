@@ -92,7 +92,9 @@ struct AttacButton: View {
             guard !isPushing else { return }
             withAnimation(.easeInOut(duration: 0.2)) {
                 isPushing = true
+                heroData.isMenuButtonPushed = false
                 heroData.enemyName = mapsDict.countryNameMap[heroData.name]!
+               
 //                print("Test name: \(heroData.enemyName)")
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {

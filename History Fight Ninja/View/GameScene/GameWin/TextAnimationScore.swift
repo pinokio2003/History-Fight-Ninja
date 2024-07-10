@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct TextAnimationScore: View {
     ///config
@@ -22,7 +23,7 @@ struct TextAnimationScore: View {
     
     var body: some View {
         Text(animatedText)
-//            .font(.system(.body, design: .monospaced))
+        //            .font(.system(.body, design: .monospaced))
             .font(.custom("MarkerFelt-Thin", size: 30))
             .truncationMode(.tail)
             .transition(.opacity)
@@ -66,10 +67,10 @@ struct TextAnimationScore: View {
     }
     
     func replaceCharacter(at index: String.Index, character: Character) {
-        guard animatedText.indices.contains(index) else {return}
-        let indexCharacter = String(animatedText[index])
+        guard animatedText.indices.contains(index) else { return }
+        let indexCharacter = animatedText[index]
         
-        if indexCharacter.trimmingCharacters(in: .whitespacesAndNewlines) != "" {
+        if !indexCharacter.isWhitespace {
             animatedText.replaceSubrange(index...index, with: String(character))
         }
     }

@@ -22,6 +22,7 @@
 		A7A21FF82BB5BE10005D062B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A21FF72BB5BE10005D062B /* Assets.xcassets */; };
 		A7A21FFB2BB5BE10005D062B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A21FFA2BB5BE10005D062B /* Preview Assets.xcassets */; };
 		A7BEB1632C2D7C95007AE6C9 /* ScoreBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BEB1622C2D7C95007AE6C9 /* ScoreBoardView.swift */; };
+		A7C42FBB2C382525008E0CE6 /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C42FBA2C382525008E0CE6 /* MenuButtonView.swift */; };
 		A7CFDACB2BF92A8500937CE0 /* FieldForButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFDACA2BF92A8500937CE0 /* FieldForButton.swift */; };
 		A7CFDACD2BF92ABF00937CE0 /* AttacButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFDACC2BF92ABF00937CE0 /* AttacButton.swift */; };
 		A7E2C9A12BEA97BA0040B8E5 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2C99E2BEA97BA0040B8E5 /* CountryModel.swift */; };
@@ -67,6 +68,7 @@
 		A7A21FF72BB5BE10005D062B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7A21FFA2BB5BE10005D062B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A7BEB1622C2D7C95007AE6C9 /* ScoreBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardView.swift; sourceTree = "<group>"; };
+		A7C42FBA2C382525008E0CE6 /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
 		A7CFDACA2BF92A8500937CE0 /* FieldForButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldForButton.swift; sourceTree = "<group>"; };
 		A7CFDACC2BF92ABF00937CE0 /* AttacButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttacButton.swift; sourceTree = "<group>"; };
 		A7E2C99E2BEA97BA0040B8E5 /* CountryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
@@ -172,6 +174,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		A7C42FB92C382504008E0CE6 /* MenuButton */ = {
+			isa = PBXGroup;
+			children = (
+				A7C42FBA2C382525008E0CE6 /* MenuButtonView.swift */,
+			);
+			path = MenuButton;
+			sourceTree = "<group>";
+		};
 		A7CFDAC92BF9287D00937CE0 /* FightButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +241,7 @@
 		A7E2C9C02BEAA2290040B8E5 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				A7C42FB92C382504008E0CE6 /* MenuButton */,
 				A72470842BFC922200E771D8 /* CountryNameView */,
 				A7CFDAC92BF9287D00937CE0 /* FightButton */,
 				A7E2C9D02BEAA29C0040B8E5 /* WorldMapView.swift */,
@@ -395,6 +406,7 @@
 				A7E2C9AD2BEA97CC0040B8E5 /* Streak.swift in Sources */,
 				A7E2C9D12BEAA29C0040B8E5 /* WorldMapView.swift in Sources */,
 				A7E2C9CD2BEAA2760040B8E5 /* MapParser.swift in Sources */,
+				A7C42FBB2C382525008E0CE6 /* MenuButtonView.swift in Sources */,
 				A7FC90E02C2AB9AD00A9790B /* RestartButtonView.swift in Sources */,
 				A7E2C9A22BEA97BA0040B8E5 /* HealthBarModel.swift in Sources */,
 				A7E2C9CC2BEAA2760040B8E5 /* Centering.swift in Sources */,

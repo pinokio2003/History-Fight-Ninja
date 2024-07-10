@@ -137,6 +137,7 @@ class GameScene: SKScene {
         let heroData = HeroData.shared
         cancelTimers()
         removeAllCountries()
+        
         print("game time: \(heroData.gameTime)")
         print("scoresss : \(heroData.playerScore)")
         

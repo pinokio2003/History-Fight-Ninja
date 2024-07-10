@@ -15,6 +15,7 @@ struct FightButton: View {
             if heroData.isAnimationBeforeFight == false {
                 FieldForButton()
                 AttacButton(heroData: heroData)
+                
             }
             
         }

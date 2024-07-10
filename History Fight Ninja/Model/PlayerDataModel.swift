@@ -24,6 +24,8 @@ class HeroData: ObservableObject {
     @Published var playerCountry: String = "Ukraine"
     @Published var enemyName: String = ""
     @Published var allyArray: [String] = []
+    //WorldMap menu button:
+    @Published var isMenuButtonPushed: Bool = true
     
     private init() {}
     
@@ -31,6 +33,7 @@ class HeroData: ObservableObject {
         isCountrySelected = false
         isFightStartButton = false
         isRestartPushing = false
+        isMenuButtonPushed = true
         enemyName = ""
     }
     

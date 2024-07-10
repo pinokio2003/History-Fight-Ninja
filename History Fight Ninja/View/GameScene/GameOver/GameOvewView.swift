@@ -56,7 +56,7 @@ struct GameOvewView: View {
                     
                     RestartButtonView(symbolName: "globe", action: {
                         presentContentView()
-                        
+                        heroData.resetAllData()
                     })
 
                     Spacer()
