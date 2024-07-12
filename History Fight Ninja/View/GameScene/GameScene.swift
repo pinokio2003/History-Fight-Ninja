@@ -16,6 +16,7 @@ class GameScene: SKScene {
     private var gameTimerLable = SKLabelNode()
     private var time: Int = 60
     private var gameTimer = Timer()
+    private var isGameOver = false
     //streak
     private var streakCount: Int = 0
     private var streakIndex: Int = 1
@@ -23,6 +24,10 @@ class GameScene: SKScene {
     private var countTime = Timer()
     private var countdownTimerNode = SKLabelNode(fontNamed: "Chalkduster")
     private var countdownTime: Int = 3
+    //Pause button
+    private var pauseButton: PauseButton?
+    private var isPause = false
+    private var pausedCountryStates: [(node: CountryModel, position: CGPoint, velocity: CGVector)] = []
     
     //healthBar
     private var heroHealthBar = ProgressBar(size: CGSize(width: 20, height: 250),
@@ -37,7 +42,9 @@ class GameScene: SKScene {
     private var heroLives: CGFloat = 0.00
     
     override func didMove(to view: SKView) {
+        isUserInteractionEnabled = true
         heroData.resetScoreAndTime()
+//        createPauseButton()
         //devices
         let device = UIDevice.current
         if device.userInterfaceIdiom == .pad {
@@ -51,19 +58,24 @@ class GameScene: SKScene {
             view.scene?.scaleMode = .aspectFill
         }
         
-        //main
-        anchorPoint = .zero
-        physicsWorld.gravity = CGVector(dx: 0, dy: -2)
-        heroHealthBar.position = CGPoint(x: size.height * 0.15, y: size.width / 4)
-        addChild(heroHealthBar)
+        setupScene()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        let location = touch.location(in: self)
         
-        enemyHealthBar.position = CGPoint(x: size.height * 1.7, y: size.width / 4)
-        addChild(enemyHealthBar)
-        // Start Countdown
-        startCountdown()
+        if pauseButton?.contains(location) == true {
+            pauseButton?.touchesBegan(touches, with: event)
+            return
+        }
+        
+        // ... остальной код обработки касаний ...
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard !isPaused && !isGameOver else { return }
+        
         for touch in touches {
             let location = touch.location(in: self)
             _ = atPoint(location)
@@ -110,13 +122,14 @@ class GameScene: SKScene {
             line.run(sequence)
         }
     }
-//MARK: - Spawn country models
+    //MARK: - Spawn country models
     @objc func spawnCountry(){
         
-        let randomNumber = Int(GKRandomDistribution(lowestValue: 3, highestValue: 6).nextInt())
+        let randomNumber = Int(GKRandomDistribution(lowestValue: Constants.spawnMinValue,
+                                                    highestValue: Constants.spawnMaxValue).nextInt())
         for _ in 0..<randomNumber {
             let country = CountryModel()
-            country.position = CGPoint(x: GKRandomDistribution(lowestValue: 20, highestValue: Int(size.width)).nextInt(), y: -50)
+            country.position = CGPoint(x: GKRandomDistribution(lowestValue: Constants.spawnMinX, highestValue: Int(size.width)).nextInt(), y: -50)
             country.zPosition = 10
             addChild(country)
             
@@ -128,39 +141,61 @@ class GameScene: SKScene {
                 country.physicsBody?.velocity.dx = CGFloat(-200)
             }
             
-            country.physicsBody?.velocity.dy = CGFloat(GKRandomDistribution(lowestValue: 500, highestValue: 700).nextInt())
-            country.physicsBody?.angularVelocity = CGFloat(GKRandomDistribution(lowestValue: -5, highestValue: 5).nextInt())
+            country.physicsBody?.velocity.dy = CGFloat(GKRandomDistribution(lowestValue: Constants.spawnMinVelocityY, highestValue: Constants.spawnMaxVelocityY).nextInt())
+            country.physicsBody?.angularVelocity = CGFloat(GKRandomDistribution(lowestValue: Constants.spawnMinAngularVelocity, highestValue: Constants.spawnMaxAngularVelocity).nextInt())
         }
     }
-//MARK: - Game Over
+    
+    //MARK: - Setup Scene
+    private func setupScene() {
+        //main
+        anchorPoint = .zero
+        physicsWorld.gravity = CGVector(dx: 0, dy: -2)
+        heroHealthBar.position = CGPoint(x: size.height * 0.15, y: size.width / 4)
+        addChild(heroHealthBar)
+        
+        enemyHealthBar.position = CGPoint(x: size.height * 1.7, y: size.width / 4)
+        addChild(enemyHealthBar)
+        
+        // Start Countdown
+        startCountdown()
+        
+
+    }
+    //MARK: - Game Over
     func gameOver() {
-        let heroData = HeroData.shared
-        cancelTimers()
-        removeAllCountries()
-        
-        print("game time: \(heroData.gameTime)")
-        print("scoresss : \(heroData.playerScore)")
-        
-        heroData.isRestartPushing = false
+        guard !isGameOver else { return }
+        isGameOver = true
+
+        print("Game Over called from:")
+        for symbol in Thread.callStackSymbols {
+            print(symbol)
+        }
+
+            let heroData = HeroData.shared
+            cancelTimers()
+            removeAllCountries()
+            
+            print("game time: \(heroData.gameTime)")
+            print("scoresss : \(heroData.playerScore)")
+            
+            heroData.isRestartPushing = false
         
         guard let view = view else {
             print("Error: Scene is not available.")
             return
         }
         
-        let fadeOutAction = SKAction.fadeOut(withDuration: 0.6)
+        let fadeOutAction = SKAction.fadeOut(withDuration: Constants.fadeOutDuration)
         
         view.scene?.run(fadeOutAction) {
             if let window = view.window {
-                UIView.transition(with: window, duration: 0.6, options: .transitionCrossDissolve, animations: {
+                UIView.transition(with: window, duration: Constants.fadeOutDuration, options: .transitionCrossDissolve, animations: {
                     view.presentScene(nil)
-                    
                     // Create the new SwiftUI view and hosting controller
                     let gameOverView = GameOvewView()
                     let hostController = UIHostingController(rootView: gameOverView)
                     let navController = UINavigationController(rootViewController: hostController)
-                    
-                    // Set the new root view controller
                     window.rootViewController = navController
                 }, completion: { _ in
                     // Explicitly release the current scene to free up memory
@@ -172,6 +207,10 @@ class GameScene: SKScene {
         }
     }
     
+    func startNewGame() {
+        isGameOver = false
+    }
+    
     //MARK: level complete
     func levelComplete() {
         let heroData = HeroData.shared
@@ -180,22 +219,15 @@ class GameScene: SKScene {
         removeAllCountries()
         cancelTimers()
         countryManager.updateCountryColor(byName: heroData.enemyName, newColor: .green)
-
         heroData.resetAllData()
         
         if let view = view, let window = view.window {
             // Удаление всех дочерних узлов и самой сцены
-            
             view.presentScene(nil)
             let contentView = ScoreBoardView()
             let hostController = UIHostingController(rootView: contentView)
             let navController = UINavigationController(rootViewController: hostController)
             window.rootViewController = navController
-//            window.rootViewController = navController
-//            UIView.transition(with: window,
-//                              duration: 3.8) {
-//                window.rootViewController = navController
-//            }
         }
     }
     
@@ -206,8 +238,6 @@ class GameScene: SKScene {
         heroHealthBar.progress += (0.01 * CGFloat(streakIndex))
         heroLives = heroHealthBar.progress
         scoreLable.text = "Score: \(score)"
-        print("game time: \(heroData.gameTime)")
-        print("scoresss : \(heroData.playerScore)")
     }
     
     func addStreak() {
@@ -249,6 +279,10 @@ class GameScene: SKScene {
         if countdownTime < 0 {
             countTime.invalidate()
             countdownTimerNode.removeFromParent()
+    //Add pause button
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+                self?.createPauseButton()
+            }
         }
         print(countdownTime)
     }
@@ -290,10 +324,93 @@ class GameScene: SKScene {
             }
         }
     }
+    
+    private func fadeOutWithColor(_ color: SKColor, duration: TimeInterval) -> SKAction {
+        let colorOverlay = SKAction.colorize(with: color, colorBlendFactor: 1.0, duration: duration)
+        let fadeOut = SKAction.fadeOut(withDuration: duration)
+        return SKAction.group([colorOverlay, fadeOut])
+    }
+    
+    //MARK: - Game pause button and func
+    private func createPauseButton() {
+        pauseButton?.removeFromParent()
+        
+        pauseButton = PauseButton(size: CGSize(width: 80, height: 80))
+        pauseButton?.position = CGPoint(x: size.width - 80, y: size.height - 120 )
+//        pauseButton?.zPosition = 100
+        pauseButton?.toggleAction = { [weak self] in
+            self?.togglePause()
+        }
+        addChild(pauseButton!)
+    }
+    
+    private func togglePause() {
+        isPause = !isPause
+        pauseButton?.toggle()
+        
+        if isPause {
+            pauseGame()
+        } else {
+            resumeGame()
+        }
+    }
+    
+    private func pauseGame() {
+        self.isPaused = true
+        spawnTimer.invalidate()
+        gameTimer.invalidate()
 
-private func fadeOutWithColor(_ color: SKColor, duration: TimeInterval) -> SKAction {
-    let colorOverlay = SKAction.colorize(with: color, colorBlendFactor: 1.0, duration: duration)
-    let fadeOut = SKAction.fadeOut(withDuration: duration)
-    return SKAction.group([colorOverlay, fadeOut])
-}
+        // Сохраняем состояние каждого CountryModel
+        pausedCountryStates = children.compactMap { node -> (CountryModel, CGPoint, CGVector)? in
+            guard let country = node as? CountryModel else { return nil }
+            return (country, country.position, country.physicsBody?.velocity ?? .zero)
+        }
+
+        // Останавливаем все CountryModel
+        children.compactMap { $0 as? CountryModel }.forEach { country in
+            country.physicsBody?.velocity = .zero
+            country.physicsBody?.angularVelocity = 0
+        }
+
+        // Создаем затемненный фон на весь экран
+        let pauseOverlay = SKShapeNode(rectOf: CGSize(width: self.size.width * 2, height: self.size.height * 2))
+        pauseOverlay.fillColor = SKColor.black.withAlphaComponent(0.5)
+        pauseOverlay.strokeColor = .clear
+        pauseOverlay.zPosition = 90
+        pauseOverlay.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        pauseOverlay.name = "pauseOverlay"
+        addChild(pauseOverlay)
+
+        let pauseLabel = SKLabelNode(fontNamed: "Chalkduster")
+        pauseLabel.text = "Pause"
+        pauseLabel.fontSize = 48
+        pauseLabel.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        pauseLabel.zPosition = 100
+        pauseLabel.name = "pauseLabel"
+        addChild(pauseLabel)
+    }
+    
+    private func resumeGame() {
+        self.isPaused = false
+        // Восстанавливаем позиции CountryModel
+        for (country, position, _) in pausedCountryStates {
+            country.position = position
+        }
+        // Добавляем небольшую задержку перед восстановлением скорости
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+            guard let self = self else { return }
+            // Восстанавливаем скорость каждого CountryModel
+            for (country, _, velocity) in self.pausedCountryStates {
+                country.physicsBody?.velocity = velocity
+            }
+            // Очищаем сохраненные состояния
+            self.pausedCountryStates.removeAll()
+        }
+
+        startSpawnTimer()
+        globalGameTimer()
+
+        childNode(withName: "pauseOverlay")?.removeFromParent()
+        childNode(withName: "pauseLabel")?.removeFromParent()
+    }
 }

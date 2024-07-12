@@ -21,6 +21,8 @@
 		A7A21FF42BB5BE0E005D062B /* History_Fight_NinjaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */; };
 		A7A21FF82BB5BE10005D062B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A21FF72BB5BE10005D062B /* Assets.xcassets */; };
 		A7A21FFB2BB5BE10005D062B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A21FFA2BB5BE10005D062B /* Preview Assets.xcassets */; };
+		A7BEA8DA2C3EA752001452F7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BEA8D92C3EA752001452F7 /* Constants.swift */; };
+		A7BEA8DC2C3EE589001452F7 /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BEA8DB2C3EE589001452F7 /* PauseButton.swift */; };
 		A7BEB1632C2D7C95007AE6C9 /* ScoreBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BEB1622C2D7C95007AE6C9 /* ScoreBoardView.swift */; };
 		A7C42FBB2C382525008E0CE6 /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C42FBA2C382525008E0CE6 /* MenuButtonView.swift */; };
 		A7CFDACB2BF92A8500937CE0 /* FieldForButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFDACA2BF92A8500937CE0 /* FieldForButton.swift */; };
@@ -67,6 +69,8 @@
 		A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History_Fight_NinjaApp.swift; sourceTree = "<group>"; };
 		A7A21FF72BB5BE10005D062B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7A21FFA2BB5BE10005D062B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A7BEA8D92C3EA752001452F7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A7BEA8DB2C3EE589001452F7 /* PauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
 		A7BEB1622C2D7C95007AE6C9 /* ScoreBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardView.swift; sourceTree = "<group>"; };
 		A7C42FBA2C382525008E0CE6 /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
 		A7CFDACA2BF92A8500937CE0 /* FieldForButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldForButton.swift; sourceTree = "<group>"; };
@@ -174,6 +178,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		A7BEA8D82C3EA736001452F7 /* GameModel */ = {
+			isa = PBXGroup;
+			children = (
+				A7BEA8D92C3EA752001452F7 /* Constants.swift */,
+			);
+			path = GameModel;
+			sourceTree = "<group>";
+		};
 		A7C42FB92C382504008E0CE6 /* MenuButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +207,7 @@
 		A7E2C9A02BEA97BA0040B8E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A7BEA8D82C3EA736001452F7 /* GameModel */,
 				A7E2C9CB2BEAA2760040B8E5 /* Sources */,
 				A7E2C9C32BEAA24E0040B8E5 /* MapModel */,
 				A7E2C99E2BEA97BA0040B8E5 /* CountryModel.swift */,
@@ -297,6 +310,7 @@
 				A7FC90DE2C2AB6B500A9790B /* GameOver */,
 				A7FEF9E42C0F042000602D30 /* GameOverTimer.swift */,
 				A7E2C9A72BEA97CC0040B8E5 /* Streak.swift */,
+				A7BEA8DB2C3EE589001452F7 /* PauseButton.swift */,
 			);
 			path = GameScene;
 			sourceTree = "<group>";
@@ -383,6 +397,7 @@
 				A79ACB012BF76DC200769EB7 /* FightButton.swift in Sources */,
 				A7BEB1632C2D7C95007AE6C9 /* ScoreBoardView.swift in Sources */,
 				A7E2C9AC2BEA97CC0040B8E5 /* GameWin.swift in Sources */,
+				A7BEA8DC2C3EE589001452F7 /* PauseButton.swift in Sources */,
 				A7E2C9CF2BEAA2760040B8E5 /* MapUtils.swift in Sources */,
 				A7E2C9A92BEA97CC0040B8E5 /* ContentView.swift in Sources */,
 				A78F38CD2C34667200BF63EE /* TextAnimationScore.swift in Sources */,
@@ -402,6 +417,7 @@
 				A7E2C9C52BEAA25F0040B8E5 /* MapModel.swift in Sources */,
 				A7E2C9AB2BEA97CC0040B8E5 /* GameScene.swift in Sources */,
 				A7CFDACB2BF92A8500937CE0 /* FieldForButton.swift in Sources */,
+				A7BEA8DA2C3EA752001452F7 /* Constants.swift in Sources */,
 				A70164C22BEE217E00C0D98B /* MapsModelData.swift in Sources */,
 				A7E2C9AD2BEA97CC0040B8E5 /* Streak.swift in Sources */,
 				A7E2C9D12BEAA29C0040B8E5 /* WorldMapView.swift in Sources */,
