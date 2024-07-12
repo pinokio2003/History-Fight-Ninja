@@ -10,15 +10,12 @@ import SpriteKit
 class PauseButton: SKSpriteNode {
     private var button: SKSpriteNode
     private var isPlaying: Bool = true
-    
     var toggleAction: (() -> Void)?
     
     init(size: CGSize) {
         button = SKSpriteNode(imageNamed: "pauseButton")
         button.size = size
-        
         super.init(texture: nil, color: .clear, size: size)
-        
         isUserInteractionEnabled = true
         addChild(button)
     }

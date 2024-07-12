@@ -13,7 +13,7 @@ struct GameOvewView: View {
     @ObservedObject var heroData = HeroData.shared
     @State private var isVisible: Bool = false
     @State private var game: GameScene? = nil
-
+    
     
     //background gradient colors
     private let first: Color = Color(red: 43 / 255, green: 44 / 255, blue: 49 / 255)
@@ -29,7 +29,7 @@ struct GameOvewView: View {
                 
                 Text("YOU LOSE BATTLE")
                     .font(.custom("MarkerFelt-Thin", size: 50))
-                   
+                
                     .foregroundColor(.red)
                     .opacity(isVisible ? 1 : 0.1)
                     .animation(.easeInOut(duration: 2), value: isVisible)
@@ -44,21 +44,21 @@ struct GameOvewView: View {
                     .foregroundColor(.red)
                     .opacity(isVisible ? 1 : 0.1)
                     .animation(.easeIn(duration: 4), value: isVisible)
-    
+                
                 
                 HStack {
                     Spacer()
                     RestartButtonView(symbolName: "arrow.clockwise", action: {
                         restartGame()
-                       })
-                                   
+                    })
+                    
                     Spacer()
                     
                     RestartButtonView(symbolName: "globe", action: {
                         presentContentView()
                         heroData.resetAllData()
                     })
-
+                    
                     Spacer()
                 }
             }
@@ -90,7 +90,7 @@ struct GameOvewView: View {
     }
     
     private func presentContentView() {
-           guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let window = windowScene.windows.first else { return }
         
         let contentView = ContentView()

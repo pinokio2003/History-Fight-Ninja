@@ -8,6 +8,8 @@ class GameScene: SKScene {
     let heroData = HeroData.shared
     //For callback ContentView
     var levelCompleteCallback: (() -> Void)?
+    //Devices
+    let device = UIDevice.current
     //main
     private let smokeEffect = SKEmitterNode(fileNamed: "smoke")
     private var spawnTimer = Timer()
@@ -44,9 +46,9 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         isUserInteractionEnabled = true
         heroData.resetScoreAndTime()
-//        createPauseButton()
+        //        createPauseButton()
         //devices
-        let device = UIDevice.current
+        
         if device.userInterfaceIdiom == .pad {
             view.scene?.size = CGSize(width: 1334, height: 750)
             view.scene?.scaleMode = .aspectFit
@@ -160,26 +162,18 @@ class GameScene: SKScene {
         // Start Countdown
         startCountdown()
         
-
+        
     }
     //MARK: - Game Over
     func gameOver() {
         guard !isGameOver else { return }
         isGameOver = true
-
-        print("Game Over called from:")
-        for symbol in Thread.callStackSymbols {
-            print(symbol)
-        }
-
-            let heroData = HeroData.shared
-            cancelTimers()
-            removeAllCountries()
-            
-            print("game time: \(heroData.gameTime)")
-            print("scoresss : \(heroData.playerScore)")
-            
-            heroData.isRestartPushing = false
+        
+        let heroData = HeroData.shared
+        cancelTimers()
+        removeAllCountries()
+        
+        heroData.isRestartPushing = false
         
         guard let view = view else {
             print("Error: Scene is not available.")
@@ -279,7 +273,7 @@ class GameScene: SKScene {
         if countdownTime < 0 {
             countTime.invalidate()
             countdownTimerNode.removeFromParent()
-    //Add pause button
+            //Add pause button
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
                 self?.createPauseButton()
             }
@@ -334,10 +328,15 @@ class GameScene: SKScene {
     //MARK: - Game pause button and func
     private func createPauseButton() {
         pauseButton?.removeFromParent()
-        
         pauseButton = PauseButton(size: CGSize(width: 80, height: 80))
-        pauseButton?.position = CGPoint(x: size.width - 80, y: size.height - 120 )
-//        pauseButton?.zPosition = 100
+        
+        //"if device" needed for correct using phone cose .scale are different
+        if device.userInterfaceIdiom == .pad {
+            pauseButton?.position = CGPoint(x: size.width - 80, y: size.height - 120 )
+        } else {
+            pauseButton?.position = CGPoint(x: size.width - 80, y: size.height - 180 )
+        }
+        pauseButton?.zPosition = 100
         pauseButton?.toggleAction = { [weak self] in
             self?.togglePause()
         }
@@ -359,19 +358,19 @@ class GameScene: SKScene {
         self.isPaused = true
         spawnTimer.invalidate()
         gameTimer.invalidate()
-
+        
         // Сохраняем состояние каждого CountryModel
         pausedCountryStates = children.compactMap { node -> (CountryModel, CGPoint, CGVector)? in
             guard let country = node as? CountryModel else { return nil }
             return (country, country.position, country.physicsBody?.velocity ?? .zero)
         }
-
+        
         // Останавливаем все CountryModel
         children.compactMap { $0 as? CountryModel }.forEach { country in
             country.physicsBody?.velocity = .zero
             country.physicsBody?.angularVelocity = 0
         }
-
+        
         // Создаем затемненный фон на весь экран
         let pauseOverlay = SKShapeNode(rectOf: CGSize(width: self.size.width * 2, height: self.size.height * 2))
         pauseOverlay.fillColor = SKColor.black.withAlphaComponent(0.5)
@@ -380,7 +379,7 @@ class GameScene: SKScene {
         pauseOverlay.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         pauseOverlay.name = "pauseOverlay"
         addChild(pauseOverlay)
-
+        
         let pauseLabel = SKLabelNode(fontNamed: "Chalkduster")
         pauseLabel.text = "Pause"
         pauseLabel.fontSize = 48
@@ -406,10 +405,10 @@ class GameScene: SKScene {
             // Очищаем сохраненные состояния
             self.pausedCountryStates.removeAll()
         }
-
+        
         startSpawnTimer()
         globalGameTimer()
-
+        
         childNode(withName: "pauseOverlay")?.removeFromParent()
         childNode(withName: "pauseLabel")?.removeFromParent()
     }
