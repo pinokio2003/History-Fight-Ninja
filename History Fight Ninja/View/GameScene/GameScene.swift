@@ -22,6 +22,7 @@ class GameScene: SKScene {
     //streak
     private var streakCount: Int = 0
     private var streakIndex: Int = 1
+    private var streakPool: [Streak] = []
     //countdown timer preview
     private var countTime = Timer()
     private var countdownTimerNode = SKLabelNode(fontNamed: "Chalkduster")
@@ -32,12 +33,13 @@ class GameScene: SKScene {
     private var pausedCountryStates: [(node: CountryModel, position: CGPoint, velocity: CGVector)] = []
     
     //healthBar
-    private var heroHealthBar = ProgressBar(size: CGSize(width: 20, height: 250),
-                                            barColor: .green,
-                                            backgroundColor: .gray)
-    private var enemyHealthBar = ProgressBar(size: CGSize(width: 20, height: 250),
-                                             barColor: .red,
-                                             backgroundColor: .gray)
+    private var heroHealthBar = ProgressBar(size: Constants.HealthBar.size,
+                                            barColor: Constants.HealthBar.heroColor,
+                                            backgroundColor: Constants.HealthBar.backgroundColor)
+    
+    private var enemyHealthBar = ProgressBar(size: Constants.HealthBar.size,
+                                             barColor: Constants.HealthBar.enemyColor,
+                                             backgroundColor: Constants.HealthBar.backgroundColor)
     //Lives
     let countryManager = CountryDataManager.shared
     private var enemyLives: CGFloat = 0.00
@@ -46,7 +48,7 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         isUserInteractionEnabled = true
         heroData.resetScoreAndTime()
-        //        createPauseButton()
+     
         //devices
         
         if device.userInterfaceIdiom == .pad {
@@ -60,6 +62,14 @@ class GameScene: SKScene {
             view.scene?.scaleMode = .aspectFill
         }
         
+        for _ in 0..<5 {  // Предположим, нам нужно максимум 5 объектов
+            let streak = Streak(text: "", fontSize: 155)
+            streak.isHidden = true
+            addChild(streak)
+            streakPool.append(streak)
+        }
+    
+        
         setupScene()
     }
     
@@ -71,8 +81,6 @@ class GameScene: SKScene {
             pauseButton?.touchesBegan(touches, with: event)
             return
         }
-        
-        // ... остальной код обработки касаний ...
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -82,7 +90,6 @@ class GameScene: SKScene {
             let location = touch.location(in: self)
             _ = atPoint(location)
             let previousLocation = touch.previousLocation(in: self)
-            //            addStreak()
             
             for node in nodes(at: location){
                 if node.name == "no" {
@@ -233,15 +240,22 @@ class GameScene: SKScene {
         heroLives = heroHealthBar.progress
         scoreLable.text = "Score: \(score)"
     }
+  //MARK: - Scores, streaks and others:
     
     func addStreak() {
-        if Int(streakCount) % 5 == 1 && score > 5 {
-            let indx = Int(streakCount) / 5 + 1
-            streakIndex = indx
-            let streak = Streak(text: "X-\(String(indx))", fontSize: 155)
-            streak.showFor(duration: 2, in: self, at: CGPoint(x: size.height/1.2, y: size.width/4))
+            if Int(streakCount) % 5 == 1 && score > 5 {
+                let indx = Int(streakCount) / 5 + 1
+                streakIndex = indx
+                
+                if let streak = streakPool.first(where: { $0.isHidden }) {
+                    let newText = "X-\(String(indx))"
+                    streak.updateText(newText)
+                    streak.isHidden = false
+                    streak.showFor(duration: 2, in: self, at: CGPoint(x: size.height/1.2, y: size.width/4))
+                }
+            }
         }
-    }
+    
     
     func minusLives() {
         enemyHealthBar.progress += 0.1

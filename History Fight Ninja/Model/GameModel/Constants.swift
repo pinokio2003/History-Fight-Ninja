@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Constants {
     static let spawnMinValue = 3
@@ -22,5 +23,12 @@ struct Constants {
     static let countdownDuration = 3
     static let fadeOutDuration = 0.6
     static let spawnInterval = 2.0
+    
+    
+    struct HealthBar {
+        static let size = CGSize(width: 20, height: 250)
+        static let heroColor: UIColor = .green
+        static let enemyColor: UIColor = .red
+        static let backgroundColor: UIColor = .gray
+    }
 }
-
