@@ -220,6 +220,7 @@ class GameScene: SKScene {
         removeAllCountries()
         cancelTimers()
         countryManager.updateCountryColor(byName: heroData.enemyName, newColor: .green)
+        countryManager.updateCountryBackgroundColor()
         heroData.resetAllData()
         
         if let view = view, let window = view.window {

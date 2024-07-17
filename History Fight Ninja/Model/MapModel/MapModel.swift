@@ -41,11 +41,12 @@ class MapCountryModel: Identifiable, ObservableObject {
 class CountryDataManager: ObservableObject {
     static let shared = CountryDataManager()
     
-    @Published var colorMap: [String : Color] = [:]
+    @Published var colorMap: [String : Color] = [:] // for world map
+    @Published var countryBackgroundColor: [(String, Color)] = []
     @Published var countriesData: [MapCountryModel] = [
         MapCountryModel(countryCode: "GL", name: "Greenland", color: .grey),
         MapCountryModel(countryCode: "IS", name: "Iceland", color: .grey),
-        MapCountryModel(countryCode: "PT", name: "Portugal", color: .grey),
+        MapCountryModel(countryCode: "PT", name: "Portugal", color: .green),
         MapCountryModel(countryCode: "MA", name: "Morocco", color: .grey),
         MapCountryModel(countryCode: "ES", name: "Spain", color: .grey),
         MapCountryModel(countryCode: "TN", name: "Tunisia", color: .grey),
@@ -109,7 +110,6 @@ class CountryDataManager: ObservableObject {
         MapCountryModel(countryCode: "GB", name: "Great Britain", color: .grey),
         MapCountryModel(countryCode: "RS", name: "Serbia", color: .grey),
         MapCountryModel(countryCode: "XK", name: "Kosovo", color: .grey),
-        MapCountryModel(countryCode: "SJ", name: "Norway", color: .grey),
         MapCountryModel(countryCode:"EH", name: "Western Sahara",color: .grey),
         MapCountryModel(countryCode:"LY", name: "Libya",color: .grey),
         MapCountryModel(countryCode:"EG", name: "Egypt",color: .grey),
@@ -224,7 +224,7 @@ class CountryDataManager: ObservableObject {
         MapCountryModel(countryCode: "LS", name: "Lesotho", color: .grey),
         MapCountryModel(countryCode: "SZ", name: "Eswatini", color: .grey)
         
-    ]
+    ] 
     
     var countryNameMap: [String: String] {
         var map = [String: String]()
@@ -238,6 +238,7 @@ class CountryDataManager: ObservableObject {
     
     init() {
         addColorArray()
+        updateCountryBackgroundColor()
     }
     
     func updateCountryColor(byName name: String, newColor: MapCountryColor) {
@@ -253,4 +254,27 @@ class CountryDataManager: ObservableObject {
             colorMap[country.countryCode.uppercased()] = country.color.toSwiftUIColor()
         }
     }
+    
+    func updateCountryBackgroundColor() {
+        let sortedCountries = countriesData.sorted { country1, country2 in
+            // Сортировка так, чтобы страны с зелёным цветом шли первыми
+            if country1.color == .green && country2.color != .green {
+                return true
+            } else if country1.color != .green && country2.color == .green {
+                return false
+            } else {
+                return true // остальные страны в любом порядке
+            }
+        }
+        
+        countryBackgroundColor = sortedCountries.compactMap { country in
+            guard let name = country.name else { return nil }
+            return (name, country.color.toSwiftUIColor())
+        }
+    }
+        
+    private func mapCountryColorToSwiftUIColor(_ mapColor: MapCountryColor) -> Color {
+        mapColor.toSwiftUIColor()
+    }
+    
 }

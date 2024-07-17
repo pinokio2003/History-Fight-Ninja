@@ -9,19 +9,36 @@ import SwiftUI
 
 struct MenuButtonView: View {
     @State var show: Bool = false
-    
+    @State var showButtonOne: Bool = false
+    @State private var selection: String?
+    private var countryDataManager = CountryDataManager.shared
     
     var body: some View {
         ZStack {
             mainButton
                 
             if show {
-                CanCircleButton(show: $show, Yoffset: 60, sanimation: 0.3, imageName: "Ukraine", action: { print("Button 1 tapped") })
+                CanCircleButton(show: $show, Yoffset: 60, sanimation: 0.3, imageName: "Ukraine", action: { showButtonOne.toggle() })
                 CanCircleButton(show: $show, Yoffset: 120, sanimation: 0.2, imageName: "Austria", action: { print("Button 2 tapped") })
                 CanCircleButton(show: $show, Yoffset: 180, sanimation: 0.1, imageName: "Ukraine", action: { print("Button 3 tapped") })
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        
+        if showButtonOne && show {
+            DropDownPicker(
+                hint: "Select Country",
+                options: countryDataManager.countryBackgroundColor.map { $0.0 }, // массив имён стран
+                maxWidth: 180,
+                cornerRadius: 15,
+                selection: $selection,
+                color: .constant(.gray), // или любой другой цвет по умолчанию
+                countryDataManager: countryDataManager // передача объекта CountryDataManager
+            )
+            .transition(.opacity)
+            .animation(.easeInOut, value: showButtonOne)
+            .offset(x: -120, y: 60)
+        }
     }
     
     var mainButton: some View {
