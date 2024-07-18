@@ -20,10 +20,20 @@ class HeroData: ObservableObject {
     //For Score:
     @Published var gameTime: Int = 0
     @Published var playerScore: Int = 0
-    //player data:
-    @Published var playerCountry: String = "Ukraine"
+    //player data + User Defaults:
+    @Published var playerCountry: String = UserDefaults.standard.string(forKey: "playerCountry") ?? "Ukraine" {
+        didSet {
+            UserDefaults.standard.set(playerCountry, forKey: "playerCountry")
+        }
+    }
+    @Published var playerExperience: Int = UserDefaults.standard.integer(forKey: "playerExperience") {
+        didSet {
+            UserDefaults.standard.set(playerExperience, forKey: "playerExperience")
+        }
+    }
+    
     @Published var enemyName: String = ""
-    @Published var allyArray: [String] = []
+//    @Published var allyArray: [String] = []
     //WorldMap menu button:
     @Published var isMenuButtonPushed: Bool = true
     
@@ -40,5 +50,11 @@ class HeroData: ObservableObject {
     func resetScoreAndTime() {
         gameTime = 0
         playerScore = 0
+    }
+    
+    func clearUserDefaults() {
+        UserDefaults.standard.removeObject(forKey: "playerCountry")
+        UserDefaults.standard.removeObject(forKey: "playerExperience")
+        UserDefaults.standard.removeObject(forKey: "SavedCountriesData")
     }
 }

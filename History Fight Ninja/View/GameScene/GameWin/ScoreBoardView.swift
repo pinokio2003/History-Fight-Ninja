@@ -15,9 +15,11 @@ struct ScoreBoardView: View {
     @State var isShowingTimeText: Bool = false
     @State var isShowingTotalScoreText: Bool = false
     
+    
     var body: some View {
         let time = String(heroData.gameTime)
         let score = String(heroData.playerScore)
+        let totalScore = heroData.playerScore + heroData.gameTime
         
         ZStack {
             CustomBackground()
@@ -81,7 +83,7 @@ struct ScoreBoardView: View {
                 if isShowingTotalScoreText {
                     //Total
                     HStack {
-                        let totalScore = heroData.playerScore + heroData.gameTime
+                        
                         let textTotalScore = String(totalScore)
                         
                         Text("TOTAL: ")
@@ -107,6 +109,7 @@ struct ScoreBoardView: View {
             if isShowingTotalScoreText {
                 HStack {
                     RestartButtonView(symbolName: "globe", action: {
+                        heroData.playerExperience += totalScore
                         presentContentView()
                     })
                     .padding(.all, 10)

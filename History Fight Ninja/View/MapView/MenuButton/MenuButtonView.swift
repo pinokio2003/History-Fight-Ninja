@@ -12,6 +12,7 @@ struct MenuButtonView: View {
     @State var showButtonOne: Bool = false
     @State private var selection: String?
     private var countryDataManager = CountryDataManager.shared
+    private let heroData = HeroData.shared
     
     var body: some View {
         ZStack {
@@ -20,7 +21,7 @@ struct MenuButtonView: View {
             if show {
                 CanCircleButton(show: $show, Yoffset: 60, sanimation: 0.3, imageName: "Ukraine", action: { showButtonOne.toggle() })
                 CanCircleButton(show: $show, Yoffset: 120, sanimation: 0.2, imageName: "Austria", action: { print("Button 2 tapped") })
-                CanCircleButton(show: $show, Yoffset: 180, sanimation: 0.1, imageName: "Ukraine", action: { print("Button 3 tapped") })
+                CanCircleButton(show: $show, Yoffset: 180, sanimation: 0.1, imageName: "Ukraine", action: { heroData.clearUserDefaults() })
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

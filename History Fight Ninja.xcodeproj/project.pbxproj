@@ -124,19 +124,11 @@
 			path = CountryNameView;
 			sourceTree = "<group>";
 		};
-		A7700F972C330AE700871FBF /* ScoreBoard */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ScoreBoard;
-			sourceTree = "<group>";
-		};
 		A7700F982C330AFF00871FBF /* GameWin */ = {
 			isa = PBXGroup;
 			children = (
 				A7BEB1622C2D7C95007AE6C9 /* ScoreBoardView.swift */,
 				A7E2C9A62BEA97CC0040B8E5 /* GameWin.swift */,
-				A7700F972C330AE700871FBF /* ScoreBoard */,
 				A78F38CC2C34667200BF63EE /* TextAnimationScore.swift */,
 				A79C62352C3569C000C64772 /* CustomBackground.swift */,
 				A75ECF8B2C35DB2D002DFDDC /* MiddleLine.swift */,

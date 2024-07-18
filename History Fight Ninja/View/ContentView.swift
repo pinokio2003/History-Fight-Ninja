@@ -12,14 +12,15 @@ struct ContentView: View {
     
     @StateObject var heroData = HeroData.shared
     @StateObject var mapsDict = CountryDataManager()
-   
-    
+
     let game = GameScene(fileNamed: "game")
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 ZStack(alignment: .leading) {
+
+                    
                     if !heroData.isFightStartButton {
                         WorldMapView()
                     }
@@ -57,11 +58,16 @@ struct ContentView: View {
                 }
 //                if !heroData.isAnimationBeforeFight {
                 if heroData.isMenuButtonPushed {
-                    // MenuButton
+                // MenuButton
                     MenuButtonView()
                         .frame(width: 60, height: 60)
                         .position(x: geometry.size.width - 40, y: geometry.size.height * 0.1)
                 }
+                //Player Experience
+                Text("Player Experience: \(heroData.playerExperience)")
+                    .foregroundColor(Color.red)
+                    .position(x: geometry.size.width * 0.01 + 140, y: geometry.size.height * 0.1)
+                    .padding(.leading)
             }
         }
         .edgesIgnoringSafeArea(.all)
