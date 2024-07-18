@@ -25,39 +25,28 @@ struct WorldMapView: View {
     var countryManager = CountryDataManager.shared
 
     var body: some View {
-        ZStack() {    
+        ZStack() {
             GeometryReader { geo in
-                let size = geo.size             
+                let size = geo.size
 //View MAP:
                 InteractiveMap(svgName: "world-low") { pathData in
-                    let attributes = InteractiveShape.Attributes(
-                        strokeWidth: 0.5,
-                        strokeColor: .black,
-                        background: Color(.sRGB, white: 0.5, opacity: 1),
-                        countryColors: countryManager.colorMap
-                    )
-//Countries:
-                    InteractiveShape(pathData)
-                        .initWithAttributes(attributes)
-                        .shadow(color: clickedPath?.id == pathData.id ? .white : .clear, radius: 6)
-                        .onTapGesture {
-                            
-                            heroData.isCountrySelected = false
-                            if clickedPath?.id == pathData.id && heroData.isCountrySelected == false {
-                                clickedPath = nil
-                            } else {
-                                clickedPath = pathData
-                                heroData.name = pathData.name
-                                print(heroData.name)
-                                heroData.isCountrySelected = true
-                                print("is selected: \(heroData.isCountrySelected)")
-                            }
-                        }
-                        .scaleEffect(clickedPath?.id == pathData.id ? 1.05 : 1)
-                        .animation(.easeInOut(duration: 0.2), value: clickedPath?.id)
-                        .zIndex(clickedPath?.id == pathData.id ? 2 : 1)
-                    
-                }
+                                    let attributes = InteractiveShape.Attributes(
+                                        strokeWidth: 0.5,
+                                        strokeColor: .black,
+                                        background: Color(.sRGB, white: 0.5, opacity: 1),
+                                        countryColors: countryManager.colorMap
+                                    )
+                                    InteractiveShape(pathData)
+                                        .initWithAttributes(attributes)
+                                        .shadow(color: isCountrySelected(pathData) ? .white : .clear, radius: 6)
+                                        .onTapGesture {
+                                            handleCountryTap(pathData)
+                                        }
+                                        .scaleEffect(isCountrySelected(pathData) ? 1.05 : 1)
+                                        .animation(.easeInOut(duration: 0.2), value: isCountrySelected(pathData))
+                                        .zIndex(isCountrySelected(pathData) ? 2 : 1)
+                                }
+                  
                 .aspectRatio(contentMode: .fill)
                 .overlay {
                     GeometryReader { proxy in
@@ -142,6 +131,24 @@ struct WorldMapView: View {
     func haptics(_ style: UIImpactFeedbackGenerator.FeedbackStyle) {
         UIImpactFeedbackGenerator(style: style).impactOccurred()
     }
+    
+    private func isCountrySelected(_ pathData: PathData) -> Bool {
+            return heroData.name == pathData.name && heroData.isCountrySelected
+        }
+        
+        private func handleCountryTap(_ pathData: PathData) {
+            heroData.isCountrySelected = false
+            if clickedPath?.id == pathData.id && !heroData.isCountrySelected {
+                clickedPath = nil
+                heroData.name = ""
+            } else {
+                clickedPath = pathData
+                heroData.name = pathData.name
+                print("There is: \(heroData.name)")
+                heroData.isCountrySelected = true
+                print("is selected: \(heroData.isCountrySelected)")
+            }
+        }
 }
 
 #Preview {

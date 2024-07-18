@@ -42,7 +42,7 @@ class CountryDataManager: ObservableObject {
     static let shared = CountryDataManager()
     
     @Published var colorMap: [String : Color] = [:] // for world map
-    @Published var countryBackgroundColor: [(String, Color)] = []
+    @Published var countryBackgroundColor: [(String, Color, String)] = []
     @Published var countriesData: [MapCountryModel] = [
         MapCountryModel(countryCode: "GL", name: "Greenland", color: .grey),
         MapCountryModel(countryCode: "IS", name: "Iceland", color: .grey),
@@ -269,7 +269,8 @@ class CountryDataManager: ObservableObject {
         
         countryBackgroundColor = sortedCountries.compactMap { country in
             guard let name = country.name else { return nil }
-            return (name, country.color.toSwiftUIColor())
+            let countryCode = country.countryCode
+            return (name, country.color.toSwiftUIColor(), countryCode)
         }
     }
         

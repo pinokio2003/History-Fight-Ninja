@@ -16,6 +16,7 @@ struct DropDownPicker: View {
     @Binding var color: Color
     @State private var showOption: Bool = false
     @ObservedObject var countryDataManager: CountryDataManager // добавлено
+    private let heroData = HeroData.shared
 
     var body: some View {
         GeometryReader { geometry in
@@ -58,7 +59,7 @@ struct DropDownPicker: View {
     func OptionView() -> some View {
         ScrollView {
             VStack(spacing: 1) {
-                ForEach(countryDataManager.countryBackgroundColor, id: \.0) { (countryName, countryColor) in
+                ForEach(countryDataManager.countryBackgroundColor, id: \.0) { (countryName, countryColor, countryCode) in
                     HStack(spacing: 0) {
                         Text(countryName)
                             .lineLimit(1)
@@ -69,6 +70,9 @@ struct DropDownPicker: View {
                                 selection = countryName
                                 showOption = false
                                 print("Selected option: \(countryName)") // Добавьте эту строку для отладки
+                                print("Selected option: \(countryCode)")
+                                heroData.name = countryCode
+                                heroData.isCountrySelected = true
                             }
                     }
                 }
