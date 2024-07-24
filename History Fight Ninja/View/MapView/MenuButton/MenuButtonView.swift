@@ -20,7 +20,7 @@ struct MenuButtonView: View {
                 
             if show {
                 CanCircleButton(show: $show, Yoffset: 60, sanimation: 0.3, imageName: "Ukraine", action: { showButtonOne.toggle() })
-                CanCircleButton(show: $show, Yoffset: 120, sanimation: 0.2, imageName: "Austria", action: { print("Button 2 tapped") })
+                CanCircleButton(show: $show, Yoffset: 120, sanimation: 0.2, imageName: "Austria", action: { presentSkillTreeView() })
                 CanCircleButton(show: $show, Yoffset: 180, sanimation: 0.1, imageName: "Ukraine", action: { heroData.clearUserDefaults() })
             }
         }
@@ -60,6 +60,18 @@ struct MenuButtonView: View {
         }
 //        .offset(x: -120, y: -120)
     }
+    
+    private func presentSkillTreeView() {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = windowScene.windows.first else { return }
+        
+        let contentView = SkillTreeView()
+        let hostController = UIHostingController(rootView: contentView)
+        let navController = UINavigationController(rootViewController: hostController)
+        window.rootViewController = navController
+//        heroData.isDisabled = false ??
+    }
+
 }
 
 struct CanCircleButton: View {
@@ -87,6 +99,7 @@ struct CanCircleButton: View {
             .delay(show ? sanimation : 0), value: show)
     }
 }
+
 
 #Preview {
     MenuButtonView()
