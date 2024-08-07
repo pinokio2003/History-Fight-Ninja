@@ -25,7 +25,7 @@ struct SkillView: View {
     
     var body: some View {
         ZStack {
-            Image(skill.imageName)
+            skill.image()
                 .resizable()
                 .scaledToFill()
                 .frame(width: size, height: size)
@@ -51,6 +51,9 @@ struct SkillView: View {
                     unlockedSkills.insert(skill.id)
                 }
             })
+        }
+        .onDisappear {
+            ImageCache.shared.clearCache()
         }
     }
     

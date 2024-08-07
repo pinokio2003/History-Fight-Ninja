@@ -10,6 +10,7 @@
 		A70164C22BEE217E00C0D98B /* MapsModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70164C12BEE217E00C0D98B /* MapsModelData.swift */; };
 		A7167FD92C51008300E32935 /* ReturnButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7167FD82C51008300E32935 /* ReturnButton.swift */; };
 		A72470862BFC924800E771D8 /* CountryNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72470852BFC924800E771D8 /* CountryNameView.swift */; };
+		A73CE8F22C62450800CA5A2F /* ArmySkillTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73CE8F12C62450800CA5A2F /* ArmySkillTreeView.swift */; };
 		A7580F182C0898CA00B3F4B4 /* SideMapRightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7580F172C0898CA00B3F4B4 /* SideMapRightView.swift */; };
 		A75D26672C4C16E60040FC86 /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D26632C4C16E60040FC86 /* SkillView.swift */; };
 		A75D26682C4C16E60040FC86 /* EconomySkillTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D26642C4C16E60040FC86 /* EconomySkillTreeView.swift */; };
@@ -29,6 +30,8 @@
 		A7A21FF42BB5BE0E005D062B /* History_Fight_NinjaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */; };
 		A7A21FF82BB5BE10005D062B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A21FF72BB5BE10005D062B /* Assets.xcassets */; };
 		A7A21FFB2BB5BE10005D062B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A21FFA2BB5BE10005D062B /* Preview Assets.xcassets */; };
+		A7ABD29F2C6231770083B96E /* Economic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ABD29E2C6231770083B96E /* Economic.swift */; };
+		A7ABD2A12C6231960083B96E /* Army.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ABD2A02C6231960083B96E /* Army.swift */; };
 		A7BEA8DA2C3EA752001452F7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BEA8D92C3EA752001452F7 /* Constants.swift */; };
 		A7BEA8DC2C3EE589001452F7 /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BEA8DB2C3EE589001452F7 /* PauseButton.swift */; };
 		A7BEB1632C2D7C95007AE6C9 /* ScoreBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BEB1622C2D7C95007AE6C9 /* ScoreBoardView.swift */; };
@@ -63,6 +66,7 @@
 		A70164C12BEE217E00C0D98B /* MapsModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsModelData.swift; sourceTree = "<group>"; };
 		A7167FD82C51008300E32935 /* ReturnButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnButton.swift; sourceTree = "<group>"; };
 		A72470852BFC924800E771D8 /* CountryNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryNameView.swift; sourceTree = "<group>"; };
+		A73CE8F12C62450800CA5A2F /* ArmySkillTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmySkillTreeView.swift; sourceTree = "<group>"; };
 		A7580F172C0898CA00B3F4B4 /* SideMapRightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMapRightView.swift; sourceTree = "<group>"; };
 		A75D26632C4C16E60040FC86 /* SkillView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
 		A75D26642C4C16E60040FC86 /* EconomySkillTreeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EconomySkillTreeView.swift; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 		A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History_Fight_NinjaApp.swift; sourceTree = "<group>"; };
 		A7A21FF72BB5BE10005D062B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7A21FFA2BB5BE10005D062B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A7ABD29E2C6231770083B96E /* Economic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Economic.swift; sourceTree = "<group>"; };
+		A7ABD2A02C6231960083B96E /* Army.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Army.swift; sourceTree = "<group>"; };
 		A7BEA8D92C3EA752001452F7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A7BEA8DB2C3EE589001452F7 /* PauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
 		A7BEB1622C2D7C95007AE6C9 /* ScoreBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardView.swift; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 				A75D26662C4C16E60040FC86 /* SkillTreeView.swift */,
 				A7693C762C4E60B2007763C2 /* SkillPopoverView.swift */,
 				A7167FD82C51008300E32935 /* ReturnButton.swift */,
+				A73CE8F12C62450800CA5A2F /* ArmySkillTreeView.swift */,
 			);
 			path = SkillsTree;
 			sourceTree = "<group>";
@@ -194,6 +201,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		A7ABD29D2C6231610083B96E /* SkillsModel */ = {
+			isa = PBXGroup;
+			children = (
+				A7ABD29E2C6231770083B96E /* Economic.swift */,
+				A7ABD2A02C6231960083B96E /* Army.swift */,
+			);
+			path = SkillsModel;
+			sourceTree = "<group>";
+		};
 		A7BEA8D82C3EA736001452F7 /* GameModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +240,7 @@
 		A7E2C9A02BEA97BA0040B8E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A7ABD29D2C6231610083B96E /* SkillsModel */,
 				A7BEA8D82C3EA736001452F7 /* GameModel */,
 				A7E2C9CB2BEAA2760040B8E5 /* Sources */,
 				A7E2C9C32BEAA24E0040B8E5 /* MapModel */,
@@ -418,6 +435,7 @@
 				A79ACB012BF76DC200769EB7 /* FightButton.swift in Sources */,
 				A7167FD92C51008300E32935 /* ReturnButton.swift in Sources */,
 				A7BEB1632C2D7C95007AE6C9 /* ScoreBoardView.swift in Sources */,
+				A7ABD2A12C6231960083B96E /* Army.swift in Sources */,
 				A7BEA8DC2C3EE589001452F7 /* PauseButton.swift in Sources */,
 				A7E2C9CF2BEAA2760040B8E5 /* MapUtils.swift in Sources */,
 				A7E2C9A92BEA97CC0040B8E5 /* ContentView.swift in Sources */,
@@ -426,6 +444,7 @@
 				A7CFDACD2BF92ABF00937CE0 /* AttacButton.swift in Sources */,
 				A7A21FF42BB5BE0E005D062B /* History_Fight_NinjaApp.swift in Sources */,
 				A7E2C9CE2BEAA2760040B8E5 /* MapRenderer.swift in Sources */,
+				A73CE8F22C62450800CA5A2F /* ArmySkillTreeView.swift in Sources */,
 				A75D26672C4C16E60040FC86 /* SkillView.swift in Sources */,
 				A79C62362C3569C000C64772 /* CustomBackground.swift in Sources */,
 				A79A579D2BED39CF00ED3A67 /* PlayerDataModel.swift in Sources */,
@@ -450,6 +469,7 @@
 				A7FC90E02C2AB9AD00A9790B /* RestartButtonView.swift in Sources */,
 				A7E2C9A22BEA97BA0040B8E5 /* HealthBarModel.swift in Sources */,
 				A7E2C9CC2BEAA2760040B8E5 /* Centering.swift in Sources */,
+				A7ABD29F2C6231770083B96E /* Economic.swift in Sources */,
 				A7580F182C0898CA00B3F4B4 /* SideMapRightView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

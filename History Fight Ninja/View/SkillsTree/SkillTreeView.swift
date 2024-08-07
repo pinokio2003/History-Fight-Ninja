@@ -63,7 +63,7 @@ struct SkillTreeView: View {
                                 case 0:
                                     EconomySkillTreeView()
                                 case 1:
-                                    Text("Army")
+                                    ArmySkillTreeView()
                                 case 2:
                                     Text("Diplomacy")
                                 default:
