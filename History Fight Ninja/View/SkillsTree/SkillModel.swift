@@ -16,6 +16,7 @@ struct SkillModel: Identifiable {
     var isUnlocked: Bool
     var isAviable: Bool
     var requiredSkill: [UUID]
+    var action: () -> Void
 
     func image() -> Image {
         if let cachedImage = ImageCache.shared.getImage(forKey: imageName) {
@@ -37,7 +38,8 @@ let exampleSkill = SkillModel(
     imageName: "ManufacturingBasics",
     isUnlocked: false,
     isAviable: true,
-    requiredSkill: []
+    requiredSkill: [],
+    action: {}
 )
 
 

@@ -80,6 +80,7 @@ struct SkillPopoverView: View {
                         if canUnlock {
                             Button("  Buy   ") {
                                 onUnlock()
+                                skill.action()
                                 isPresented = false
                             }
                             .padding()
