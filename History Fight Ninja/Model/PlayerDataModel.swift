@@ -10,6 +10,7 @@ import SwiftUI
 
 class HeroData: ObservableObject {
     static let shared = HeroData()
+    private let skillManager = SkillTreeManager.sharedSkillTreeManager
     
     @Published var name: String = "" // enemy
     @Published var isCountrySelected: Bool = false
@@ -53,6 +54,7 @@ class HeroData: ObservableObject {
     }
     
     func clearUserDefaults() {
+        skillManager.resetSkills()
         UserDefaults.standard.removeObject(forKey: "playerCountry")
         UserDefaults.standard.removeObject(forKey: "playerExperience")
         UserDefaults.standard.removeObject(forKey: "SavedCountriesData")

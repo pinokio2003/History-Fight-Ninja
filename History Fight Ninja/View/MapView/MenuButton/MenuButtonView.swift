@@ -14,6 +14,7 @@ struct MenuButtonView: View {
     private var countryDataManager = CountryDataManager.shared
     private let heroData = HeroData.shared
     
+    
     var body: some View {
         ZStack {
             mainButton
@@ -65,7 +66,7 @@ struct MenuButtonView: View {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let window = windowScene.windows.first else { return }
         
-        let contentView = SkillTreeView()
+        let contentView = SkillTreeScreen()
         let hostController = UIHostingController(rootView: contentView)
         let navController = UINavigationController(rootViewController: hostController)
         window.rootViewController = navController

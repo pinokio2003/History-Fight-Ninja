@@ -8,90 +8,73 @@
 import SwiftUI
 
 struct SkillView: View {
-    var skill: SkillModel
-    var size: CGFloat
-    @Binding var unlockedSkills: Set<UUID>
-    @State private var isShowingPopover = false
+    @EnvironmentObject var skillTreeManager: SkillTreeManager
+    let skillId: UUID
+    let branch: SkillBranch
+    @State private var showPopover = false
     
-    private var skillState: SkillState {
-        if unlockedSkills.contains(skill.id) {
-            return .unlocked
-        } else if skill.isAviable && skill.requiredSkill.allSatisfy({ unlockedSkills.contains($0) }) {
-            return .available
-        } else {
-            return .locked
-        }
+    var skill: Skill {
+        skillTreeManager.getSkillsForBranch(branch).first(where: { $0.id == skillId })!
     }
     
     var body: some View {
         ZStack {
-            skill.image()
-                .resizable()
-                .scaledToFill()
-                .frame(width: size, height: size)
-                .opacity(skillState == .locked ? 0.5 : 1.0)
-                .cornerRadius(15)
-        }
-        .padding(.all, 5)
-        .background(backgroundColorForState(skillState))
-        .cornerRadius(25)
-        .shadow(color: .black, radius: 1, x: 3, y: 2)
-        .overlay {
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(borderColorForState(skillState), lineWidth: 1)
-        }
-        .onTapGesture {
-            if skillState != .locked {
-                isShowingPopover = true
+            Rectangle()
+                .fill(
+                    RadialGradient(gradient: Gradient(colors: [skill.isPurchased ? innerGreen : innerPurple, .clear]),
+                                   center: .center,
+                                   startRadius: 5,
+                                   endRadius: 65)
+                )
+                .frame(width: 120, height: 120)
+    
+            VStack {
+                
+                
+                Image(skill.imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 80, height: 80)
+                    .cornerRadius(40)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 40)
+                            .stroke(borderColor, lineWidth: 3)
+                    )
+                    .onTapGesture {
+                        if skill.isUnlocked {
+                            showPopover = true
+                        }
+                    }
+                //            Text(skill.name)
+                //                .font(.caption)
+                //                .multilineTextAlignment(.center)
+            }
+            .background(backgroundColor)
+            .cornerRadius(40)
+            .opacity(skill.isUnlocked ? 1.0 : 0.5)
+            .popover(isPresented: $showPopover) {
+                SkillPopover(skill: skill, isPresented: $showPopover)
             }
         }
-        .popover(isPresented: $isShowingPopover, arrowEdge: .top) {
-            SkillPopoverView(skill: skill, isPresented: $isShowingPopover, canUnlock: skillState == .available, onUnlock: {
-                if skillState == .available {
-                    unlockedSkills.insert(skill.id)
-                }
-            })
-        }
-        .onDisappear {
-            ImageCache.shared.clearCache()
+    }
+    
+    var borderColor: Color {
+        if skill.isPurchased {
+            return .green
+        } else if skill.isUnlocked {
+            return .red
+        } else {
+            return .gray
         }
     }
     
-    private func backgroundColorForState(_ state: SkillState) -> Color {
-        switch state {
-        case .unlocked:
-            return Color.green.opacity(0.7)
-        case .available:
-            return Color.blue.opacity(0.7)
-        case .locked:
+    var backgroundColor: Color {
+        if skill.isPurchased {
+            return Color.green.opacity(0.3)
+        } else if skill.isUnlocked {
+            return Color.red.opacity(0.3)
+        } else {
             return Color.gray.opacity(0.9)
         }
-    }
-    
-    private func borderColorForState(_ state: SkillState) -> Color {
-        switch state {
-        case .unlocked:
-            return Color.green
-        case .available:
-            return Color.blue
-        case .locked:
-            return Color.black
-        }
-    }
-}
-
-enum SkillState {
-    case unlocked, available, locked
-}
-
-struct SkillView_Previews: PreviewProvider {
-    static var previews: some View {
-        SkillView(
-            skill: exampleSkill,
-            size: 100,
-            unlockedSkills: .constant([]) // Используем .constant для @Binding в Preview
-        )
-        .previewLayout(.sizeThatFits)
-        .padding()
     }
 }

@@ -7,58 +7,68 @@
 
 import SwiftUI
 
-struct SkillModel: Identifiable {
-    var id = UUID()
+struct Skill: Identifiable, Codable {
+    let id: UUID
     let name: String
     let description: String
-    let cost: Int
-    var imageName: String
+    let branch: SkillBranch
     var isUnlocked: Bool
-    var isAviable: Bool
-    var requiredSkill: [UUID]
-    var action: () -> Void
-
-    func image() -> Image {
-        if let cachedImage = ImageCache.shared.getImage(forKey: imageName) {
-            return Image(uiImage: cachedImage)
-        } else {
-            let newImage = UIImage(named: imageName) ?? UIImage()
-            ImageCache.shared.setImage(newImage, forKey: imageName)
-            return Image(uiImage: newImage)
-        }
+    var isPurchased: Bool
+    let imageName: String
+    let action: () -> Void // Замыкание нельзя закодировать напрямую
+    let dependencies: [UUID]
+    let position: CGPoint
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, description, branch, isUnlocked, isPurchased, imageName, dependencies, positionX, positionY
+    }
+    
+    init(id: UUID, name: String, description: String, branch: SkillBranch, isUnlocked: Bool, isPurchased: Bool, imageName: String, action: @escaping () -> Void, dependencies: [UUID], position: CGPoint) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.branch = branch
+        self.isUnlocked = isUnlocked
+        self.isPurchased = isPurchased
+        self.imageName = imageName
+        self.action = action
+        self.dependencies = dependencies
+        self.position = position
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(UUID.self, forKey: .id)
+        name = try container.decode(String.self, forKey: .name)
+        description = try container.decode(String.self, forKey: .description)
+        branch = try container.decode(SkillBranch.self, forKey: .branch)
+        isUnlocked = try container.decode(Bool.self, forKey: .isUnlocked)
+        isPurchased = try container.decode(Bool.self, forKey: .isPurchased)
+        imageName = try container.decode(String.self, forKey: .imageName)
+        dependencies = try container.decode([UUID].self, forKey: .dependencies)
+        let x = try container.decode(CGFloat.self, forKey: .positionX)
+        let y = try container.decode(CGFloat.self, forKey: .positionY)
+        position = CGPoint(x: x, y: y)
+        
+        action = {} // Замыкание по умолчанию (его не сохраняем)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(description, forKey: .description)
+        try container.encode(branch, forKey: .branch)
+        try container.encode(isUnlocked, forKey: .isUnlocked)
+        try container.encode(isPurchased, forKey: .isPurchased)
+        try container.encode(imageName, forKey: .imageName)
+        try container.encode(dependencies, forKey: .dependencies)
+        try container.encode(position.x, forKey: .positionX)
+        try container.encode(position.y, forKey: .positionY)
     }
 }
 
-// Пример SkillModel для использования в Preview
-let exampleSkill = SkillModel(
-    id: UUID(),
-    name: "Example Skill",
-    description: "This is an example skill for preview",
-    cost: 100,
-    imageName: "ManufacturingBasics",
-    isUnlocked: false,
-    isAviable: true,
-    requiredSkill: [],
-    action: {}
-)
-
-
-// Image cache
-class ImageCache {
-    static let shared = ImageCache()
-    private init() {}
-    
-    private let cache = NSCache<NSString, UIImage>()
-    
-    func getImage(forKey key: String) -> UIImage? {
-        return cache.object(forKey: key as NSString)
-    }
-    
-    func setImage(_ image: UIImage, forKey key: String) {
-        cache.setObject(image, forKey: key as NSString)
-    }
-    
-    func clearCache() {
-        cache.removeAllObjects()
-    }
+enum SkillBranch: String, Codable {
+    case economy
+    case army
 }

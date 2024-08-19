@@ -5,8 +5,8 @@
 //  Created by Anatolii Kravchuk on 10.07.2024.
 //
 
-import Foundation
 import UIKit
+import SwiftUI
 
 struct Constants {
     static let spawnMinValue = 3
@@ -32,3 +32,7 @@ struct Constants {
         static let backgroundColor: UIColor = .gray
     }
 }
+
+//Colors:
+let innerPurple = Color(red: 151 / 255, green: 71 / 255, blue: 255 / 255)
+let innerGreen = Color(red: 161 / 255, green: 255 / 255, blue: 0 / 255)

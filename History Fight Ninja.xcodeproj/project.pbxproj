@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		A70164C22BEE217E00C0D98B /* MapsModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70164C12BEE217E00C0D98B /* MapsModelData.swift */; };
+		A707CE182C6F2E2E006621F5 /* SkillPopOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A707CE172C6F2E2E006621F5 /* SkillPopOver.swift */; };
 		A7167FD92C51008300E32935 /* ReturnButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7167FD82C51008300E32935 /* ReturnButton.swift */; };
 		A72470862BFC924800E771D8 /* CountryNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72470852BFC924800E771D8 /* CountryNameView.swift */; };
-		A73CE8F22C62450800CA5A2F /* ArmySkillTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73CE8F12C62450800CA5A2F /* ArmySkillTreeView.swift */; };
 		A7580F182C0898CA00B3F4B4 /* SideMapRightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7580F172C0898CA00B3F4B4 /* SideMapRightView.swift */; };
 		A75D26672C4C16E60040FC86 /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D26632C4C16E60040FC86 /* SkillView.swift */; };
-		A75D26682C4C16E60040FC86 /* EconomySkillTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D26642C4C16E60040FC86 /* EconomySkillTreeView.swift */; };
 		A75D26692C4C16E60040FC86 /* SkillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D26652C4C16E60040FC86 /* SkillModel.swift */; };
-		A75D266A2C4C16E60040FC86 /* SkillTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D26662C4C16E60040FC86 /* SkillTreeView.swift */; };
+		A75D266A2C4C16E60040FC86 /* SkillBranchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D26662C4C16E60040FC86 /* SkillBranchView.swift */; };
 		A75ECF8C2C35DB2D002DFDDC /* MiddleLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75ECF8B2C35DB2D002DFDDC /* MiddleLine.swift */; };
 		A767856C2C08EBFA0089E342 /* MiddleVsText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A767856B2C08EBFA0089E342 /* MiddleVsText.swift */; };
-		A7693C772C4E60B2007763C2 /* SkillPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7693C762C4E60B2007763C2 /* SkillPopoverView.swift */; };
+		A7693C772C4E60B2007763C2 /* SkillTreeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7693C762C4E60B2007763C2 /* SkillTreeScreenView.swift */; };
+		A78058E02C73A6280036C54B /* SkillConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78058DF2C73A6280036C54B /* SkillConnectionView.swift */; };
 		A78560792C47B20300AE3004 /* world-low.svg in Resources */ = {isa = PBXBuildFile; fileRef = A78560782C47B20300AE3004 /* world-low.svg */; };
 		A786CD6B2C455FF300EBAC6F /* DropDownPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A786CD6A2C455FF300EBAC6F /* DropDownPicker.swift */; };
 		A78F38CD2C34667200BF63EE /* TextAnimationScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78F38CC2C34667200BF63EE /* TextAnimationScore.swift */; };
@@ -32,6 +32,7 @@
 		A7A21FFB2BB5BE10005D062B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A21FFA2BB5BE10005D062B /* Preview Assets.xcassets */; };
 		A7ABD29F2C6231770083B96E /* Economic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ABD29E2C6231770083B96E /* Economic.swift */; };
 		A7ABD2A12C6231960083B96E /* Army.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ABD2A02C6231960083B96E /* Army.swift */; };
+		A7B3F0C82C6E60F00099A5BE /* SkillTreeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B3F0C72C6E60F00099A5BE /* SkillTreeManager.swift */; };
 		A7BEA8DA2C3EA752001452F7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BEA8D92C3EA752001452F7 /* Constants.swift */; };
 		A7BEA8DC2C3EE589001452F7 /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BEA8DB2C3EE589001452F7 /* PauseButton.swift */; };
 		A7BEB1632C2D7C95007AE6C9 /* ScoreBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BEB1622C2D7C95007AE6C9 /* ScoreBoardView.swift */; };
@@ -64,17 +65,17 @@
 
 /* Begin PBXFileReference section */
 		A70164C12BEE217E00C0D98B /* MapsModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsModelData.swift; sourceTree = "<group>"; };
+		A707CE172C6F2E2E006621F5 /* SkillPopOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPopOver.swift; sourceTree = "<group>"; };
 		A7167FD82C51008300E32935 /* ReturnButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnButton.swift; sourceTree = "<group>"; };
 		A72470852BFC924800E771D8 /* CountryNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryNameView.swift; sourceTree = "<group>"; };
-		A73CE8F12C62450800CA5A2F /* ArmySkillTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmySkillTreeView.swift; sourceTree = "<group>"; };
 		A7580F172C0898CA00B3F4B4 /* SideMapRightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMapRightView.swift; sourceTree = "<group>"; };
 		A75D26632C4C16E60040FC86 /* SkillView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
-		A75D26642C4C16E60040FC86 /* EconomySkillTreeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EconomySkillTreeView.swift; sourceTree = "<group>"; };
 		A75D26652C4C16E60040FC86 /* SkillModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillModel.swift; sourceTree = "<group>"; };
-		A75D26662C4C16E60040FC86 /* SkillTreeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillTreeView.swift; sourceTree = "<group>"; };
+		A75D26662C4C16E60040FC86 /* SkillBranchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillBranchView.swift; sourceTree = "<group>"; };
 		A75ECF8B2C35DB2D002DFDDC /* MiddleLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleLine.swift; sourceTree = "<group>"; };
 		A767856B2C08EBFA0089E342 /* MiddleVsText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleVsText.swift; sourceTree = "<group>"; };
-		A7693C762C4E60B2007763C2 /* SkillPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPopoverView.swift; sourceTree = "<group>"; };
+		A7693C762C4E60B2007763C2 /* SkillTreeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTreeScreenView.swift; sourceTree = "<group>"; };
+		A78058DF2C73A6280036C54B /* SkillConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillConnectionView.swift; sourceTree = "<group>"; };
 		A78560782C47B20300AE3004 /* world-low.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "world-low.svg"; sourceTree = "<group>"; };
 		A786CD6A2C455FF300EBAC6F /* DropDownPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownPicker.swift; sourceTree = "<group>"; };
 		A78F38CC2C34667200BF63EE /* TextAnimationScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimationScore.swift; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 		A7A21FFA2BB5BE10005D062B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A7ABD29E2C6231770083B96E /* Economic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Economic.swift; sourceTree = "<group>"; };
 		A7ABD2A02C6231960083B96E /* Army.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Army.swift; sourceTree = "<group>"; };
+		A7B3F0C72C6E60F00099A5BE /* SkillTreeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTreeManager.swift; sourceTree = "<group>"; };
 		A7BEA8D92C3EA752001452F7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A7BEA8DB2C3EE589001452F7 /* PauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
 		A7BEB1622C2D7C95007AE6C9 /* ScoreBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardView.swift; sourceTree = "<group>"; };
@@ -141,13 +143,14 @@
 		A75D26622C4C16080040FC86 /* SkillsTree */ = {
 			isa = PBXGroup;
 			children = (
-				A75D26632C4C16E60040FC86 /* SkillView.swift */,
 				A75D26652C4C16E60040FC86 /* SkillModel.swift */,
-				A75D26642C4C16E60040FC86 /* EconomySkillTreeView.swift */,
-				A75D26662C4C16E60040FC86 /* SkillTreeView.swift */,
-				A7693C762C4E60B2007763C2 /* SkillPopoverView.swift */,
+				A7B3F0C72C6E60F00099A5BE /* SkillTreeManager.swift */,
+				A75D26662C4C16E60040FC86 /* SkillBranchView.swift */,
+				A75D26632C4C16E60040FC86 /* SkillView.swift */,
+				A7693C762C4E60B2007763C2 /* SkillTreeScreenView.swift */,
 				A7167FD82C51008300E32935 /* ReturnButton.swift */,
-				A73CE8F12C62450800CA5A2F /* ArmySkillTreeView.swift */,
+				A707CE172C6F2E2E006621F5 /* SkillPopOver.swift */,
+				A78058DF2C73A6280036C54B /* SkillConnectionView.swift */,
 			);
 			path = SkillsTree;
 			sourceTree = "<group>";
@@ -430,28 +433,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				A79A579B2BED315200ED3A67 /* SideMapView.swift in Sources */,
-				A7693C772C4E60B2007763C2 /* SkillPopoverView.swift in Sources */,
+				A7693C772C4E60B2007763C2 /* SkillTreeScreenView.swift in Sources */,
 				A75D26692C4C16E60040FC86 /* SkillModel.swift in Sources */,
 				A79ACB012BF76DC200769EB7 /* FightButton.swift in Sources */,
 				A7167FD92C51008300E32935 /* ReturnButton.swift in Sources */,
+				A78058E02C73A6280036C54B /* SkillConnectionView.swift in Sources */,
 				A7BEB1632C2D7C95007AE6C9 /* ScoreBoardView.swift in Sources */,
 				A7ABD2A12C6231960083B96E /* Army.swift in Sources */,
 				A7BEA8DC2C3EE589001452F7 /* PauseButton.swift in Sources */,
 				A7E2C9CF2BEAA2760040B8E5 /* MapUtils.swift in Sources */,
 				A7E2C9A92BEA97CC0040B8E5 /* ContentView.swift in Sources */,
-				A75D266A2C4C16E60040FC86 /* SkillTreeView.swift in Sources */,
+				A75D266A2C4C16E60040FC86 /* SkillBranchView.swift in Sources */,
 				A78F38CD2C34667200BF63EE /* TextAnimationScore.swift in Sources */,
 				A7CFDACD2BF92ABF00937CE0 /* AttacButton.swift in Sources */,
 				A7A21FF42BB5BE0E005D062B /* History_Fight_NinjaApp.swift in Sources */,
 				A7E2C9CE2BEAA2760040B8E5 /* MapRenderer.swift in Sources */,
-				A73CE8F22C62450800CA5A2F /* ArmySkillTreeView.swift in Sources */,
 				A75D26672C4C16E60040FC86 /* SkillView.swift in Sources */,
 				A79C62362C3569C000C64772 /* CustomBackground.swift in Sources */,
 				A79A579D2BED39CF00ED3A67 /* PlayerDataModel.swift in Sources */,
 				A767856C2C08EBFA0089E342 /* MiddleVsText.swift in Sources */,
 				A72470862BFC924800E771D8 /* CountryNameView.swift in Sources */,
 				A79A57992BED2F2400ED3A67 /* StartScene.swift in Sources */,
-				A75D26682C4C16E60040FC86 /* EconomySkillTreeView.swift in Sources */,
 				A7E2C9A12BEA97BA0040B8E5 /* CountryModel.swift in Sources */,
 				A75ECF8C2C35DB2D002DFDDC /* MiddleLine.swift in Sources */,
 				A7FEF9E52C0F042000602D30 /* GameOverTimer.swift in Sources */,
@@ -461,8 +463,10 @@
 				A786CD6B2C455FF300EBAC6F /* DropDownPicker.swift in Sources */,
 				A7CFDACB2BF92A8500937CE0 /* FieldForButton.swift in Sources */,
 				A7BEA8DA2C3EA752001452F7 /* Constants.swift in Sources */,
+				A7B3F0C82C6E60F00099A5BE /* SkillTreeManager.swift in Sources */,
 				A70164C22BEE217E00C0D98B /* MapsModelData.swift in Sources */,
 				A7E2C9AD2BEA97CC0040B8E5 /* Streak.swift in Sources */,
+				A707CE182C6F2E2E006621F5 /* SkillPopOver.swift in Sources */,
 				A7E2C9D12BEAA29C0040B8E5 /* WorldMapView.swift in Sources */,
 				A7E2C9CD2BEAA2760040B8E5 /* MapParser.swift in Sources */,
 				A7C42FBB2C382525008E0CE6 /* MenuButtonView.swift in Sources */,
