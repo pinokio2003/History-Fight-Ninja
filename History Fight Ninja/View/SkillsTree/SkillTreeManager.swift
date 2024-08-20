@@ -32,6 +32,7 @@ class SkillTreeManager: ObservableObject {
         if let encoded = try? JSONEncoder().encode(economySkills) {
             UserDefaults.standard.set(encoded, forKey: economySkillsKey)
         }
+        print("Сохранено")
     }
     
     func loadSkills() {
@@ -39,43 +40,24 @@ class SkillTreeManager: ObservableObject {
         if let savedData = UserDefaults.standard.data(forKey: economySkillsKey),
            let decodedSkills = try? JSONDecoder().decode([Skill].self, from: savedData) {
             economySkills = decodedSkills
+            print("Загружено")
         } else {
-            economySkills = defaultEconomySkills() // Загружаем начальные данные, если ничего не сохранено
+            economySkills = defaultEconomySkills(manager: self) // Загружаем начальные данные, если ничего не сохранено
+            print("Ничего не загружено")
         }
         
         updateUnlockedSkills()
     }
     
     func resetSkills() {
-        economySkills = defaultEconomySkills()
+        economySkills = defaultEconomySkills(manager: self)
         saveSkills()
         resources = 100 // Сбрасываем количество ресурсов (если нужно)
         updateUnlockedSkills()
     }
     
-    private func defaultEconomySkills() -> [Skill] {
-        let economySkill1 = UUID()
-        let economySkill2 = UUID()
-        let economySkill3 = UUID()
-        let economySkill4 = UUID()
-        let economySkill5 = UUID()
-        let economySkill6 = UUID()
-        let economySkill7 = UUID()
-        let economySkill8 = UUID()
-        
-        return [
-            Skill(id: economySkill1, name: "Экономика 1", description: "add something", branch: .economy, isUnlocked: true, isPurchased: false, imageName: "EconomcBasicsAutomation", action: { self.increaseIncome() }, dependencies: [], position: CGPoint(x: 0.45, y: 0.01)),
-            Skill(id: economySkill2, name: "Экономика 2", description: "add something", branch: .economy, isUnlocked: false, isPurchased: false, imageName: "ManufacturingBasics", action: { self.increaseIncome() }, dependencies: [economySkill1], position: CGPoint(x: 0.1, y: 0.1)),
-            Skill(id: economySkill3, name: "Экономика 3", description: "add something", branch: .economy, isUnlocked: true, isPurchased: false, imageName: "EconomcBasicsAutomation", action: { self.increaseIncome() }, dependencies: [economySkill1], position: CGPoint(x: 0.45, y: 0.1)),
-            Skill(id: economySkill4, name: "Экономика 4", description: "add something", branch: .economy, isUnlocked: false, isPurchased: false, imageName: "ModernTechnologies", action: { self.increaseIncome() }, dependencies: [economySkill1], position: CGPoint(x: 0.7, y: 0.1)),
-            Skill(id: economySkill5, name: "Экономика 5", description: "add something", branch: .economy, isUnlocked: true, isPurchased: false, imageName: "SavingResources", action: { self.increaseIncome() }, dependencies: [economySkill4], position: CGPoint(x: 0.55, y: 0.2)),
-            Skill(id: economySkill6, name: "Экономика 6", description: "add something", branch: .economy, isUnlocked: false, isPurchased: false, imageName: "Innovation", action: { self.increaseIncome() }, dependencies: [economySkill4], position: CGPoint(x: 0.7, y: 0.2)),
-            Skill(id: economySkill7, name: "Экономика 7", description: "add something", branch: .economy, isUnlocked: true, isPurchased: false, imageName: "Robotization", action: { self.increaseIncome() }, dependencies: [economySkill4], position: CGPoint(x: 0.85, y: 0.2)),
-            Skill(id: economySkill8, name: "Экономика 8", description: "add something", branch: .economy, isUnlocked: false, isPurchased: false, imageName: "Internationalization", action: { self.increaseIncome() }, dependencies: [economySkill7, economySkill5], position: CGPoint(x: 0.7, y: 0.4)),
-        ]
-    }
-    
-    private func increaseIncome() {
+
+    func increaseIncome() {
         print("Доход увеличен")
         // Логика увеличения дохода
     }
