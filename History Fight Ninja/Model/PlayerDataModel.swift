@@ -55,6 +55,7 @@ class HeroData: ObservableObject {
     
     func clearUserDefaults() {
         skillManager.resetSkills()
+        playerExperience = 600
         UserDefaults.standard.removeObject(forKey: "playerCountry")
         UserDefaults.standard.removeObject(forKey: "playerExperience")
         UserDefaults.standard.removeObject(forKey: "SavedCountriesData")

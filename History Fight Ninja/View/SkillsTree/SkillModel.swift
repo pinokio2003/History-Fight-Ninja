@@ -12,22 +12,24 @@ struct Skill: Identifiable, Codable {
     let name: String
     let description: String
     let branch: SkillBranch
+    let cost: Int // Новая переменная для цены умения
     var isUnlocked: Bool
     var isPurchased: Bool
     let imageName: String
-    let action: () -> Void // Замыкание нельзя закодировать напрямую
+    let action: () -> Void
     let dependencies: [UUID]
     let position: CGPoint
     
     enum CodingKeys: String, CodingKey {
-        case id, name, description, branch, isUnlocked, isPurchased, imageName, dependencies, positionX, positionY
+        case id, name, description, branch, cost, isUnlocked, isPurchased, imageName, dependencies, positionX, positionY
     }
     
-    init(id: UUID, name: String, description: String, branch: SkillBranch, isUnlocked: Bool, isPurchased: Bool, imageName: String, action: @escaping () -> Void, dependencies: [UUID], position: CGPoint) {
+    init(id: UUID, name: String, description: String, branch: SkillBranch, cost: Int, isUnlocked: Bool, isPurchased: Bool, imageName: String, action: @escaping () -> Void, dependencies: [UUID], position: CGPoint) {
         self.id = id
         self.name = name
         self.description = description
         self.branch = branch
+        self.cost = cost
         self.isUnlocked = isUnlocked
         self.isPurchased = isPurchased
         self.imageName = imageName
@@ -42,6 +44,7 @@ struct Skill: Identifiable, Codable {
         name = try container.decode(String.self, forKey: .name)
         description = try container.decode(String.self, forKey: .description)
         branch = try container.decode(SkillBranch.self, forKey: .branch)
+        cost = try container.decode(Int.self, forKey: .cost) // Добавлено декодирование переменной cost
         isUnlocked = try container.decode(Bool.self, forKey: .isUnlocked)
         isPurchased = try container.decode(Bool.self, forKey: .isPurchased)
         imageName = try container.decode(String.self, forKey: .imageName)
@@ -50,7 +53,7 @@ struct Skill: Identifiable, Codable {
         let y = try container.decode(CGFloat.self, forKey: .positionY)
         position = CGPoint(x: x, y: y)
         
-        action = {} // Замыкание по умолчанию (его не сохраняем)
+        action = {}
     }
     
     func encode(to encoder: Encoder) throws {
@@ -59,6 +62,7 @@ struct Skill: Identifiable, Codable {
         try container.encode(name, forKey: .name)
         try container.encode(description, forKey: .description)
         try container.encode(branch, forKey: .branch)
+        try container.encode(cost, forKey: .cost) // Добавлено кодирование переменной cost
         try container.encode(isUnlocked, forKey: .isUnlocked)
         try container.encode(isPurchased, forKey: .isPurchased)
         try container.encode(imageName, forKey: .imageName)
@@ -67,6 +71,7 @@ struct Skill: Identifiable, Codable {
         try container.encode(position.y, forKey: .positionY)
     }
 }
+
 
 enum SkillBranch: String, Codable {
     case economy

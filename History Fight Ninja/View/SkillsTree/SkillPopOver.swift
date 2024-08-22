@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SkillPopover: View {
     @EnvironmentObject var skillTreeManager: SkillTreeManager
+    @StateObject var heroData = HeroData.shared
+    
     let skill: Skill
     @Binding var isPresented: Bool
     @State private var isImageLoaded = false
@@ -43,13 +45,14 @@ struct SkillPopover: View {
                 
                 Spacer()
                 
-                if !skill.isPurchased {
+                if !skill.isPurchased && heroData.playerExperience >= skill.cost {
                     Button(action: {
                         skillTreeManager.purchaseSkill(skill.id, branch: skill.branch)
                         skillTreeManager.saveSkills()
                         isPresented = false
+                        heroData.playerExperience = heroData.playerExperience - skill.cost
                     }) {
-                        Text("Купить за 10 ресурсов")
+                        Text("Buy: \(skill.cost)")
                             .foregroundColor(.white)
                             .padding()
                             .frame(maxWidth: .infinity)
@@ -59,7 +62,7 @@ struct SkillPopover: View {
                     .disabled(!skill.isUnlocked)
                     .padding(.horizontal)
                 } else {
-                    Text("Умение уже приобретено")
+                    Text(heroData.playerExperience <= skill.cost ? "Need \(skill.cost)" : "Умение уже приобретено")
                         .foregroundColor(.green)
                         .padding()
                         .frame(maxWidth: .infinity)
