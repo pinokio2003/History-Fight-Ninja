@@ -5,9 +5,6 @@
 //  Created by Anatolii Kravchuk on 15.08.2024.
 //
 
-import Foundation
-import SwiftUI
-
 import SwiftUI
 
 class SkillTreeManager: ObservableObject {
@@ -18,10 +15,15 @@ class SkillTreeManager: ObservableObject {
             saveSkills()
         }
     }
-    @Published var armySkills: [Skill] = []
+    @Published var armySkills: [Skill] = [] {
+        didSet {
+            saveSkills()
+        }
+    }
     @Published var resources: Int = 100
     
     private let economySkillsKey = "economySkills"
+    private let armySkillsKey = "armySkills"
     
     init() {
         loadSkills()
@@ -29,28 +31,39 @@ class SkillTreeManager: ObservableObject {
     
     func saveSkills() {
         // Сохраняем массив `economySkills` в `UserDefaults`
-        if let encoded = try? JSONEncoder().encode(economySkills) {
-            UserDefaults.standard.set(encoded, forKey: economySkillsKey)
+        if let encodedEconomy = try? JSONEncoder().encode(economySkills),
+           let encodedArmy = try? JSONEncoder().encode(armySkills) {
+            UserDefaults.standard.set(encodedEconomy, forKey: economySkillsKey)
+            UserDefaults.standard.set(encodedArmy, forKey: armySkillsKey)
         }
-        print("Сохранено")
+        // Сохраняем массив `armySkills` в `UserDefaults`
+        print("Скиллы сохранены")
     }
-    
+     
     func loadSkills() {
         // Загружаем массив `economySkills` из `UserDefaults`
-        if let savedData = UserDefaults.standard.data(forKey: economySkillsKey),
-           let decodedSkills = try? JSONDecoder().decode([Skill].self, from: savedData) {
-            economySkills = decodedSkills
-            print("Загружено")
-        } else {
-            economySkills = defaultEconomySkills(manager: self) // Загружаем начальные данные, если ничего не сохранено
-            print("Ничего не загружено")
-        }
+        if let savedEconomyData = UserDefaults.standard.data(forKey: economySkillsKey),
+           let decodedEconomySkills = try? JSONDecoder().decode([Skill].self, from: savedEconomyData),
+           let savedArmyData = UserDefaults.standard.data(forKey: armySkillsKey),
+           let decodedArmySkills = try? JSONDecoder().decode([Skill].self, from: savedArmyData)
         
+        {
+            economySkills = decodedEconomySkills
+            armySkills = decodedArmySkills
+            print("Экономические скиллы загружены")
+            print("Армейские скиллы загружены")
+        } else {
+            economySkills = defaultEconomySkills(manager: self)
+            armySkills = defaultArmySkills(manager: self)
+            print("Армейские скиллы по умолчанию загружены")
+            print("Экономические скиллы по умолчанию загружены")
+        }
         updateUnlockedSkills()
     }
     
     func resetSkills() {
         economySkills = defaultEconomySkills(manager: self)
+        armySkills = defaultArmySkills(manager: self)
         saveSkills()
         resources = 100 // Сбрасываем количество ресурсов (если нужно)
         updateUnlockedSkills()
@@ -62,7 +75,7 @@ class SkillTreeManager: ObservableObject {
         // Логика увеличения дохода
     }
     
-    private func increaseArmyStrength() {
+    func increaseArmyStrength() {
         print("added strength")
     }
     
