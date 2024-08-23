@@ -18,6 +18,7 @@ import SwiftUI
         let flanking = UUID()
         let artillery = UUID()
         let navalForces = UUID()
+        
         let airForces = UUID()
         
         let supply = UUID()
@@ -30,7 +31,9 @@ import SwiftUI
         let modernShelters = UUID()
         let drones = UUID()
         
-        let spaceForces = UUID() //TODO: add image and description
+        let spaceForces = UUID()
+        
+        let wrathOfGod = UUID()
         
         return [
             Skill(id: military,
@@ -140,7 +143,7 @@ import SwiftUI
                   cost: 111,
                   isUnlocked: false,
                   isPurchased: false,
-                  imageName: "Trading",// TODO: image
+                  imageName: "ArmySupply",
                   action: { manager.increaseIncome() },
                   dependencies: [military],
                   position: CGPoint(x: 0.75, y: 0.1)),
@@ -226,6 +229,18 @@ import SwiftUI
                   action: { manager.increaseIncome() },
                   dependencies: [drones],
                   position: CGPoint(x: 0.73, y: 0.37)),
+            
+            Skill(id: wrathOfGod,
+                  name: "Wrath Of God",
+                  description: "Give WoG to in battle",
+                  branch: .army,
+                  cost: 111,
+                  isUnlocked: true,
+                  isPurchased: false,
+                  imageName: "WrathOfGod",
+                  action: { manager.increaseIncome() },
+                  dependencies: [airForces, spaceForces],
+                  position: CGPoint(x: 0.55, y: 0.45))
         ]
     }
 

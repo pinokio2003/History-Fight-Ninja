@@ -28,6 +28,8 @@ import SwiftUI
         let expansion = UUID()
         let exhibition = UUID() //TODO: add image and description
         
+        let globalAlliances = UUID()
+        
         return [
             Skill(id: economic,
                   name: "Economic",
@@ -221,10 +223,22 @@ import SwiftUI
                   cost: 111,
                   isUnlocked: true,
                   isPurchased: false,
-                  imageName: "TradeMissions",
+                  imageName: "Exhibition",
                   action: { manager.increaseIncome() },
                   dependencies: [expansion],
                   position: CGPoint(x: 0.73, y: 0.37)),
+            
+            Skill(id: globalAlliances,
+                  name: "Global Alliances",
+                  description: "Give WoG to in battle",
+                  branch: .economy,
+                  cost: 111,
+                  isUnlocked: true,
+                  isPurchased: false,
+                  imageName: "GlobalStrategicAlliances",
+                  action: { manager.increaseIncome() },
+                  dependencies: [internationalization, exhibition],
+                  position: CGPoint(x: 0.55, y: 0.45))
         ]
     }
 
