@@ -234,7 +234,7 @@ import SwiftUI
                   name: "Wrath Of God",
                   description: "Give WoG to in battle",
                   branch: .army,
-                  cost: 111,
+                  cost: 1000,
                   isUnlocked: true,
                   isPurchased: false,
                   imageName: "WrathOfGod",

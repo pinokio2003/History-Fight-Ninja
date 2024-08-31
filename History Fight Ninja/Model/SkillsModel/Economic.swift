@@ -8,17 +8,17 @@
 import SwiftUI
 
     func defaultEconomySkills(manager: SkillTreeManager) -> [Skill] {
-        let economic = UUID()
+        let economic = UUID()                // 50
         
-        let manufacturing = UUID()
-        let automation = UUID()
-        let modernTech = UUID()
-        let massProduction = UUID()
-        let savingResources = UUID()
-        let innovation = UUID()
-        let robotization = UUID()
-        let internationalization = UUID()
-        
+        let manufacturing = UUID()          //100
+        let automation = UUID()             //250
+        let modernTech = UUID()             //250
+        let massProduction = UUID()         //250
+        let savingResources = UUID()        //350
+        let innovation = UUID()             //350
+        let robotization = UUID()           //450
+        let internationalization = UUID()   //500
+                                            //Total: 2500
         let trading = UUID()
         let tradeAgreements = UUID()
         let logistics = UUID()
@@ -28,14 +28,14 @@ import SwiftUI
         let expansion = UUID()
         let exhibition = UUID() //TODO: add image and description
         
-        let globalAlliances = UUID()
+        let globalAlliances = UUID()        //1000
         
         return [
             Skill(id: economic,
                   name: "Economic",
                   description: "Income + 5",
                   branch: .economy,
-                  cost: 111,
+                  cost: 50,
                   isUnlocked: true,
                   isPurchased: false,
                   imageName: "Economic",
@@ -47,7 +47,7 @@ import SwiftUI
                   name: "Manufacturing",
                   description: "Income +1 for all economic skills",
                   branch: .economy,
-                  cost: 111,
+                  cost: 100,
                   isUnlocked: false,
                   isPurchased: false,
                   imageName: "ManufacturingBasics",
@@ -58,7 +58,7 @@ import SwiftUI
                   name: "Automation",
                   description: "Reduces costs -5%",
                   branch: .economy,
-                  cost: 111,
+                  cost: 250,
                   isUnlocked: true,
                   isPurchased: false,
                   imageName: "EconomcBasicsAutomation",
@@ -69,7 +69,7 @@ import SwiftUI
                   name: "Modern Tech",
                   description: "Income +2",
                   branch: .economy,
-                  cost: 111,
+                  cost: 250,
                   isUnlocked: false,
                   isPurchased: false,
                   imageName: "ModernTechnologies",
@@ -80,7 +80,7 @@ import SwiftUI
                   name: "Mass Production",
                   description: "Reduces costs -10%",
                   branch: .economy,
-                  cost: 111,
+                  cost: 250,
                   isUnlocked: true,
                   isPurchased: false,
                   imageName: "MassProduction",
@@ -91,7 +91,7 @@ import SwiftUI
                   name: "Saving Resources",
                   description: "Income + 5",
                   branch: .economy,
-                  cost: 111,
+                  cost: 350,
                   isUnlocked: false,
                   isPurchased: false,
                   imageName: "SavingResources",
@@ -102,7 +102,7 @@ import SwiftUI
                   name: "Innovation",
                   description: "Income +5",
                   branch: .economy,
-                  cost: 111,
+                  cost: 350,
                   isUnlocked: true,
                   isPurchased: false,
                   imageName: "Innovation",
@@ -113,7 +113,7 @@ import SwiftUI
                   name: "Robotization",
                   description: "Reduces costs -10%",
                   branch: .economy,
-                  cost: 111,
+                  cost: 450,
                   isUnlocked: false,
                   isPurchased: false,
                   imageName: "Robotization",
@@ -124,7 +124,7 @@ import SwiftUI
                   name: "Internationalization",
                   description: "Income +10",
                   branch: .economy,
-                  cost: 111,
+                  cost: 500,
                   isUnlocked: false,
                   isPurchased: false,
                   imageName: "Internationalization",
@@ -136,7 +136,7 @@ import SwiftUI
                   name: "Trading",
                   description: "Сolonies income + 2",
                   branch: .economy,
-                  cost: 111,
+                  cost: 100,
                   isUnlocked: false,
                   isPurchased: false,
                   imageName: "Trading",
@@ -148,7 +148,7 @@ import SwiftUI
                   name: "Trade agreements",
                   description: "Сolonies income +1",
                   branch: .economy,
-                  cost: 111,
+                  cost: 250,
                   isUnlocked: true,
                   isPurchased: false,
                   imageName: "TradeAgreements",
@@ -160,7 +160,7 @@ import SwiftUI
                   name: "Logistics",
                   description: "Сolonies income + 2",
                   branch: .economy,
-                  cost: 111,
+                  cost: 250,
                   isUnlocked: false,
                   isPurchased: false,
                   imageName: "logistics",
@@ -172,7 +172,7 @@ import SwiftUI
                   name: "Trade missions",
                   description: "Income + 5",
                   branch: .economy,
-                  cost: 111,
+                  cost: 250,
                   isUnlocked: true,
                   isPurchased: false,
                   imageName: "TradeMissions",
@@ -184,7 +184,7 @@ import SwiftUI
                   name: "Free Trade Zones",
                   description: "Сolonies income + 2",
                   branch: .economy,
-                  cost: 111,
+                  cost: 350,
                   isUnlocked: true,
                   isPurchased: false,
                   imageName: "FreeTradeZones",
@@ -196,7 +196,7 @@ import SwiftUI
                   name: "Tourism development",
                   description: "Сolonies income + 3",
                   branch: .economy,
-                  cost: 111,
+                  cost: 350,
                   isUnlocked: false,
                   isPurchased: false,
                   imageName: "TourismDevelopment",
@@ -208,7 +208,7 @@ import SwiftUI
                   name: "Expansion",
                   description: "Income + 5",
                   branch: .economy,
-                  cost: 111,
+                  cost: 450,
                   isUnlocked: true,
                   isPurchased: false,
                   imageName: "GlobalExpansion",
@@ -220,7 +220,7 @@ import SwiftUI
                   name: "Trade missions",
                   description: "Income + 10",
                   branch: .economy,
-                  cost: 111,
+                  cost: 500,
                   isUnlocked: true,
                   isPurchased: false,
                   imageName: "Exhibition",
@@ -232,7 +232,7 @@ import SwiftUI
                   name: "Global Alliances",
                   description: "Give WoG to in battle",
                   branch: .economy,
-                  cost: 111,
+                  cost: 1000,
                   isUnlocked: true,
                   isPurchased: false,
                   imageName: "GlobalStrategicAlliances",

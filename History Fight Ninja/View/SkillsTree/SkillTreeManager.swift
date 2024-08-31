@@ -21,6 +21,7 @@ class SkillTreeManager: ObservableObject {
         }
     }
     @Published var resources: Int = 100
+    @Published var priceCoefficient: Int = 0
     
     private let economySkillsKey = "economySkills"
     private let armySkillsKey = "armySkills"
@@ -69,14 +70,18 @@ class SkillTreeManager: ObservableObject {
         updateUnlockedSkills()
     }
     
-
+//MARK: - skill actions:
     func increaseIncome() {
         print("Доход увеличен")
         // Логика увеличения дохода
     }
     
-    func increaseArmyStrength() {
+    func increaseEconomyStrength() {
         print("added strength")
+    }
+    
+    func increasePriceCoefficient(value: Int) {
+        priceCoefficient += value
     }
     
     func purchaseSkill(_ skillId: UUID, branch: SkillBranch) {
