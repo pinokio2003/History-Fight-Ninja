@@ -64,8 +64,16 @@ struct ContentView: View {
                         .position(x: geometry.size.width - 40, y: geometry.size.height * 0.1)
                 }
                 //Player Experience
-                Text("Player Experience: \(heroData.playerExperience)")
-                    .foregroundColor(Color.red)
+                HStack {
+                    Text("Player Experience: \(heroData.playerExperience)")
+                        .foregroundColor(Color.red)
+                    
+                    Text("Enery: \(heroData.playerEnergyMax)")
+                        .foregroundColor(Color.red)
+                    
+                    Text("Income: \(heroData.playerIncome)")
+                        .foregroundColor(Color.green)
+                }
                     .position(x: geometry.size.width * 0.01 + 140, y: geometry.size.height * 0.1)
                     .padding(.leading)
             }

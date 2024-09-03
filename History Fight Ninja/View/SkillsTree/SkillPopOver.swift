@@ -48,7 +48,8 @@ struct SkillPopover: View {
                 if !skill.isPurchased && heroData.playerExperience >= skill.cost {
                     Button(action: {
                         skillTreeManager.purchaseSkill(skill.id, branch: skill.branch)
-                        skillTreeManager.saveSkills()
+//                        skillTreeManager.saveSkills()
+//                        skillTreeManager.savePriceCoefficient()
                         isPresented = false
                         heroData.playerExperience = heroData.playerExperience - skill.cost
                     }) {
