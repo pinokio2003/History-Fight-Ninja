@@ -29,8 +29,6 @@ struct SkillView: View {
                 .frame(width: 120, height: 120)
     
             VStack {
-                
-                
                 Image(skill.imageName)
                     .resizable()
                     .scaledToFit()
@@ -52,9 +50,15 @@ struct SkillView: View {
             .background(backgroundColor)
             .cornerRadius(40)
             .opacity(skill.isUnlocked ? 1.0 : 0.5)
-            .popover(isPresented: $showPopover) {
+            .sheet(isPresented: $showPopover) {
                 SkillPopover(skill: skill, isPresented: $showPopover)
             }
+//            .popover(isPresented: $showPopover) {
+//                SkillPopover(skill: skill, isPresented: $showPopover)
+//                    .frame(width: 290, height: 390) // Adjust the size as needed
+//                    
+////                    .padding()
+//            }
         }
     }
     

@@ -6,9 +6,9 @@
 //
 //
 import SwiftUI
+
 struct SkillTreeScreen: View {
     @StateObject private var skillTreeManager = SkillTreeManager()
-    
     
     var body: some View {
         ZStack {
@@ -17,13 +17,11 @@ struct SkillTreeScreen: View {
                     .tabItem {
                         Label("Экономика", systemImage: "dollarsign.circle")
                     }
-                
                 SkillBranchView(branch: .army, backgroundImageName: "armyBackground")  // Пример с 4 умениями в ряду
                     .tabItem {
                         Label("Армия", systemImage: "shield")
                     }
             }
-            
             HStack {
                 Spacer()
                 VStack {

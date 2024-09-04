@@ -56,7 +56,7 @@ struct SkillPopover: View {
                         Text("Buy: \(skill.cost)")
                             .foregroundColor(.white)
                             .padding()
-                            .frame(maxWidth: .infinity)
+//                            .frame(maxWidth: .infinity)
                             .background(skill.isUnlocked ? Color.blue : Color.gray)
                             .cornerRadius(10)
                     }
@@ -66,13 +66,15 @@ struct SkillPopover: View {
                     Text(heroData.playerExperience <= skill.cost ? "Need \(skill.cost)" : "Умение уже приобретено")
                         .foregroundColor(.green)
                         .padding()
-                        .frame(maxWidth: .infinity)
+//                        .frame(maxWidth: .infinity)
                         .background(Color.green.opacity(0.2))
                         .cornerRadius(10)
+//                        .frame(width: geometry.size.width / 8)
                 }
             }
             .padding()
-            .frame(width: min(geometry.size.width * 0.9, 300))
+            .frame(width: geometry.size.width * 0.9, height: geometry.size.height)
+//            .frame(width: min(geometry.size.width * 0.9, 300), height: min(geometry.size.height * 1, 500))
             .background(Color(UIColor.systemBackground))
             .cornerRadius(20)
             .shadow(radius: 10)

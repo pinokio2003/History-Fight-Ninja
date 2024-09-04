@@ -132,7 +132,12 @@ class SkillTreeManager: ObservableObject {
         case "increaseEnergy1":
             increaseMaxEnergy(1)
         case "increaseEnergy3":
-                increaseMaxEnergy(3)
+            increaseMaxEnergy(3)
+        //add prize % to victory
+            case "prizeVictory2":
+                increasePrizeVictory(2)
+            case "prizeVictory3":
+                increasePrizeVictory(3)
         default:
             print("Unknown action: \(actionKey)")
         }
@@ -169,6 +174,11 @@ class SkillTreeManager: ObservableObject {
     func increaseMaxEnergy(_ energy: Int) {
         HeroData.shared.playerEnergyMax += energy
         print("added max energy + \(energy), now max energy = \(HeroData.shared.playerEnergyMax)")
+    }
+    
+    func increasePrizeVictory(_ prize: Int) {
+        HeroData.shared.prizeVictory += prize
+        print("added prize victory + \(prize), now prize victory = \(HeroData.shared.prizeVictory)")
     }
     
 //MARK: Other functions

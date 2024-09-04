@@ -61,7 +61,7 @@ struct ContentView: View {
                 // MenuButton
                     MenuButtonView()
                         .frame(width: 60, height: 60)
-                        .position(x: geometry.size.width - 40, y: geometry.size.height * 0.1)
+                        .position(x: geometry.size.width - 50, y: geometry.size.height * 0.1)
                 }
                 //Player Experience
                 HStack {

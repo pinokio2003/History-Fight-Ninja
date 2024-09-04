@@ -34,6 +34,12 @@ class HeroData: ObservableObject {
             UserDefaults.standard.set(playerExperience, forKey: "playerExperience")
         }
     }
+ // % to prize after win battle
+    @Published var prizeVictory: Int = UserDefaults.standard.integer(forKey: "prizeVictory") {
+        didSet {
+            UserDefaults.standard.set(prizeVictory, forKey: "prizeVictory")
+        }
+    }
     
     @Published var playerIncome: Int = {
         let key = "playerIncome"

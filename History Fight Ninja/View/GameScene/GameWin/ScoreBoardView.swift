@@ -13,15 +13,19 @@ struct ScoreBoardView: View {
     @State var isShowingWinText: Bool = false
     @State var isShowingScoreText: Bool = false
     @State var isShowingTimeText: Bool = false
+    @State var isShowingIncomeText: Bool = false
     @State var isShowingTotalScoreText: Bool = false
     
     
     var body: some View {
         let time = String(heroData.gameTime)
         let score = String(heroData.playerScore)
-        let totalScore = heroData.playerScore + heroData.gameTime
+        let income = String(heroData.playerIncome)
+        let totalScore = heroData.playerScore + heroData.gameTime + heroData.playerIncome
+        let prizeScore = String(totalScore * heroData.prizeVictory / 100)
         
         ZStack {
+           
             CustomBackground()
                 .background(.quaternary)
             
@@ -38,7 +42,7 @@ struct ScoreBoardView: View {
                 //Score
                 if isShowingScoreText {
                     HStack {
-                        Spacer()
+                        //                        Spacer()
                         Text("Score board: ")
                             .font(.custom("MarkerFelt-Thin", size: 30))
                             .fontWeight(.bold)
@@ -52,14 +56,16 @@ struct ScoreBoardView: View {
                         .foregroundColor(.black)
                         .shadow(color: .white.opacity(0.3), radius: 2, x: 1, y: 1)
                         .transition(.scale)
-                        Spacer()
+                        //                        Spacer()
+                        
+                        
                     }
                     .padding(.trailing)
                 }
                 //Time
                 if isShowingTimeText {
                     HStack(alignment: .bottom) {
-                        Spacer()
+                        //                        Spacer()
                         Text("Time board: ")
                             .font(.custom("MarkerFelt-Thin", size: 30))
                             .fontWeight(.bold)
@@ -72,18 +78,37 @@ struct ScoreBoardView: View {
                         .font(.system(.largeTitle, design: .monospaced))
                         .foregroundColor(.white)
                         .shadow(color: .black.opacity(0.3), radius: 2, x: 1, y: 1)
-                        Spacer()
+                        //                        Spacer()
+                    }
+                    .padding(.trailing)
+                }
+                
+                if isShowingIncomeText {
+                    HStack(alignment: .bottom) {
+                        //                        Spacer()
+                        Text("Income: ")
+                            .font(.custom("MarkerFelt-Thin", size: 30))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .shadow(color: .black.opacity(0.3), radius: 2, x: 1, y: 1)
+                        
+                        TextAnimationScore(text: income,
+                                           trigger: false,
+                                           speed: 0.06)
+                        .font(.system(.largeTitle, design: .monospaced))
+                        .foregroundColor(.white)
+                        .shadow(color: .black.opacity(0.3), radius: 2, x: 1, y: 1)
+                        //                        Spacer()
                     }
                     .padding(.bottom, -5)
                     .transition(.scale)
-                    
                     MiddleLine(newLineWidth: 250)
                     
                 }
+                
                 if isShowingTotalScoreText {
                     //Total
                     HStack {
-                        
                         let textTotalScore = String(totalScore)
                         
                         Text("TOTAL: ")
@@ -99,23 +124,32 @@ struct ScoreBoardView: View {
                         .font(.system(.largeTitle, design: .monospaced))
                         .foregroundColor(.black)
                         .transition(.scale)
+                        
+                        if heroData.prizeVictory != 0 {
+                            Text("+ prize: \(prizeScore)")
+                                .font(.custom("MarkerFelt-Thin", size: 30))
+                                .fontWeight(.bold)
+                                .foregroundColor(.black)
+                                .shadow(color: .white.opacity(0.8), radius: 4, x: 2, y: 2)
+                        }
                     }
-                    Spacer()
-                    
                 }
-                
             }
-            //Restart button
-            if isShowingTotalScoreText {
-                HStack {
+                //Restart button
+//                if isShowingTotalScoreText {
+            HStack {
+
                     RestartButtonView(symbolName: "globe", action: {
-                        heroData.playerExperience += totalScore
+                        heroData.playerExperience += totalScore + (totalScore * heroData.prizeVictory / 100)
                         presentContentView()
                     })
-                    .padding(.all, 10)
-                }
-                .offset(x: 0, y: 105)
+                    .padding(.all, 20)
+                    //                        .padding(.all, 10)
+               
             }
+                    .offset(x: 280, y: 120)
+//                }
+
         }
         .onAppear {
             withAnimation(.easeIn(duration: 0.5)) {
@@ -135,6 +169,12 @@ struct ScoreBoardView: View {
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.1) {
+                withAnimation(.easeIn(duration: 0.5)) {
+                    isShowingIncomeText = true
+                }
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.8) {
                 withAnimation(.easeIn(duration: 0.5)) {
                     isShowingTotalScoreText = true
                 }
