@@ -24,6 +24,12 @@ class HeroData: ObservableObject {
     @Published var playerScore: Int = 0
     
 //MARK: - player info:
+    @Published var playerPower: Int = 10 {
+        didSet {
+            UserDefaults.standard.set(playerPower, forKey: "playerPower")
+        }
+    }
+    
     @Published var playerCountry: String = UserDefaults.standard.string(forKey: "playerCountry") ?? "Ukraine" {
         didSet {
             UserDefaults.standard.set(playerCountry, forKey: "playerCountry")

@@ -25,8 +25,8 @@
 		A787ADDE2C8AE93300498EBD /* EnergyPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787ADDD2C8AE93300498EBD /* EnergyPanel.swift */; };
 		A787ADE02C8AF79800498EBD /* MoneyPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787ADDF2C8AF79800498EBD /* MoneyPanel.swift */; };
 		A787ADE22C8AFEBB00498EBD /* IncomePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787ADE12C8AFEBB00498EBD /* IncomePanel.swift */; };
+		A78E6F8C2C8F1DB600DA064F /* TEMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78E6F8B2C8F1DB600DA064F /* TEMP.swift */; };
 		A78F38CD2C34667200BF63EE /* TextAnimationScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78F38CC2C34667200BF63EE /* TextAnimationScore.swift */; };
-		A79A57992BED2F2400ED3A67 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A57982BED2F2400ED3A67 /* StartScene.swift */; };
 		A79A579B2BED315200ED3A67 /* SideMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A579A2BED315200ED3A67 /* SideMapView.swift */; };
 		A79A579D2BED39CF00ED3A67 /* PlayerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A579C2BED39CF00ED3A67 /* PlayerDataModel.swift */; };
 		A79ACB012BF76DC200769EB7 /* FightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79ACB002BF76DC200769EB7 /* FightButton.swift */; };
@@ -86,8 +86,8 @@
 		A787ADDD2C8AE93300498EBD /* EnergyPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyPanel.swift; sourceTree = "<group>"; };
 		A787ADDF2C8AF79800498EBD /* MoneyPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyPanel.swift; sourceTree = "<group>"; };
 		A787ADE12C8AFEBB00498EBD /* IncomePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomePanel.swift; sourceTree = "<group>"; };
+		A78E6F8B2C8F1DB600DA064F /* TEMP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TEMP.swift; sourceTree = "<group>"; };
 		A78F38CC2C34667200BF63EE /* TextAnimationScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimationScore.swift; sourceTree = "<group>"; };
-		A79A57982BED2F2400ED3A67 /* StartScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 		A79A579A2BED315200ED3A67 /* SideMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMapView.swift; sourceTree = "<group>"; };
 		A79A579C2BED39CF00ED3A67 /* PlayerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDataModel.swift; sourceTree = "<group>"; };
 		A79ACB002BF76DC200769EB7 /* FightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightButton.swift; sourceTree = "<group>"; };
@@ -277,7 +277,6 @@
 			isa = PBXGroup;
 			children = (
 				A7E2C9A32BEA97CC0040B8E5 /* ContentView.swift */,
-				A79A57982BED2F2400ED3A67 /* StartScene.swift */,
 				A7FEF9E32C0F023000602D30 /* GameScene */,
 				A75D26622C4C16080040FC86 /* SkillsTree */,
 				A7E2C9C02BEAA2290040B8E5 /* MapView */,
@@ -328,6 +327,7 @@
 			children = (
 				A7E2C9C42BEAA25F0040B8E5 /* MapModel.swift */,
 				A70164C12BEE217E00C0D98B /* MapsModelData.swift */,
+				A78E6F8B2C8F1DB600DA064F /* TEMP.swift */,
 			);
 			path = MapModel;
 			sourceTree = "<group>";
@@ -474,7 +474,6 @@
 				A79A579D2BED39CF00ED3A67 /* PlayerDataModel.swift in Sources */,
 				A767856C2C08EBFA0089E342 /* MiddleVsText.swift in Sources */,
 				A72470862BFC924800E771D8 /* CountryNameView.swift in Sources */,
-				A79A57992BED2F2400ED3A67 /* StartScene.swift in Sources */,
 				A7E2C9A12BEA97BA0040B8E5 /* CountryModel.swift in Sources */,
 				A75ECF8C2C35DB2D002DFDDC /* MiddleLine.swift in Sources */,
 				A7FEF9E52C0F042000602D30 /* GameOverTimer.swift in Sources */,
@@ -493,6 +492,7 @@
 				A7E2C9D12BEAA29C0040B8E5 /* WorldMapView.swift in Sources */,
 				A787ADE22C8AFEBB00498EBD /* IncomePanel.swift in Sources */,
 				A7E2C9CD2BEAA2760040B8E5 /* MapParser.swift in Sources */,
+				A78E6F8C2C8F1DB600DA064F /* TEMP.swift in Sources */,
 				A7C42FBB2C382525008E0CE6 /* MenuButtonView.swift in Sources */,
 				A7FC90E02C2AB9AD00A9790B /* RestartButtonView.swift in Sources */,
 				A7E2C9A22BEA97BA0040B8E5 /* HealthBarModel.swift in Sources */,

@@ -23,14 +23,15 @@ struct SideMapView: View {
                 Spacer()
                 VStack(alignment: .center) {
                     if let countryName = countryDataManager.countryNameMap[heroData.name] {
-             
+                        let power = countryDataManager.countryPowerMap[heroData.name]
+                        
                         Image(countryName)
                             .resizable()
                             .scaledToFill()
                             .frame(width: UIScreen.main.bounds.height / 4,height: UIScreen.main.bounds.height / 4)
                             .padding()
                        
-                        Text("Power: ")
+                        Text("Power: \(power ?? 0)")
                             .multilineTextAlignment(.leading)
                             .fixedSize(horizontal: false, vertical: true)
                             .font(.custom("Chalkduster", size: 15))

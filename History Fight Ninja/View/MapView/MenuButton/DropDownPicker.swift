@@ -59,7 +59,7 @@ struct DropDownPicker: View {
     func OptionView() -> some View {
         ScrollView {
             VStack(spacing: 1) {
-                ForEach(countryDataManager.countryBackgroundColor, id: \.0) { (countryName, countryColor, countryCode) in
+                ForEach(countryDataManager.countryBackgroundColor, id: \.0) { (countryName, countryColor, countryCode, countryPower) in
                     HStack(spacing: 0) {
                         Text(countryName)
                             .lineLimit(1)

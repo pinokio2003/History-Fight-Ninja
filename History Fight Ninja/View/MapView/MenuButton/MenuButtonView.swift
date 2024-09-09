@@ -22,7 +22,7 @@ struct MenuButtonView: View {
             if show {
                 CanCircleButton(show: $show, Yoffset: 60, sanimation: 0.3, imageName: "countryPicker", action: { showButtonOne.toggle() })
                 CanCircleButton(show: $show, Yoffset: 120, sanimation: 0.2, imageName: "skillPicker", action: { presentSkillTreeView() })
-                CanCircleButton(show: $show, Yoffset: 180, sanimation: 0.1, imageName: "Ukraine", action: { heroData.clearUserDefaults() })
+                CanCircleButton(show: $show, Yoffset: 180, sanimation: 0.1, imageName: "eriser", action: { heroData.clearUserDefaults() })
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

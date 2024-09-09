@@ -47,7 +47,6 @@ struct ReturnButton: View {
                        .font(.system(size: 40 , weight: .bold))
                        .scaleEffect(isBouncing ? 1.2 : 1)
                        .animation(isBouncing ? Animation.easeInOut(duration: 0.3).repeatCount(3, autoreverses: true) : .default, value: isBouncing)
-                       
                }
 
                .onTapGesture {
