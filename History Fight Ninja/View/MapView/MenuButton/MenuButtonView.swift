@@ -20,8 +20,8 @@ struct MenuButtonView: View {
             mainButton
                 
             if show {
-                CanCircleButton(show: $show, Yoffset: 60, sanimation: 0.3, imageName: "Ukraine", action: { showButtonOne.toggle() })
-                CanCircleButton(show: $show, Yoffset: 120, sanimation: 0.2, imageName: "Austria", action: { presentSkillTreeView() })
+                CanCircleButton(show: $show, Yoffset: 60, sanimation: 0.3, imageName: "countryPicker", action: { showButtonOne.toggle() })
+                CanCircleButton(show: $show, Yoffset: 120, sanimation: 0.2, imageName: "skillPicker", action: { presentSkillTreeView() })
                 CanCircleButton(show: $show, Yoffset: 180, sanimation: 0.1, imageName: "Ukraine", action: { heroData.clearUserDefaults() })
             }
         }

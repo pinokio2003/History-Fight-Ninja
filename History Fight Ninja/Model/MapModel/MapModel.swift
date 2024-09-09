@@ -99,7 +99,7 @@ class CountryDataManager: ObservableObject {
         // Load the default countries data here
         countriesData = [MapCountryModel(countryCode: "GL", name: "Greenland", color: .grey),
                          MapCountryModel(countryCode: "IS", name: "Iceland", color: .grey),
-                         MapCountryModel(countryCode: "PT", name: "Portugal", color: .green),
+                         MapCountryModel(countryCode: "PT", name: "Portugal", color: .grey),
                          MapCountryModel(countryCode: "MA", name: "Morocco", color: .grey),
                          MapCountryModel(countryCode: "ES", name: "Spain", color: .grey),
                          MapCountryModel(countryCode: "TN", name: "Tunisia", color: .grey),
