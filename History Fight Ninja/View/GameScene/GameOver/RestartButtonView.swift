@@ -9,41 +9,42 @@ import SwiftUI
 
 struct RestartButtonView: View {
     @ObservedObject var heroData = HeroData.shared
-    @State var isBouncing: Bool = false
+    @State private var isBouncing: Bool = false
     @State var symbolName: String
     var action : () -> Void
+    @State var sizeValue: Double // 32
     
     var body: some View {
            ZStack {
-               RoundedRectangle(cornerRadius: 32)
+               RoundedRectangle(cornerRadius: sizeValue) // 32
                    .fill(
                        LinearGradient(gradient: Gradient(colors: [Color.black, Color.gray.opacity(0.4)]),
                                       startPoint: .bottomTrailing,
                                       endPoint: .topLeading)
                    )
-                   .frame(width: isBouncing ? 112 : 128,
-                          height: isBouncing ? 112 : 128)
+                   .frame(width: sizeValue * (isBouncing ? 3.5 : 4),
+                          height: sizeValue * (isBouncing ? 3.5 : 4))
                    .overlay(
-                       RoundedRectangle(cornerRadius: 32)
+                       RoundedRectangle(cornerRadius: sizeValue)
                            .stroke(Color.white.opacity(0.3), lineWidth: 2)
                    )
                    .animation(isBouncing ? Animation.easeInOut(duration: 0.6).repeatCount(3, autoreverses: true) : .bouncy, value: isBouncing)
 
-               RoundedRectangle(cornerRadius: 29)
+               RoundedRectangle(cornerRadius: sizeValue * 0.9)
                    .fill(
                        LinearGradient(gradient: Gradient(colors: [Color.black, Color.white.opacity(0.4)]),
                                       startPoint: .top,
                                       endPoint: .trailing)
                    )
-                   .frame(width: 89.01, height: 89.01)
+                   .frame(width: sizeValue * 2.78, height: sizeValue * 2.78)
                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
                
                Image(systemName: symbolName)
                    .resizable()
                    .scaledToFill()
-                   .frame(width: 40, height: 40, alignment: .center)
+                   .frame(width: sizeValue * 1.25, height: sizeValue * 1.25, alignment: .center)
                    .foregroundColor(.white.opacity(0.8))
-                   .font(.system(size: 40, weight: .bold))
+                   .font(.system(size: sizeValue * 1.25, weight: .bold))
                    .scaleEffect(isBouncing ? 1.2 : 1)
                    .animation(isBouncing ? Animation.easeInOut(duration: 0.6).repeatCount(3, autoreverses: true) : .default, value: isBouncing)
                    
@@ -62,5 +63,5 @@ struct RestartButtonView: View {
    }
 
 #Preview {
-    RestartButtonView(symbolName: "arrow.clockwise", action: {})
+    RestartButtonView(symbolName: "arrow.clockwise", action: {}, sizeValue: 32)
 }

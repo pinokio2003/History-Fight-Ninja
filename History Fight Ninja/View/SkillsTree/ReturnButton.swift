@@ -10,7 +10,7 @@ import SwiftUI
 struct ReturnButton: View {
 
         @ObservedObject var heroData = HeroData.shared
-        @State var isBouncing: Bool = false
+        @State private var isBouncing: Bool = false
         @State var symbolName: String
         var action : () -> Void
         
@@ -51,7 +51,7 @@ struct ReturnButton: View {
                }
 
                .onTapGesture {
-                   heroData.isDisabled.toggle()
+                   heroData.isDisabledSkill.toggle()
                    isBouncing = true
                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                        isBouncing = false
@@ -63,5 +63,5 @@ struct ReturnButton: View {
        }
 
     #Preview {
-        RestartButtonView(symbolName: "globe", action: {})
+        RestartButtonView(symbolName: "globe", action: {}, sizeValue: 32)
     }

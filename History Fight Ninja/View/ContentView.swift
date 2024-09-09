@@ -12,6 +12,7 @@ struct ContentView: View {
     
     @StateObject var heroData = HeroData.shared
     @StateObject var mapsDict = CountryDataManager()
+    @State var isInfoBarVisible = false
 
     let game = GameScene(fileNamed: "game")
     
@@ -58,24 +59,26 @@ struct ContentView: View {
                 }
 //                if !heroData.isAnimationBeforeFight {
                 if heroData.isMenuButtonPushed {
-                // MenuButton
-                    MenuButtonView()
-                        .frame(width: 60, height: 60)
-                        .position(x: geometry.size.width - 50, y: geometry.size.height * 0.1)
+                    // MenuButton
+                        VStack {
+                            if heroData.isCountrySelected != true {
+                            InfoBarView(heroData: heroData)
+                                    .transition(.slide)
+                        }
+                        Spacer()
+                    }
+                        MenuButtonView()
+                                .frame(width: 60, height: 60)
+                                .padding(.trailing, 20)
+                                .position(x: geometry.size.width - 60, y: geometry.size.height * 0.1)
                 }
-                //Player Experience
-                HStack {
-                    Text("Player Experience: \(heroData.playerExperience)")
-                        .foregroundColor(Color.red)
-                    
-                    Text("Enery: \(heroData.playerEnergyMax)")
-                        .foregroundColor(Color.red)
-                    
-                    Text("Income: \(heroData.playerIncome)")
-                        .foregroundColor(Color.green)
-                }
-                    .position(x: geometry.size.width * 0.01 + 140, y: geometry.size.height * 0.1)
-                    .padding(.leading)
+// MARK: - Player panel:
+                
+                  
+//                    Spacer()
+                
+//                    .position(y: geometry.size.height * 0.1)
+//                    .padding(.leading)
             }
         }
         .edgesIgnoringSafeArea(.all)

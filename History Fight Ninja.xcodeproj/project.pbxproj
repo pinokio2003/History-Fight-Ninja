@@ -21,6 +21,10 @@
 		A78058E02C73A6280036C54B /* SkillConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78058DF2C73A6280036C54B /* SkillConnectionView.swift */; };
 		A78560792C47B20300AE3004 /* world-low.svg in Resources */ = {isa = PBXBuildFile; fileRef = A78560782C47B20300AE3004 /* world-low.svg */; };
 		A786CD6B2C455FF300EBAC6F /* DropDownPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A786CD6A2C455FF300EBAC6F /* DropDownPicker.swift */; };
+		A787ADDC2C8AE7E400498EBD /* InfoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787ADDB2C8AE7E400498EBD /* InfoBarView.swift */; };
+		A787ADDE2C8AE93300498EBD /* EnergyPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787ADDD2C8AE93300498EBD /* EnergyPanel.swift */; };
+		A787ADE02C8AF79800498EBD /* MoneyPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787ADDF2C8AF79800498EBD /* MoneyPanel.swift */; };
+		A787ADE22C8AFEBB00498EBD /* IncomePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787ADE12C8AFEBB00498EBD /* IncomePanel.swift */; };
 		A78F38CD2C34667200BF63EE /* TextAnimationScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78F38CC2C34667200BF63EE /* TextAnimationScore.swift */; };
 		A79A57992BED2F2400ED3A67 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A57982BED2F2400ED3A67 /* StartScene.swift */; };
 		A79A579B2BED315200ED3A67 /* SideMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A579A2BED315200ED3A67 /* SideMapView.swift */; };
@@ -78,6 +82,10 @@
 		A78058DF2C73A6280036C54B /* SkillConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillConnectionView.swift; sourceTree = "<group>"; };
 		A78560782C47B20300AE3004 /* world-low.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "world-low.svg"; sourceTree = "<group>"; };
 		A786CD6A2C455FF300EBAC6F /* DropDownPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownPicker.swift; sourceTree = "<group>"; };
+		A787ADDB2C8AE7E400498EBD /* InfoBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBarView.swift; sourceTree = "<group>"; };
+		A787ADDD2C8AE93300498EBD /* EnergyPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyPanel.swift; sourceTree = "<group>"; };
+		A787ADDF2C8AF79800498EBD /* MoneyPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyPanel.swift; sourceTree = "<group>"; };
+		A787ADE12C8AFEBB00498EBD /* IncomePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomePanel.swift; sourceTree = "<group>"; };
 		A78F38CC2C34667200BF63EE /* TextAnimationScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimationScore.swift; sourceTree = "<group>"; };
 		A79A57982BED2F2400ED3A67 /* StartScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 		A79A579A2BED315200ED3A67 /* SideMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMapView.swift; sourceTree = "<group>"; };
@@ -164,6 +172,17 @@
 				A75ECF8B2C35DB2D002DFDDC /* MiddleLine.swift */,
 			);
 			path = GameWin;
+			sourceTree = "<group>";
+		};
+		A787ADDA2C8AE77300498EBD /* InfoBar */ = {
+			isa = PBXGroup;
+			children = (
+				A787ADDB2C8AE7E400498EBD /* InfoBarView.swift */,
+				A787ADDD2C8AE93300498EBD /* EnergyPanel.swift */,
+				A787ADDF2C8AF79800498EBD /* MoneyPanel.swift */,
+				A787ADE12C8AFEBB00498EBD /* IncomePanel.swift */,
+			);
+			path = InfoBar;
 			sourceTree = "<group>";
 		};
 		A7A21FE72BB5BE0E005D062B = {
@@ -292,6 +311,7 @@
 		A7E2C9C02BEAA2290040B8E5 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				A787ADDA2C8AE77300498EBD /* InfoBar */,
 				A7C42FB92C382504008E0CE6 /* MenuButton */,
 				A72470842BFC922200E771D8 /* CountryNameView */,
 				A7CFDAC92BF9287D00937CE0 /* FightButton */,
@@ -440,6 +460,7 @@
 				A78058E02C73A6280036C54B /* SkillConnectionView.swift in Sources */,
 				A7BEB1632C2D7C95007AE6C9 /* ScoreBoardView.swift in Sources */,
 				A7ABD2A12C6231960083B96E /* Army.swift in Sources */,
+				A787ADDC2C8AE7E400498EBD /* InfoBarView.swift in Sources */,
 				A7BEA8DC2C3EE589001452F7 /* PauseButton.swift in Sources */,
 				A7E2C9CF2BEAA2760040B8E5 /* MapUtils.swift in Sources */,
 				A7E2C9A92BEA97CC0040B8E5 /* ContentView.swift in Sources */,
@@ -458,16 +479,19 @@
 				A75ECF8C2C35DB2D002DFDDC /* MiddleLine.swift in Sources */,
 				A7FEF9E52C0F042000602D30 /* GameOverTimer.swift in Sources */,
 				A7E6AC3E2C1892EA00572030 /* GameOvewView.swift in Sources */,
+				A787ADDE2C8AE93300498EBD /* EnergyPanel.swift in Sources */,
 				A7E2C9C52BEAA25F0040B8E5 /* MapModel.swift in Sources */,
 				A7E2C9AB2BEA97CC0040B8E5 /* GameScene.swift in Sources */,
 				A786CD6B2C455FF300EBAC6F /* DropDownPicker.swift in Sources */,
 				A7CFDACB2BF92A8500937CE0 /* FieldForButton.swift in Sources */,
 				A7BEA8DA2C3EA752001452F7 /* Constants.swift in Sources */,
+				A787ADE02C8AF79800498EBD /* MoneyPanel.swift in Sources */,
 				A7B3F0C82C6E60F00099A5BE /* SkillTreeManager.swift in Sources */,
 				A70164C22BEE217E00C0D98B /* MapsModelData.swift in Sources */,
 				A7E2C9AD2BEA97CC0040B8E5 /* Streak.swift in Sources */,
 				A707CE182C6F2E2E006621F5 /* SkillPopOver.swift in Sources */,
 				A7E2C9D12BEAA29C0040B8E5 /* WorldMapView.swift in Sources */,
+				A787ADE22C8AFEBB00498EBD /* IncomePanel.swift in Sources */,
 				A7E2C9CD2BEAA2760040B8E5 /* MapParser.swift in Sources */,
 				A7C42FBB2C382525008E0CE6 /* MenuButtonView.swift in Sources */,
 				A7FC90E02C2AB9AD00A9790B /* RestartButtonView.swift in Sources */,

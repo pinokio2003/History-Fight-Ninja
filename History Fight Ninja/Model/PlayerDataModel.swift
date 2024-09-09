@@ -18,6 +18,7 @@ class HeroData: ObservableObject {
     @Published var isAnimationBeforeFight: Bool = false
     @Published var isRestartPushing: Bool = false
     @Published var isDisabled: Bool = false
+    @Published var isDisabledSkill : Bool = false
     //For Score:
     @Published var gameTime: Int = 0
     @Published var playerScore: Int = 0
@@ -66,7 +67,7 @@ class HeroData: ObservableObject {
         }
     }
     
-    @Published var playerEnergy: Int = UserDefaults.standard.integer(forKey: "playerEnergy") {
+    @Published var playerEnergy: Int = 4 { // UserDefaults.standard.integer(forKey: "playerEnergy")
         didSet {
             UserDefaults.standard.set(playerEnergy, forKey: "playerEnergy")
         }

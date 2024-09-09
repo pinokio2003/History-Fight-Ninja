@@ -32,7 +32,8 @@ struct SkillBranchView: View {
                                 if let dependencySkill = skills.first(where: { $0.id == dependencyId }) {
                                     SkillConnectionView(
                                         from: position(for: dependencySkill),
-                                        to: position(for: skill)
+                                        to: position(for: skill),
+                                        offset: geometry.size.width * 0.01
                                     )
                                 }
                             }
@@ -45,7 +46,8 @@ struct SkillBranchView: View {
                     }
                     .frame(width: contentWidth, height: contentHeight)
                 }
-                .frame(width: geometry.size.width, height: geometry.size.height)
+//                .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                .frame(width: geometry.size.width, height: geometry.size.height)
             }
             .background(
                Color(red: 7/255, green: 1/255, blue: 47/255)

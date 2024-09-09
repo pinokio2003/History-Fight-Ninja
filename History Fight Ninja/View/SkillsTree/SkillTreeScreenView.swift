@@ -11,34 +11,30 @@ struct SkillTreeScreen: View {
     @StateObject private var skillTreeManager = SkillTreeManager()
     
     var body: some View {
-        ZStack {
-            TabView {
-                SkillBranchView(branch: .economy, backgroundImageName: "economyBackground")
-                    .tabItem {
-                        Label("Экономика", systemImage: "dollarsign.circle")
-                    }
-                SkillBranchView(branch: .army, backgroundImageName: "armyBackground")  // Пример с 4 умениями в ряду
-                    .tabItem {
-                        Label("Армия", systemImage: "shield")
-                    }
-            }
-            HStack {
-                Spacer()
-                VStack {
-                    ReturnButton(symbolName: "globe", action: {
-                        presentContentView()
-                    })
-                    .frame(width: 40, height: 40)
-                    Spacer()
+        GeometryReader { geometry in
+            ZStack {
+                TabView {
+                    SkillBranchView(branch: .economy, backgroundImageName: "economyBackground")
+                        .tabItem {
+                            Label("Экономика", systemImage: "dollarsign.circle")
+                        }
+                    SkillBranchView(branch: .army, backgroundImageName: "armyBackground")
+                        .tabItem {
+                            Label("Армия", systemImage: "shield")
+                        }
                 }
+                    ReturnButton(symbolName: "globe", action: {
+                            presentContentView()
+                        })
+                        .position(x: geometry.size.width - 64 , y: geometry.size.height * 0.01)
+                        .padding(.leading)
             }
         }
-            .environmentObject(skillTreeManager)
-            .onAppear {
-                skillTreeManager.loadSkills()
-            }
+        .environmentObject(skillTreeManager)
+        .onAppear {
+            skillTreeManager.loadSkills()
+        }
     }
-    
     private func presentContentView() {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let window = windowScene.windows.first else { return }
@@ -49,5 +45,4 @@ struct SkillTreeScreen: View {
         window.rootViewController = navController
 //        heroData.isDisabled = false
     }
-
 }

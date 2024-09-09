@@ -10,7 +10,7 @@ import SwiftUI
 struct SkillConnectionView: View {
     let from: CGPoint
     let to: CGPoint
-    let offset: CGFloat = 58 // Увеличим отступ для большего эффекта
+    let offset: CGFloat // Увеличим отступ для большего эффекта
 
     var body: some View {
         Path { path in

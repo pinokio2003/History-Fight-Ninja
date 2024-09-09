@@ -47,9 +47,7 @@ struct SideMapView: View {
                     } else {
                         Text("   ")
                     }
-
                     FightButton(heroData: heroData)
-                    
                 }
                 Spacer()
             }

@@ -136,7 +136,8 @@ struct WorldMapView: View {
             return heroData.name == pathData.name && heroData.isCountrySelected
         }
         
-        private func handleCountryTap(_ pathData: PathData) {
+    private func handleCountryTap(_ pathData: PathData) {
+        withAnimation {
             heroData.isCountrySelected = false
             if clickedPath?.id == pathData.id && !heroData.isCountrySelected {
                 clickedPath = nil
@@ -149,6 +150,7 @@ struct WorldMapView: View {
                 print("is selected: \(heroData.isCountrySelected)")
             }
         }
+    }
 }
 
 #Preview {

@@ -50,14 +50,14 @@ struct GameOvewView: View {
                     Spacer()
                     RestartButtonView(symbolName: "arrow.clockwise", action: {
                         restartGame()
-                    })
+                    }, sizeValue: 32)
                     
                     Spacer()
                     
                     RestartButtonView(symbolName: "globe", action: {
                         presentContentView()
                         heroData.resetAllData()
-                    })
+                    }, sizeValue: 32)
                     
                     Spacer()
                 }
