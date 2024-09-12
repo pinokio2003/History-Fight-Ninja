@@ -252,10 +252,16 @@ class GameScene: SKScene {
     func addStreak() {
             if Int(streakCount) % 5 == 1 && score > 5 {
                 let indx = Int(streakCount) / 5 + 1
-                streakIndex = indx
-                
+                if streakIndex >= heroData.maxStreak {
+                    streakIndex = heroData.maxStreak
+                    print("streak index < maxStreak: \(streakIndex), max streak : \(heroData.maxStreak)")
+                } else {
+                    streakIndex = indx
+                    print("streak index else: \(streakIndex)")
+                }
+
                 if let streak = streakPool.first(where: { $0.isHidden }) {
-                    let newText = "X-\(String(indx))"
+                    let newText = "X-\(String(streakIndex))"
                     streak.updateText(newText)
                     streak.isHidden = false
                     streak.showFor(duration: 2, in: self, at: CGPoint(x: size.height/1.2, y: size.width/4))

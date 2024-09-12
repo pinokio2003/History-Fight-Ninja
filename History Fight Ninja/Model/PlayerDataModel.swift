@@ -61,7 +61,7 @@ class HeroData: ObservableObject {
         }
     }
 //Attack:
-    @Published var playerAttack: Int = 1 { //UserDefaults.standard.integer(forKey: "playerAttack")
+    @Published var playerAttack: Int = 15 { //UserDefaults.standard.integer(forKey: "playerAttack")
         didSet {
             UserDefaults.standard.set(playerAttack, forKey: "playerAttack")
         }
@@ -70,6 +70,12 @@ class HeroData: ObservableObject {
     @Published var playerHealth: Int = 100 {
         didSet {
             UserDefaults.standard.set(playerHealth, forKey: "playerHealth")
+        }
+    }
+//Max streak:
+    @Published var maxStreak: Int = 2 {
+        didSet {
+            UserDefaults.standard.set(maxStreak, forKey: "maxStreak")
         }
     }
 //Enegy (resurce for attack):
@@ -118,6 +124,7 @@ class HeroData: ObservableObject {
         playerExperience = 6000
         playerEnergyMax = 5
         playerIncome = 5
+        maxStreak = 2
         UserDefaults.standard.removeObject(forKey: "playerCountry")
         UserDefaults.standard.removeObject(forKey: "playerExperience")
         UserDefaults.standard.removeObject(forKey: "playerAttack")
@@ -126,5 +133,6 @@ class HeroData: ObservableObject {
         UserDefaults.standard.removeObject(forKey: "playerEnergy")
         UserDefaults.standard.removeObject(forKey: "playerEnergyMax")
         UserDefaults.standard.removeObject(forKey: "playerIncome")
+        UserDefaults.standard.removeObject(forKey: "maxStreak")
     }
 }
