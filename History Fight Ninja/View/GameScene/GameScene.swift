@@ -98,14 +98,14 @@ class GameScene: SKScene {
                     emitter?.position = node.position
                     emitter?.zPosition = 5
                     addChild(emitter!)
-                    addScore()
+                    addScore(enemyPower: countryManager.countryPowerMap[heroData.name]!)
                     addStreak()
                     node.removeFromParent()
                 }
                 
                 if node.name == "yes" {
                     node.removeFromParent()
-                    minusLives()
+                    minusLives() //countryDataManager.countryPowerMap[heroData.name]
                 }
                 
                 if enemyLives >= 1 {
@@ -234,13 +234,18 @@ class GameScene: SKScene {
         }
     }
     
-    func addScore() {
+    func addScore(enemyPower: Int) {
+        let heroAttack = Double(heroData.playerAttack) * 0.0001
+        let enemyHealth = Double((1000) / enemyPower ) * 0.001
         scoreLable = childNode(withName: "scoreLable") as! SKLabelNode
         score += 1
         streakCount += 1
-        heroHealthBar.progress += (0.01 * CGFloat(streakIndex))
-        heroLives = heroHealthBar.progress
         scoreLable.text = "Score: \(score)"
+        //enemy health + helth bar
+        heroHealthBar.progress += (enemyHealth * CGFloat(streakIndex) + heroAttack)//+= (CGFloat((enemyPower / 100)) * CGFloat(streakIndex))
+        heroLives = heroHealthBar.progress
+        print(heroAttack)
+        print(heroLives)
     }
   //MARK: - Scores, streaks and others:
     
@@ -257,9 +262,10 @@ class GameScene: SKScene {
                 }
             }
         }
-    
-    
+
     func minusLives() {
+//        let maxHelth = power * 10
+//        print(maxHelth)
         enemyHealthBar.progress += 0.1
         enemyLives += 0.1
         streakCount = 1

@@ -29,25 +29,25 @@ class HeroData: ObservableObject {
             UserDefaults.standard.set(playerPower, forKey: "playerPower")
         }
     }
-    
+//Player country:
     @Published var playerCountry: String = UserDefaults.standard.string(forKey: "playerCountry") ?? "Ukraine" {
         didSet {
             UserDefaults.standard.set(playerCountry, forKey: "playerCountry")
         }
     }
-
+//Money:
     @Published var playerExperience: Int = UserDefaults.standard.integer(forKey: "playerExperience") { //UserDefaults.standard.integer(forKey: "playerExperience")
         didSet {
             UserDefaults.standard.set(playerExperience, forKey: "playerExperience")
         }
     }
- // % to prize after win battle
+//% to prize after win battle:
     @Published var prizeVictory: Int = UserDefaults.standard.integer(forKey: "prizeVictory") {
         didSet {
             UserDefaults.standard.set(prizeVictory, forKey: "prizeVictory")
         }
     }
-    
+//Income:
     @Published var playerIncome: Int = {
         let key = "playerIncome"
         if UserDefaults.standard.object(forKey: key) == nil {
@@ -60,25 +60,25 @@ class HeroData: ObservableObject {
             UserDefaults.standard.set(playerIncome, forKey: "playerIncome")
         }
     }
-    
-    @Published var playerAttack: Int = UserDefaults.standard.integer(forKey: "playerAttack") {
+//Attack:
+    @Published var playerAttack: Int = 1 { //UserDefaults.standard.integer(forKey: "playerAttack")
         didSet {
             UserDefaults.standard.set(playerAttack, forKey: "playerAttack")
         }
     }
-    
+//Health:
     @Published var playerHealth: Int = 100 {
         didSet {
             UserDefaults.standard.set(playerHealth, forKey: "playerHealth")
         }
     }
-    
+//Enegy (resurce for attack):
     @Published var playerEnergy: Int = 4 { // UserDefaults.standard.integer(forKey: "playerEnergy")
         didSet {
             UserDefaults.standard.set(playerEnergy, forKey: "playerEnergy")
         }
     }
-        
+//Max Enegy (resurce for attack):
     @Published var playerEnergyMax: Int = {
         let key = "playerEnergyMax"
         if UserDefaults.standard.object(forKey: key) == nil {
@@ -91,7 +91,6 @@ class HeroData: ObservableObject {
             UserDefaults.standard.set(playerEnergyMax, forKey: "playerEnergyMax")
         }
     }
-    
     
 //MARK: - other data
     @Published var enemyName: String = ""
