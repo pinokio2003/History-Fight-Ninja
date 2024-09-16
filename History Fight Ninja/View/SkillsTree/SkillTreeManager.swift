@@ -139,8 +139,8 @@ class SkillTreeManager: ObservableObject {
             case "prizeVictory3":
                 increasePrizeVictory(3)
                 //add attack:
-            case "increaseAttack3":
-                increaseAttack(3)
+            case "increaseAttack7":
+                increaseAttack(7)
             case "increaseAttack5":
                 increaseAttack(5)
             case "increaseAttack10":
@@ -201,13 +201,13 @@ class SkillTreeManager: ObservableObject {
     //army:
     func increaseAttack(_ attack: Int) {
         HeroData.shared.playerAttack += attack
-        HeroData.shared.playerPower += 5 * attack
+        HeroData.shared.playerPower += 3 * attack
         print("new attack is: \(HeroData.shared.playerAttack)")
     }
     
     func increaseMaxStreak(_ streak: Int) {
         HeroData.shared.maxStreak += streak
-        HeroData.shared.playerPower += 5 * streak
+        HeroData.shared.playerPower += 40 * streak
         print("new max streak is: \(HeroData.shared.maxStreak)")
     }
     

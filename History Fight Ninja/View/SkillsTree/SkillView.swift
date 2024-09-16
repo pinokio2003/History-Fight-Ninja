@@ -39,9 +39,9 @@ struct SkillView: View {
                             .stroke(borderColor, lineWidth: 3)
                     )
                     .onTapGesture {
-                        if skill.isUnlocked {
+//                        if skill.isUnlocked {
                             showPopover = true
-                        }
+//                        }
                     }
                 //            Text(skill.name)
                 //                .font(.caption)
