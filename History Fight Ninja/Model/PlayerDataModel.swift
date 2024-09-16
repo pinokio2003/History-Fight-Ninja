@@ -24,7 +24,7 @@ class HeroData: ObservableObject {
     @Published var playerScore: Int = 0
     
 //MARK: - player info:
-    @Published var playerPower: Int = 10 {
+    @Published var playerPower: Int = 1 {
         didSet {
             UserDefaults.standard.set(playerPower, forKey: "playerPower")
         }
@@ -61,7 +61,7 @@ class HeroData: ObservableObject {
         }
     }
 //Attack:
-    @Published var playerAttack: Int = 15 { //UserDefaults.standard.integer(forKey: "playerAttack")
+    @Published var playerAttack: Int = 1 { //UserDefaults.standard.integer(forKey: "playerAttack")
         didSet {
             UserDefaults.standard.set(playerAttack, forKey: "playerAttack")
         }

@@ -111,35 +111,52 @@ class SkillTreeManager: ObservableObject {
 //SKills actions case:
     private func executeSkillAction(_ actionKey: String) {
         switch actionKey {
-        //income:
-        case "increaseIncomeBy5":
-            increaseIncome(5)
-            print("Economic skill purchased: Income increased by 5")
-        case "increaseIncomeBy3":
-            increaseIncome(3)
-            print("Economic skill purchased: Income increased by 5")
-        //reduce costs:
-        case "reduceCostsBy5":
-            increasePriceCoefficient(value: 5)
-            print("Skill reduced costs by 5%")
-        case "reduceCostsBy2":
-            increasePriceCoefficient(value: 2)
-            print("Skill reduced costs by 2%")
-        case "reduceCostsBy3":
-            increasePriceCoefficient(value: 3)
-            print("Skill reduced costs by 3%")
-        //add energy:
-        case "increaseEnergy1":
-            increaseMaxEnergy(1)
-        case "increaseEnergy3":
-            increaseMaxEnergy(3)
-        //add prize % to victory
+                //income:
+            case "increaseIncomeBy5":
+                increaseIncome(5)
+                print("Economic skill purchased: Income increased by 5")
+            case "increaseIncomeBy3":
+                increaseIncome(3)
+                print("Economic skill purchased: Income increased by 5")
+                //reduce costs:
+            case "reduceCostsBy5":
+                increasePriceCoefficient(value: 5)
+                print("Skill reduced costs by 5%")
+            case "reduceCostsBy2":
+                increasePriceCoefficient(value: 2)
+                print("Skill reduced costs by 2%")
+            case "reduceCostsBy3":
+                increasePriceCoefficient(value: 3)
+                print("Skill reduced costs by 3%")
+                //add energy:
+            case "increaseEnergy1":
+                increaseMaxEnergy(1)
+            case "increaseEnergy3":
+                increaseMaxEnergy(3)
+                //add prize % to victory
             case "prizeVictory2":
                 increasePrizeVictory(2)
             case "prizeVictory3":
                 increasePrizeVictory(3)
-        default:
-            print("Unknown action: \(actionKey)")
+                //add attack:
+            case "increaseAttack3":
+                increaseAttack(3)
+            case "increaseAttack5":
+                increaseAttack(5)
+            case "increaseAttack10":
+                increaseAttack(10)
+                // add max streak:
+            case "increaseMaxStreak1":
+                increaseMaxStreak(1)
+            case "increaseMaxStreak2":
+                increaseMaxStreak(2)
+                // add max health:
+            case "increaseMaxHealth1":
+                increaseMaxHealth(1)
+            case "increaseMaxHealth2":
+                increaseMaxHealth(2)
+            default:
+                print("Unknown action: \(actionKey)")
         }
     }
     
@@ -157,6 +174,7 @@ class SkillTreeManager: ObservableObject {
     }
     
     //MARK: - skill actions:
+    //economy:
     func increaseIncome(_ income: Int) {
         HeroData.shared.playerIncome += income
             print("income: \(HeroData.shared.playerIncome)")
@@ -179,6 +197,22 @@ class SkillTreeManager: ObservableObject {
     func increasePrizeVictory(_ prize: Int) {
         HeroData.shared.prizeVictory += prize
         print("added prize victory + \(prize), now prize victory = \(HeroData.shared.prizeVictory)")
+    }
+    //army:
+    func increaseAttack(_ attack: Int) {
+        HeroData.shared.playerAttack += attack
+        HeroData.shared.playerPower += 5 * attack
+        print("new attack is: \(HeroData.shared.playerAttack)")
+    }
+    
+    func increaseMaxStreak(_ streak: Int) {
+        HeroData.shared.maxStreak += streak
+        HeroData.shared.playerPower += 5 * streak
+        print("new max streak is: \(HeroData.shared.maxStreak)")
+    }
+    
+    func increaseMaxHealth(_ health: Int) {
+        HeroData.shared.playerHealth += health
     }
     
 //MARK: Other functions

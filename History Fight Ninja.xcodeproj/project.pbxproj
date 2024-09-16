@@ -11,6 +11,7 @@
 		A707CE182C6F2E2E006621F5 /* SkillPopOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A707CE172C6F2E2E006621F5 /* SkillPopOver.swift */; };
 		A7167FD92C51008300E32935 /* ReturnButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7167FD82C51008300E32935 /* ReturnButton.swift */; };
 		A72470862BFC924800E771D8 /* CountryNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72470852BFC924800E771D8 /* CountryNameView.swift */; };
+		A74FA5342C9344B90064AF8E /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74FA5332C9344B90064AF8E /* Difficulty.swift */; };
 		A7580F182C0898CA00B3F4B4 /* SideMapRightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7580F172C0898CA00B3F4B4 /* SideMapRightView.swift */; };
 		A75D26672C4C16E60040FC86 /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D26632C4C16E60040FC86 /* SkillView.swift */; };
 		A75D26692C4C16E60040FC86 /* SkillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D26652C4C16E60040FC86 /* SkillModel.swift */; };
@@ -72,6 +73,7 @@
 		A707CE172C6F2E2E006621F5 /* SkillPopOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPopOver.swift; sourceTree = "<group>"; };
 		A7167FD82C51008300E32935 /* ReturnButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnButton.swift; sourceTree = "<group>"; };
 		A72470852BFC924800E771D8 /* CountryNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryNameView.swift; sourceTree = "<group>"; };
+		A74FA5332C9344B90064AF8E /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
 		A7580F172C0898CA00B3F4B4 /* SideMapRightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMapRightView.swift; sourceTree = "<group>"; };
 		A75D26632C4C16E60040FC86 /* SkillView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
 		A75D26652C4C16E60040FC86 /* SkillModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillModel.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				A7BEA8D92C3EA752001452F7 /* Constants.swift */,
+				A74FA5332C9344B90064AF8E /* Difficulty.swift */,
 			);
 			path = GameModel;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				A7CFDACD2BF92ABF00937CE0 /* AttacButton.swift in Sources */,
 				A7A21FF42BB5BE0E005D062B /* History_Fight_NinjaApp.swift in Sources */,
 				A7E2C9CE2BEAA2760040B8E5 /* MapRenderer.swift in Sources */,
+				A74FA5342C9344B90064AF8E /* Difficulty.swift in Sources */,
 				A75D26672C4C16E60040FC86 /* SkillView.swift in Sources */,
 				A79C62362C3569C000C64772 /* CustomBackground.swift in Sources */,
 				A79A579D2BED39CF00ED3A67 /* PlayerDataModel.swift in Sources */,

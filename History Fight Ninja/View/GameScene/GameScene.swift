@@ -217,7 +217,7 @@ class GameScene: SKScene {
         let heroData = HeroData.shared
         heroData.gameTime = time
         heroData.playerScore = score
-        let newPower = heroData.playerPower + 5
+        let newPower = heroData.playerPower // if needed
         removeAllCountries()
         cancelTimers()
         countryManager.updateCountryColor(byName: heroData.enemyName, newColor: .green, newPower: newPower)
