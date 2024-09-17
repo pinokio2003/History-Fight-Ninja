@@ -67,7 +67,14 @@ class HeroData: ObservableObject {
         }
     }
 //Health:
-    @Published var playerHealth: Int = 100 {
+    @Published var playerHealth: Int = {
+        let key = "playerHealth"
+        if UserDefaults.standard.object(forKey: key) == nil {
+            return 3 // Return default value if key doesn't exist
+        } else {
+            return UserDefaults.standard.integer(forKey: key)
+        }
+    }() {
         didSet {
             UserDefaults.standard.set(playerHealth, forKey: "playerHealth")
         }
@@ -125,6 +132,8 @@ class HeroData: ObservableObject {
         playerEnergyMax = 5
         playerIncome = 5
         maxStreak = 2
+        playerHealth = 3
+        playerPower = 1
         UserDefaults.standard.removeObject(forKey: "playerCountry")
         UserDefaults.standard.removeObject(forKey: "playerExperience")
         UserDefaults.standard.removeObject(forKey: "playerAttack")
@@ -134,5 +143,7 @@ class HeroData: ObservableObject {
         UserDefaults.standard.removeObject(forKey: "playerEnergyMax")
         UserDefaults.standard.removeObject(forKey: "playerIncome")
         UserDefaults.standard.removeObject(forKey: "maxStreak")
+        UserDefaults.standard.removeObject(forKey: "playerHealth")
+        UserDefaults.standard.removeObject(forKey: "playerPower")
     }
 }

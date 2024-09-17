@@ -30,7 +30,7 @@ struct SideMapRightView: View {
                             .frame(width: UIScreen.main.bounds.height / 4,height: UIScreen.main.bounds.height / 4)
                             .padding()
                         
-                        Text("Power: ")
+                        Text("Power: \(heroData.playerPower)")
                             .multilineTextAlignment(.leading)
                             .fixedSize(horizontal: false, vertical: true)
                             .font(.custom("Chalkduster", size: 15))

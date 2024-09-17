@@ -28,6 +28,7 @@
 		A787ADE22C8AFEBB00498EBD /* IncomePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787ADE12C8AFEBB00498EBD /* IncomePanel.swift */; };
 		A78E6F8C2C8F1DB600DA064F /* TEMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78E6F8B2C8F1DB600DA064F /* TEMP.swift */; };
 		A78F38CD2C34667200BF63EE /* TextAnimationScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78F38CC2C34667200BF63EE /* TextAnimationScore.swift */; };
+		A79705232C995C01009CC742 /* PlayerHelthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79705222C995C01009CC742 /* PlayerHelthModel.swift */; };
 		A79A579B2BED315200ED3A67 /* SideMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A579A2BED315200ED3A67 /* SideMapView.swift */; };
 		A79A579D2BED39CF00ED3A67 /* PlayerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A579C2BED39CF00ED3A67 /* PlayerDataModel.swift */; };
 		A79ACB012BF76DC200769EB7 /* FightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79ACB002BF76DC200769EB7 /* FightButton.swift */; };
@@ -90,6 +91,7 @@
 		A787ADE12C8AFEBB00498EBD /* IncomePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomePanel.swift; sourceTree = "<group>"; };
 		A78E6F8B2C8F1DB600DA064F /* TEMP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TEMP.swift; sourceTree = "<group>"; };
 		A78F38CC2C34667200BF63EE /* TextAnimationScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimationScore.swift; sourceTree = "<group>"; };
+		A79705222C995C01009CC742 /* PlayerHelthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerHelthModel.swift; sourceTree = "<group>"; };
 		A79A579A2BED315200ED3A67 /* SideMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMapView.swift; sourceTree = "<group>"; };
 		A79A579C2BED39CF00ED3A67 /* PlayerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDataModel.swift; sourceTree = "<group>"; };
 		A79ACB002BF76DC200769EB7 /* FightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightButton.swift; sourceTree = "<group>"; };
@@ -187,6 +189,16 @@
 			path = InfoBar;
 			sourceTree = "<group>";
 		};
+		A79705212C995BCE009CC742 /* GameSceneModels */ = {
+			isa = PBXGroup;
+			children = (
+				A7E2C99F2BEA97BA0040B8E5 /* HealthBarModel.swift */,
+				A7E2C99E2BEA97BA0040B8E5 /* CountryModel.swift */,
+				A79705222C995C01009CC742 /* PlayerHelthModel.swift */,
+			);
+			path = GameSceneModels;
+			sourceTree = "<group>";
+		};
 		A7A21FE72BB5BE0E005D062B = {
 			isa = PBXGroup;
 			children = (
@@ -265,12 +277,11 @@
 		A7E2C9A02BEA97BA0040B8E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A79705212C995BCE009CC742 /* GameSceneModels */,
 				A7ABD29D2C6231610083B96E /* SkillsModel */,
 				A7BEA8D82C3EA736001452F7 /* GameModel */,
 				A7E2C9CB2BEAA2760040B8E5 /* Sources */,
 				A7E2C9C32BEAA24E0040B8E5 /* MapModel */,
-				A7E2C99E2BEA97BA0040B8E5 /* CountryModel.swift */,
-				A7E2C99F2BEA97BA0040B8E5 /* HealthBarModel.swift */,
 				A79A579C2BED39CF00ED3A67 /* PlayerDataModel.swift */,
 			);
 			path = Model;
@@ -501,6 +512,7 @@
 				A7FC90E02C2AB9AD00A9790B /* RestartButtonView.swift in Sources */,
 				A7E2C9A22BEA97BA0040B8E5 /* HealthBarModel.swift in Sources */,
 				A7E2C9CC2BEAA2760040B8E5 /* Centering.swift in Sources */,
+				A79705232C995C01009CC742 /* PlayerHelthModel.swift in Sources */,
 				A7ABD29F2C6231770083B96E /* Economic.swift in Sources */,
 				A7580F182C0898CA00B3F4B4 /* SideMapRightView.swift in Sources */,
 			);

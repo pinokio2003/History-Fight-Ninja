@@ -36,10 +36,12 @@ class GameScene: SKScene {
     private var heroHealthBar = ProgressBar(size: Constants.HealthBar.size,
                                             barColor: Constants.HealthBar.heroColor,
                                             backgroundColor: Constants.HealthBar.backgroundColor)
-    
-    private var enemyHealthBar = ProgressBar(size: Constants.HealthBar.size,
-                                             barColor: Constants.HealthBar.enemyColor,
-                                             backgroundColor: Constants.HealthBar.backgroundColor)
+    var playerHealth: PlayerHealth!
+
+    //Score
+    private var heroScore = SKLabelNode(fontNamed: "Chalkduster")
+    private var enemyScore = SKLabelNode(fontNamed: "Chalkduster")
+
     //Lives
     let countryManager = CountryDataManager.shared
     private var enemyLives: CGFloat = 0.00
@@ -162,14 +164,10 @@ class GameScene: SKScene {
         physicsWorld.gravity = CGVector(dx: 0, dy: -2)
         heroHealthBar.position = CGPoint(x: size.height * 0.15, y: size.width / 4)
         addChild(heroHealthBar)
-        
-        enemyHealthBar.position = CGPoint(x: size.height * 1.7, y: size.width / 4)
-        addChild(enemyHealthBar)
-        
+
+        setupPlayerHealth()
         // Start Countdown
         startCountdown()
-        
-        
     }
     //MARK: - Game Over
     func gameOver() {
@@ -268,13 +266,32 @@ class GameScene: SKScene {
                 }
             }
         }
+//MARK: - Health Player:
+    func setupPlayerHealth() {
+        let maxHealthCount = heroData.playerHealth - 3
+        var healthPosition = CGPoint(x: size.width, y: size.height)
+        
+        if device.userInterfaceIdiom == .pad {
+            healthPosition = CGPoint(x: size.width - 80, y: size.height / 2 - CGFloat(maxHealthCount * 40))
+        } else {
+            healthPosition = CGPoint(x: size.width - 80, y: size.height / 2 - CGFloat(maxHealthCount * 40))
+        }
 
+        playerHealth = PlayerHealth(maxHealth: heroData.playerHealth,
+                                    parentNode: self,
+                                    healthImageName: "health",
+                                    position: healthPosition,
+                                    spriteSize: 40,
+                                    spacing: 5)
+    }
+    
+    
     func minusLives() {
-//        let maxHelth = power * 10
-//        print(maxHelth)
-        enemyHealthBar.progress += 0.1
-        enemyLives += 0.1
+        playerHealth.decreaseHealth()
         streakCount = 1
+        if playerHealth.getCurrentHealth() == 0 {
+            gameOver()
+        }
     }
     
     func startCountdown() {
