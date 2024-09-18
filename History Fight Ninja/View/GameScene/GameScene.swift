@@ -31,28 +31,26 @@ class GameScene: SKScene {
     private var pauseButton: PauseButton?
     private var isPause = false
     private var pausedCountryStates: [(node: CountryModel, position: CGPoint, velocity: CGVector)] = []
-    
     //healthBar
     private var heroHealthBar = ProgressBar(size: Constants.HealthBar.size,
                                             barColor: Constants.HealthBar.heroColor,
                                             backgroundColor: Constants.HealthBar.backgroundColor)
     var playerHealth: PlayerHealth!
-
     //Score
     private var heroScore = SKLabelNode(fontNamed: "Chalkduster")
     private var enemyScore = SKLabelNode(fontNamed: "Chalkduster")
-
     //Lives
     let countryManager = CountryDataManager.shared
     private var enemyLives: CGFloat = 0.00
     private var heroLives: CGFloat = 0.00
+    //Additional Objects
+    private var additionalObjectsModel = AdditionalObjectsModel()
+    private var timersCount: Int = 3
     
     override func didMove(to view: SKView) {
         isUserInteractionEnabled = true
         heroData.resetScoreAndTime()
-     
         //devices
-        
         if device.userInterfaceIdiom == .pad {
             view.scene?.size = CGSize(width: 1334, height: 750)
             view.scene?.scaleMode = .aspectFit
@@ -70,8 +68,6 @@ class GameScene: SKScene {
             addChild(streak)
             streakPool.append(streak)
         }
-    
-        
         setupScene()
     }
     
@@ -95,7 +91,6 @@ class GameScene: SKScene {
             
             for node in nodes(at: location){
                 if node.name == "no" {
-                    
                     let emitter = SKEmitterNode(fileNamed: "explousion")
                     emitter?.position = node.position
                     emitter?.zPosition = 5
@@ -104,12 +99,18 @@ class GameScene: SKScene {
                     addStreak()
                     node.removeFromParent()
                 }
-                
                 if node.name == "yes" {
                     node.removeFromParent()
                     minusLives() //countryDataManager.countryPowerMap[heroData.name]
                 }
-                
+                if node.name == "additionalTimeTexture" {
+                    let emitter = SKEmitterNode(fileNamed: "explousion")
+                    emitter?.position = node.position
+                    emitter?.zPosition = 5
+                    addChild(emitter!)
+                    time += 10
+                    node.removeFromParent()
+                }
                 if enemyLives >= 1 {
                     gameOver()
                 }
@@ -117,7 +118,6 @@ class GameScene: SKScene {
                     levelComplete()
                 }
             }
-            
             let path = CGMutablePath()
             path.move(to: location)
             path.addLine(to: previousLocation)
@@ -133,6 +133,19 @@ class GameScene: SKScene {
             line.run(sequence)
         }
     }
+   
+    //TODO: - Spawn additional objects
+    override func update(_ currentTime: TimeInterval) {
+        
+        if timersCount > 0 {
+            if additionalObjectsModel.shouldSpawnAdditionalTime(currentTime: currentTime, isActiveAdditionalTimer: heroData.additionalTimer) && time < 30 {
+                let randomNumber = 1 // Случайное количество объектов для спавна
+                additionalObjectsModel.spawnAdditionalTimeSprites(in: self, count: randomNumber)
+                timersCount -= 1
+            }
+        }
+    }
+    
     //MARK: - Spawn country models
     @objc func spawnCountry(){
         
@@ -279,13 +292,12 @@ class GameScene: SKScene {
 
         playerHealth = PlayerHealth(maxHealth: heroData.playerHealth,
                                     parentNode: self,
-                                    healthImageName: "health",
+                                    healthImageName: "healthNew",
                                     position: healthPosition,
                                     spriteSize: 40,
                                     spacing: 5)
     }
-    
-    
+     
     func minusLives() {
         playerHealth.decreaseHealth()
         streakCount = 1

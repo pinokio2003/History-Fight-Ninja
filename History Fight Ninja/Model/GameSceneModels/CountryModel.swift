@@ -8,15 +8,13 @@
 import SpriteKit
 import GameKit
 
-
 class CountryModel: SKNode {
-    
         override init() {
             super.init()
         
         let enemyTexture = SKTexture(imageNamed: HeroData.shared.enemyName)
         let playerName = SKTexture(imageNamed: HeroData.shared.playerCountry)
-
+            
         var country: SKTexture!
         
         switch arc4random_uniform(2) {

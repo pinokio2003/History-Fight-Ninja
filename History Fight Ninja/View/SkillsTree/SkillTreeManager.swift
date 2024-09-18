@@ -155,6 +155,9 @@ class SkillTreeManager: ObservableObject {
                 increaseMaxHealth(1)
             case "increaseMaxHealth2":
                 increaseMaxHealth(2)
+                //additional objects:
+            case "increaseAdditionalTimer":
+                increaseAdditionalTimer()
             default:
                 print("Unknown action: \(actionKey)")
         }
@@ -213,6 +216,10 @@ class SkillTreeManager: ObservableObject {
     
     func increaseMaxHealth(_ health: Int) {
         HeroData.shared.playerHealth += health
+    }
+    
+    func increaseAdditionalTimer() {
+        HeroData.shared.additionalTimer = true
     }
     
 //MARK: Other functions
