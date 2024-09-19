@@ -25,9 +25,9 @@ class AdditionalObjectsModel {
     }
     
     init() {
-        additionalTimeTexture = SKTexture(imageNamed: "additionalTimeNew")
+        additionalTimeTexture = SKTexture(imageNamed: "additionalTime")
         
-        badaboomTexture = SKTexture(imageNamed: "Badaboom")
+        badaboomTexture = SKTexture(imageNamed: "badaBoom")
     }
     
     func createAdditionalTimeSprite() -> SKSpriteNode {
@@ -42,6 +42,7 @@ class AdditionalObjectsModel {
     
     func createBadaboomSprite() -> SKSpriteNode {
         let sprite = SKSpriteNode(texture: badaboomTexture, size: objectSize)
+        sprite.name = "badaBoom"
         sprite.physicsBody = SKPhysicsBody(rectangleOf: objectSize)
         sprite.physicsBody?.affectedByGravity = false
         sprite.physicsBody?.allowsRotation = true
@@ -49,8 +50,8 @@ class AdditionalObjectsModel {
         return sprite
     }
     
-    func shouldSpawnAdditionalTime(currentTime: TimeInterval, isActiveAdditionalTimer: Bool) -> Bool {
-        if currentTime - lastSpawnTime >= minSpawnInterval && isActiveAdditionalTimer == true {
+    func shouldSpawnAdditionalObject(currentTime: TimeInterval, isActiveAdditionalObject: Bool) -> Bool {
+        if currentTime - lastSpawnTime >= minSpawnInterval && isActiveAdditionalObject == true {
             if Double.random(in: 0...1) < 0.2 {
                 lastSpawnTime = currentTime
                 return true
@@ -59,9 +60,11 @@ class AdditionalObjectsModel {
         return false
     }
     
-    func spawnAdditionalTimeSprites(in scene: SKScene, count: Int) {
+    
+    
+    func spawnAdditionalSprites(in scene: SKScene, count: Int, sprite: SKSpriteNode) {
         for _ in 0..<count {
-            let sprite = createAdditionalTimeSprite()
+            let sprite = sprite
             sprite.position = CGPoint(x: CGFloat(GKRandomDistribution(lowestValue: Constants.spawnMinX, highestValue: Int(scene.size.width)).nextInt()), y: -50)
             scene.addChild(sprite)
             

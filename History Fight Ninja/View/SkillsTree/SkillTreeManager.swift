@@ -158,6 +158,8 @@ class SkillTreeManager: ObservableObject {
                 //additional objects:
             case "increaseAdditionalTimer":
                 increaseAdditionalTimer()
+            case "badaBoom":
+                increseBadaBoom()
             default:
                 print("Unknown action: \(actionKey)")
         }
@@ -220,6 +222,9 @@ class SkillTreeManager: ObservableObject {
     
     func increaseAdditionalTimer() {
         HeroData.shared.additionalTimer = true
+    }
+    func increseBadaBoom() {
+        HeroData.shared.badaBoom = true
     }
     
 //MARK: Other functions

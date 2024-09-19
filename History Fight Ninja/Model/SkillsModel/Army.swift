@@ -257,7 +257,7 @@ import SwiftUI
                   isUnlocked: true,
                   isPurchased: false,
                   imageName: "WrathOfGod",
-                  actionKey: "",
+                  actionKey: "badaBoom",
                   dependencies: [airForces, spaceForces],
                   position: CGPoint(x: 0.55, y: 0.45))
         ]

@@ -46,6 +46,7 @@ class GameScene: SKScene {
     //Additional Objects
     private var additionalObjectsModel = AdditionalObjectsModel()
     private var timersCount: Int = 3
+    private var badaBoomCount: Int = 1
     
     override func didMove(to view: SKView) {
         isUserInteractionEnabled = true
@@ -111,6 +112,26 @@ class GameScene: SKScene {
                     time += 10
                     node.removeFromParent()
                 }
+                
+                if node.name == "badaBoom" {
+                    let emitter = SKEmitterNode(fileNamed: "explousion")
+                    emitter?.position = node.position
+                    emitter?.zPosition = 5
+                    addChild(emitter!)
+                    
+                    let nodesToRemove = ["no", "yes"]
+                    
+                    for nodeName in nodesToRemove {
+                        enumerateChildNodes(withName: nodeName) { node, _ in
+                            node.removeFromParent()
+                        }
+                    }
+                    heroHealthBar.progress += 0.1
+                    score += 30
+                    scoreLable.text = "Score: \(score)"
+                    
+                    node.removeFromParent()
+                }
                 if enemyLives >= 1 {
                     gameOver()
                 }
@@ -134,21 +155,29 @@ class GameScene: SKScene {
         }
     }
    
-    //TODO: - Spawn additional objects
+    //MARK: - Spawn additional objects
     override func update(_ currentTime: TimeInterval) {
-        
+        // Additional Time
         if timersCount > 0 {
-            if additionalObjectsModel.shouldSpawnAdditionalTime(currentTime: currentTime, isActiveAdditionalTimer: heroData.additionalTimer) && time < 30 {
+            if additionalObjectsModel.shouldSpawnAdditionalObject(currentTime: currentTime, isActiveAdditionalObject: heroData.additionalTimer) && time < 30 {
                 let randomNumber = 1 // Случайное количество объектов для спавна
-                additionalObjectsModel.spawnAdditionalTimeSprites(in: self, count: randomNumber)
+                additionalObjectsModel.spawnAdditionalSprites(in: self, count: randomNumber, sprite: additionalObjectsModel.createAdditionalTimeSprite())
+                //
                 timersCount -= 1
             }
         }
+        // Badaboom:
+        if badaBoomCount > 0 {
+            if additionalObjectsModel.shouldSpawnAdditionalObject(currentTime: currentTime, isActiveAdditionalObject: heroData.badaBoom) && time < 50 {
+                additionalObjectsModel.spawnAdditionalSprites(in: self, count: 1, sprite: additionalObjectsModel.createBadaboomSprite())
+                badaBoomCount -= 1
+            }
+        }
     }
+
     
     //MARK: - Spawn country models
     @objc func spawnCountry(){
-        
         let randomNumber = Int(GKRandomDistribution(lowestValue: Constants.spawnMinValue,
                                                     highestValue: Constants.spawnMaxValue).nextInt())
         for _ in 0..<randomNumber {
