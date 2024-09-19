@@ -10,7 +10,7 @@ import Foundation
 var constantCountriesData: [MapCountryModel] = [
     MapCountryModel(countryCode: "GL", name: "Greenland", color: .grey, power: 50),
     MapCountryModel(countryCode: "IS", name: "Iceland", color: .grey, power: 60),
-    MapCountryModel(countryCode: "PT", name: "Portugal", color: .grey, power: 80),
+    MapCountryModel(countryCode: "PT", name: "Portugal", color: .grey, power: 170),
     MapCountryModel(countryCode: "MA", name: "Morocco", color: .grey, power: 120),
     MapCountryModel(countryCode: "ES", name: "Spain", color: .grey, power: 200),
     MapCountryModel(countryCode: "TN", name: "Tunisia", color: .grey, power: 100),
@@ -186,6 +186,8 @@ var constantCountriesData: [MapCountryModel] = [
     MapCountryModel(countryCode: "CA", name: "Canada", color: .grey, power: 300),
     MapCountryModel(countryCode: "GM", name: "Gambia", color: .grey, power: 70),
     MapCountryModel(countryCode: "LS", name: "Lesotho", color: .grey, power: 60),
-    MapCountryModel(countryCode: "SZ", name: "Eswatini", color: .grey, power: 70)
+    MapCountryModel(countryCode: "SZ", name: "Eswatini", color: .grey, power: 70),
+    MapCountryModel(countryCode: "BN", name: "Brunei", color: .grey, power: 80),
+    MapCountryModel(countryCode: "GT", name: "Guatemala", color: .grey, power: 100),
+    MapCountryModel(countryCode: "SV", name: "El Salvador", color: .grey, power: 70),
 ]
-

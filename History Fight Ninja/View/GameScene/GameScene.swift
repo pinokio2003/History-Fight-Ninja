@@ -10,6 +10,7 @@ class GameScene: SKScene {
     var levelCompleteCallback: (() -> Void)?
     //Devices
     let device = UIDevice.current
+    var cameraNode: SKCameraNode!
     //main
     private let smokeEffect = SKEmitterNode(fileNamed: "smoke")
     private var spawnTimer = Timer()
@@ -49,6 +50,7 @@ class GameScene: SKScene {
     private var badaBoomCount: Int = 1
     
     override func didMove(to view: SKView) {
+        
         isUserInteractionEnabled = true
         heroData.resetScoreAndTime()
         //devices
@@ -102,6 +104,7 @@ class GameScene: SKScene {
                 }
                 if node.name == "yes" {
                     node.removeFromParent()
+                    shakeScreen()
                     minusLives() //countryDataManager.countryPowerMap[heroData.name]
                 }
                 if node.name == "additionalTimeTexture" {
@@ -126,11 +129,13 @@ class GameScene: SKScene {
                             node.removeFromParent()
                         }
                     }
+                    shakeScreen()
                     heroHealthBar.progress += 0.1
                     score += 30
                     scoreLable.text = "Score: \(score)"
                     
                     node.removeFromParent()
+                    
                 }
                 if enemyLives >= 1 {
                     gameOver()
@@ -174,7 +179,18 @@ class GameScene: SKScene {
             }
         }
     }
-
+    
+    func shakeScreen(intensity: CGFloat = 10, duration: TimeInterval = 0.25) {
+        let shake = SKAction.repeat(SKAction.sequence([
+            SKAction.moveBy(x: intensity, y: intensity/2, duration: duration/10),
+            SKAction.moveBy(x: -intensity*2, y: -intensity, duration: duration/5),
+            SKAction.moveBy(x: intensity*1.5, y: intensity*0.8, duration: duration/10),
+            SKAction.moveBy(x: -intensity, y: -intensity/2, duration: duration/10),
+            SKAction.moveBy(x: intensity/2, y: intensity/4, duration: duration/10)
+        ]), count: 2)
+        
+        camera?.run(shake)
+    }
     
     //MARK: - Spawn country models
     @objc func spawnCountry(){
@@ -201,6 +217,22 @@ class GameScene: SKScene {
     
     //MARK: - Setup Scene
     private func setupScene() {
+        //camera:
+        cameraNode = SKCameraNode()
+        
+        if device.userInterfaceIdiom == .pad {
+            self.scaleMode = .aspectFit
+        } else if device.userInterfaceIdiom == .phone {
+            self.scaleMode = .aspectFill
+        } else {
+            self.scaleMode = .aspectFill
+        }
+            addChild(cameraNode)
+            camera = cameraNode
+            
+            // Position the camera at the center of the scene
+            cameraNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        
         //main
         anchorPoint = .zero
         physicsWorld.gravity = CGVector(dx: 0, dy: -2)

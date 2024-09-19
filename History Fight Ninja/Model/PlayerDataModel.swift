@@ -172,6 +172,6 @@ class HeroData: ObservableObject {
         UserDefaults.standard.removeObject(forKey: "playerHealth")
         UserDefaults.standard.removeObject(forKey: "playerPower")
         UserDefaults.standard.removeObject(forKey: "additionalTimer")
-        UserDefaults.standard.removeObject(forKey: "badaBoom")
+    
     }
 }
