@@ -48,7 +48,9 @@ class GameScene: SKScene {
     private var additionalObjectsModel = AdditionalObjectsModel()
     private var timersCount: Int = 3
     private var badaBoomCount: Int = 1
-    
+    private var restoreHealthCount = 3
+    var damageEffectNode: SKSpriteNode?
+
     override func didMove(to view: SKView) {
         
         isUserInteractionEnabled = true
@@ -104,6 +106,7 @@ class GameScene: SKScene {
                 }
                 if node.name == "yes" {
                     node.removeFromParent()
+                    showSmoothDamageEffect()
                     shakeScreen()
                     minusLives() //countryDataManager.countryPowerMap[heroData.name]
                 }
@@ -113,6 +116,15 @@ class GameScene: SKScene {
                     emitter?.zPosition = 5
                     addChild(emitter!)
                     time += 10
+                    node.removeFromParent()
+                }
+                
+                if node.name == "restoreHealth" {
+                    let emitter = SKEmitterNode(fileNamed: "explousion")
+                    emitter?.position = node.position
+                    emitter?.zPosition = 5
+                    addChild(emitter!)
+                    playerHealth.increaseHealth()
                     node.removeFromParent()
                 }
                 
@@ -178,8 +190,13 @@ class GameScene: SKScene {
                 badaBoomCount -= 1
             }
         }
+        if playerHealth.currentHealth < playerHealth.maxHealth  && restoreHealthCount > 0{
+            if additionalObjectsModel.shouldSpawnAdditionalObject(currentTime: currentTime, isActiveAdditionalObject: heroData.restoreHealth) {
+                additionalObjectsModel.spawnAdditionalSprites(in: self, count: 1, sprite: additionalObjectsModel.createRestoreHealth())
+                restoreHealthCount -= 1
+            }
+        }
     }
-    
     func shakeScreen(intensity: CGFloat = 10, duration: TimeInterval = 0.25) {
         let shake = SKAction.repeat(SKAction.sequence([
             SKAction.moveBy(x: intensity, y: intensity/2, duration: duration/10),
@@ -229,16 +246,19 @@ class GameScene: SKScene {
         }
             addChild(cameraNode)
             camera = cameraNode
-            
-            // Position the camera at the center of the scene
             cameraNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
-        
         //main
         anchorPoint = .zero
         physicsWorld.gravity = CGVector(dx: 0, dy: -2)
         heroHealthBar.position = CGPoint(x: size.height * 0.15, y: size.width / 4)
         addChild(heroHealthBar)
-
+        //damage overlay
+        //TODO: increase area of damage effect
+        damageEffectNode = additionalObjectsModel.createSmoothDamageEffect(for: self)
+        if let effectNode = damageEffectNode {
+            addChild(effectNode)
+        }
+        
         setupPlayerHealth()
         // Start Countdown
         startCountdown()
@@ -283,7 +303,27 @@ class GameScene: SKScene {
     func startNewGame() {
         isGameOver = false
     }
+    //Demage animation:
     
+    private func showSmoothDamageEffect() {
+        guard let effectNode = damageEffectNode else { return }
+
+        // Анимация появления и исчезновения эффекта
+        let fadeIn = SKAction.fadeAlpha(to: 1.0, duration: 0.2)
+        let hold = SKAction.wait(forDuration: 0.1)
+        let fadeOut = SKAction.fadeAlpha(to: 0, duration: 0.3)
+        let sequence = SKAction.sequence([fadeIn, hold, fadeOut])
+
+        effectNode.run(sequence)
+
+        // Мягкая пульсация
+        let scaleUp = SKAction.scale(to: 1.03, duration: 0.1)
+        let scaleDown = SKAction.scale(to: 1.0, duration: 0.1)
+        let pulseSequence = SKAction.sequence([scaleUp, scaleDown])
+        
+        self.run(pulseSequence)
+    }
+
     //MARK: level complete
     func levelComplete() {
         let heroData = HeroData.shared

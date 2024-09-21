@@ -24,7 +24,14 @@ class HeroData: ObservableObject {
     @Published var playerScore: Int = 0
     
 //MARK: - player info:
-    @Published var playerPower: Int = 1 {
+    @Published var playerPower: Int =  {
+        let key = "playerPower"
+        if UserDefaults.standard.object(forKey: key) == nil {
+            return 1 // Return default value if key doesn't exist
+        } else {
+            return UserDefaults.standard.integer(forKey: key)
+        }
+        }() {
         didSet {
             UserDefaults.standard.set(playerPower, forKey: "playerPower")
         }
@@ -61,7 +68,14 @@ class HeroData: ObservableObject {
         }
     }
 //Attack:
-    @Published var playerAttack: Int = 1 { //UserDefaults.standard.integer(forKey: "playerAttack")
+    @Published var playerAttack: Int = { //UserDefaults.standard.integer(forKey: "playerAttack")
+        let key = "playerAttack"
+        if UserDefaults.standard.object(forKey: key) == nil {
+            return 1
+        } else {
+            return UserDefaults.standard.integer(forKey: key)
+        }
+    }() {
         didSet {
             UserDefaults.standard.set(playerAttack, forKey: "playerAttack")
         }
@@ -80,7 +94,14 @@ class HeroData: ObservableObject {
         }
     }
 //Max streak:
-    @Published var maxStreak: Int = 2 {
+    @Published var maxStreak: Int = {
+        let key = "maxStreak"
+        if UserDefaults.standard.object(forKey: key) == nil {
+            return 2 // Return default value if key doesn't exist
+        } else {
+            return UserDefaults.standard.integer(forKey: key)
+        }
+    }() {
         didSet {
             UserDefaults.standard.set(maxStreak, forKey: "maxStreak")
         }
@@ -115,6 +136,19 @@ class HeroData: ObservableObject {
                 UserDefaults.standard.set(additionalTimer, forKey: "badaBoom")
             }
         }
+//Restore Health
+    @Published var restoreHealth: Bool = {
+        let key = "restoreHealth"
+        if UserDefaults.standard.object(forKey: key) == nil {
+            return false
+        } else {
+            return UserDefaults.standard.bool(forKey: key)
+        }
+    }() {
+        didSet {
+            UserDefaults.standard.setValue(restoreHealth, forKey: "restoreHealth")
+        }
+    }
 //Max Enegy (resurce for attack):
     @Published var playerEnergyMax: Int = {
         let key = "playerEnergyMax"
@@ -160,6 +194,7 @@ class HeroData: ObservableObject {
         playerPower = 1
         additionalTimer = false
         badaBoom = false
+        restoreHealth = false
         UserDefaults.standard.removeObject(forKey: "playerCountry")
         UserDefaults.standard.removeObject(forKey: "playerExperience")
         UserDefaults.standard.removeObject(forKey: "playerAttack")
@@ -169,9 +204,7 @@ class HeroData: ObservableObject {
         UserDefaults.standard.removeObject(forKey: "playerEnergyMax")
         UserDefaults.standard.removeObject(forKey: "playerIncome")
         UserDefaults.standard.removeObject(forKey: "maxStreak")
-        UserDefaults.standard.removeObject(forKey: "playerHealth")
         UserDefaults.standard.removeObject(forKey: "playerPower")
         UserDefaults.standard.removeObject(forKey: "additionalTimer")
-    
     }
 }

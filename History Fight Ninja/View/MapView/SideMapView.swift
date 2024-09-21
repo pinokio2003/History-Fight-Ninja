@@ -24,6 +24,7 @@ struct SideMapView: View {
                 VStack(alignment: .center) {
                     if let countryName = countryDataManager.countryNameMap[heroData.name] {
                         let power = countryDataManager.countryPowerMap[heroData.name]
+                        let difficlty: String = difficltyLevel(enemyPower: power ?? 0, playerPower: heroData.playerPower)
                         
                         Image(countryName)
                             .resizable()
@@ -38,13 +39,21 @@ struct SideMapView: View {
                             .foregroundStyle(.black)
                             .shadow(color: Color.white.opacity(0.8), radius: 2, x: 1, y: 1)
                         
-                        Text("Difficulty: ")
-                            .multilineTextAlignment(.leading)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .font(.custom("Chalkduster", size: 15))
-                            .foregroundStyle(.black)
-                            .shadow(color: Color.white.opacity(0.8), radius: 2, x: 1, y: 1)
-                        
+                        HStack {
+                            Text("Difficulty: ")
+                                .multilineTextAlignment(.leading)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .font(.custom("Chalkduster", size: 15))
+                                .foregroundStyle(.black)
+                                .shadow(color: Color.white.opacity(0.8), radius: 2, x: 1, y: 1)
+                            
+                            Text(difficlty)
+                                .multilineTextAlignment(.leading)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .font(.custom("Chalkduster", size: 15))
+                                .foregroundStyle(getColorDifficlty(difficlty: difficlty))
+                                .shadow(color: Color.black, radius: 2, x: 1, y: 1)
+                        }
                     } else {
                         Text("   ")
                     }

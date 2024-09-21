@@ -36,3 +36,38 @@ struct Constants {
 //Colors:
 let innerPurple = Color(red: 151 / 255, green: 71 / 255, blue: 255 / 255)
 let innerGreen = Color(red: 161 / 255, green: 255 / 255, blue: 0 / 255)
+
+//difficlty:
+func difficltyLevel(enemyPower: Int, playerPower: Int) -> String {
+    let difference = enemyPower - playerPower
+    
+    switch difference {
+        case ..<0:
+            return "Easy"
+        case 0...30:
+            return "Easy"
+        case 31...50:
+            return "Normal"
+        case 51...100:
+            return "Hard"
+        case 101...150:
+            return "Very Hard"
+        default :
+            return "Impossible"
+    }
+}
+
+func getColorDifficlty(difficlty: String) -> Color {
+    switch difficlty {
+        case "Easy":
+            return .blue
+        case "Normal":
+            return .yellow
+        case "Hard":
+            return .orange
+        case "Very Hard":
+            return .red
+        default:
+            return .black
+    }
+}

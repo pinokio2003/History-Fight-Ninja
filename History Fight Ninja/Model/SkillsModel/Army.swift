@@ -198,14 +198,14 @@ import SwiftUI
             
             Skill(id: repair,
                   name: "Repair",
-                  description: "???",
+                  description: "Restore Health",
                   branch: .army,
                   baseCost: 350,
                   cost: 350,
                   isUnlocked: true,
                   isPurchased: false,
                   imageName: "repair",
-                  actionKey: "",
+                  actionKey: "restoreHealth",
                   dependencies: [milLogistics, modernShelters],
                   position: CGPoint(x: 0.65, y: 0.3)),
             

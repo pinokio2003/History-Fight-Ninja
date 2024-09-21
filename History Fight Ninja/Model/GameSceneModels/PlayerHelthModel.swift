@@ -9,8 +9,8 @@ import SpriteKit
 
 class PlayerHealth {
     private var healthSprites: [SKSpriteNode] = []
-    private var currentHealth: Int
-    private let maxHealth: Int
+    var currentHealth: Int
+    let maxHealth: Int
     private let parentNode: SKNode
     private let healthTexture: SKTexture
     private let position: CGPoint
@@ -54,8 +54,8 @@ class PlayerHealth {
         
         let newHealth = SKSpriteNode(texture: healthTexture)
         newHealth.size = CGSize(width: spriteSize, height: spriteSize)
-        let xPosition = position.x + CGFloat(currentHealth - 1) * (spriteSize + spacing)
-        newHealth.position = CGPoint(x: xPosition, y: position.y)
+        let yPosition = position.y + CGFloat(currentHealth - 1) * (spriteSize + spacing)
+        newHealth.position = CGPoint(x: position.x, y: yPosition)
         
         parentNode.addChild(newHealth)
         healthSprites.append(newHealth)
