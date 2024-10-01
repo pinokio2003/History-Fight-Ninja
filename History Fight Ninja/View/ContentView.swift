@@ -44,8 +44,7 @@ struct ContentView: View {
                         }
                     .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
                     }
-                        
-                    
+            
                     if heroData.isFightStartButton {
                         SpriteView(scene: game!)
                             .ignoresSafeArea()
@@ -57,7 +56,6 @@ struct ContentView: View {
                             .animation(Animation.easeInOut(duration: 0.5), value: heroData.isAnimationBeforeFight)
                     }
                 }
-//                if !heroData.isAnimationBeforeFight {
                 if heroData.isMenuButtonPushed {
                     // MenuButton
                         VStack {
@@ -72,13 +70,6 @@ struct ContentView: View {
                                 .padding(.trailing, 20)
                                 .position(x: geometry.size.width - 60, y: geometry.size.height * 0.1)
                 }
-// MARK: - Player panel:
-                
-                  
-//                    Spacer()
-                
-//                    .position(y: geometry.size.height * 0.1)
-//                    .padding(.leading)
             }
         }
         .edgesIgnoringSafeArea(.all)
