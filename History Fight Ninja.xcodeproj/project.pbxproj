@@ -17,6 +17,7 @@
 		A74FA5342C9344B90064AF8E /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74FA5332C9344B90064AF8E /* Difficulty.swift */; };
 		A7502CDD2CABF58E0053A5B2 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7502CDC2CABF58E0053A5B2 /* ImageLoader.swift */; };
 		A7502CE02CAC06720053A5B2 /* CachedAssetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7502CDF2CAC06720053A5B2 /* CachedAssetImage.swift */; };
+		A7514FCD2CAD5AC10076C38D /* CashedAssetImageSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7514FCC2CAD5AC10076C38D /* CashedAssetImageSkills.swift */; };
 		A7580F182C0898CA00B3F4B4 /* SideMapRightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7580F172C0898CA00B3F4B4 /* SideMapRightView.swift */; };
 		A75D26672C4C16E60040FC86 /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D26632C4C16E60040FC86 /* SkillView.swift */; };
 		A75D26692C4C16E60040FC86 /* SkillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D26652C4C16E60040FC86 /* SkillModel.swift */; };
@@ -84,6 +85,7 @@
 		A74FA5332C9344B90064AF8E /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
 		A7502CDC2CABF58E0053A5B2 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		A7502CDF2CAC06720053A5B2 /* CachedAssetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAssetImage.swift; sourceTree = "<group>"; };
+		A7514FCC2CAD5AC10076C38D /* CashedAssetImageSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashedAssetImageSkills.swift; sourceTree = "<group>"; };
 		A7580F172C0898CA00B3F4B4 /* SideMapRightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMapRightView.swift; sourceTree = "<group>"; };
 		A75D26632C4C16E60040FC86 /* SkillView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
 		A75D26652C4C16E60040FC86 /* SkillModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillModel.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				A7502CDC2CABF58E0053A5B2 /* ImageLoader.swift */,
 				A7502CDF2CAC06720053A5B2 /* CachedAssetImage.swift */,
+				A7514FCC2CAD5AC10076C38D /* CashedAssetImageSkills.swift */,
 			);
 			path = CachedImage;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				A7CFDACD2BF92ABF00937CE0 /* AttacButton.swift in Sources */,
 				A7A21FF42BB5BE0E005D062B /* History_Fight_NinjaApp.swift in Sources */,
 				A7E2C9CE2BEAA2760040B8E5 /* MapRenderer.swift in Sources */,
+				A7514FCD2CAD5AC10076C38D /* CashedAssetImageSkills.swift in Sources */,
 				A74FA5342C9344B90064AF8E /* Difficulty.swift in Sources */,
 				A75D26672C4C16E60040FC86 /* SkillView.swift in Sources */,
 				A79C62362C3569C000C64772 /* CustomBackground.swift in Sources */,

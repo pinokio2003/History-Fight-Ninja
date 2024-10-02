@@ -16,7 +16,11 @@ struct PickContetntView: View {
 
     var body: some View {
         ZStack {
-            Color.gray.opacity(0.4)
+            Image("bg1")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .edgesIgnoringSafeArea(.all)
+            
             VStack {
                 ZStack {
                     VStack {

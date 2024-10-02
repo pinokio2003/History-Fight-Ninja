@@ -11,7 +11,7 @@ struct SkillBranchView: View {
     @EnvironmentObject var skillTreeManager: SkillTreeManager
     let branch: SkillBranch
     let backgroundImageName: String
-    
+    let imageCache = NSCache<NSString, UIImage>()
     // Настраиваемые размеры контента (можно изменять по необходимости)
     let contentWidth: CGFloat = 1000  // Ширина контента
     let contentHeight: CGFloat = 2000 // Высота контента
@@ -40,7 +40,7 @@ struct SkillBranchView: View {
                         }
 // Skills:
                         ForEach(skills) { skill in
-                            SkillView(skillId: skill.id, branch: branch)
+                            SkillView(skillId: skill.id, branch: branch, cache: imageCache)
                                 .position(position(for: skill))
                         }
                     }

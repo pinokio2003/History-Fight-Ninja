@@ -11,8 +11,8 @@ struct SkillView: View {
     @EnvironmentObject var skillTreeManager: SkillTreeManager
     let skillId: UUID
     let branch: SkillBranch
+    let cache: NSCache<NSString, UIImage> 
     @State private var showPopover = false
-    
     var skill: Skill {
         skillTreeManager.getSkillsForBranch(branch).first(where: { $0.id == skillId })!
     }
@@ -29,23 +29,14 @@ struct SkillView: View {
                 .frame(width: 120, height: 120)
     
             VStack {
-                Image(skill.imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 80, height: 80)
-                    .cornerRadius(40)
+                CashedAssetImageSkills(imageName: skill.imageName, cache: cache)
                     .overlay(
                         RoundedRectangle(cornerRadius: 40)
                             .stroke(borderColor, lineWidth: 3)
                     )
                     .onTapGesture {
-//                        if skill.isUnlocked {
                             showPopover = true
-//                        }
                     }
-                //            Text(skill.name)
-                //                .font(.caption)
-                //                .multilineTextAlignment(.center)
             }
             .background(backgroundColor)
             .cornerRadius(40)
@@ -53,12 +44,6 @@ struct SkillView: View {
             .sheet(isPresented: $showPopover) {
                 SkillPopover(skill: skill, isPresented: $showPopover)
             }
-//            .popover(isPresented: $showPopover) {
-//                SkillPopover(skill: skill, isPresented: $showPopover)
-//                    .frame(width: 290, height: 390) // Adjust the size as needed
-//                    
-////                    .padding()
-//            }
         }
     }
     
