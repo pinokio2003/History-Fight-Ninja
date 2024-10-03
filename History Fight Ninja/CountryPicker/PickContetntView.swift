@@ -13,6 +13,8 @@ struct PickContetntView: View {
     @State private var shouldPresentContentView = false
     @State private var selectedCountryName: String = ""
     @StateObject private var preloader = ImagePreloader()
+    private let heroData = HeroData.shared
+    private let mapModel = CountryDataManager.shared
     
     var body: some View {
 
@@ -36,7 +38,8 @@ struct PickContetntView: View {
                             .frame(width: geo.size.height / 4, height: geo.size.height / 4)
                             .padding(.vertical, 80)
                             
-                            Button("Подтвердить выбор") {
+                            Button("OK") {
+                                
                                 prepareForTransition()
                             }
                         }
@@ -53,12 +56,18 @@ struct PickContetntView: View {
             .animation(.easeInOut, value: preloader.isLoading)
             .onAppear {
                 preloader.preloadImages(countries)
+                if selectedCountryName.isEmpty && !countries.isEmpty {
+                    selectedCountryName = countries[1]
+                    print("Initial country set: \(selectedCountryName)")
+                }
             }
         }
     }
     
     private func prepareForTransition() {
         tempView.removeAll() // Clear the array before transition
+        heroData.playerCountry = selectedCountryName
+        mapModel.updateCountryColor(byName: selectedCountryName, newColor: .green, newPower: heroData.playerPower)
         print("Выбранное изображение: \(selectedCountryName)")
         shouldPresentContentView = true
     }

@@ -53,7 +53,7 @@ struct MenuButtonView: View {
                 Circle().frame(width: 60)
                     .foregroundColor(.blue.opacity(0.9))
                     .shadow(color: .black, radius: 4, x: 1, y: 3)
-                Image("Ukraine")
+                Image(heroData.playerCountry)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 60, height: 60)
