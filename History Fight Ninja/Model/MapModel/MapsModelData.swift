@@ -38,7 +38,6 @@ var constantCountriesData: [MapCountryModel] = [
     MapCountryModel(countryCode: "AM", name: "Armenia", color: .grey, power: 100),
     MapCountryModel(countryCode: "CY", name: "Cyprus", color: .grey, power: 90),
     MapCountryModel(countryCode: "IE", name: "Ireland", color: .grey, power: 170),
-    MapCountryModel(countryCode: "UK", name: "United Kingdom", color: .grey, power: 320),
     MapCountryModel(countryCode: "CH", name: "Switzerland", color: .grey, power: 180),
     MapCountryModel(countryCode: "AT", name: "Austria", color: .grey, power: 160),
     MapCountryModel(countryCode: "CZ", name: "Czech Republic", color: .grey, power: 140),

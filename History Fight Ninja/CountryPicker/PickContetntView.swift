@@ -15,7 +15,7 @@ struct PickContetntView: View {
     @StateObject private var preloader = ImagePreloader()
     
     var body: some View {
-      //TODO: 
+
         GeometryReader { geo in
         ZStack {
             Image("bg1")

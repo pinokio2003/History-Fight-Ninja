@@ -17,20 +17,25 @@ struct CashedAssetImageSkills: View {
     }
     
     var body: some View {
-        Group {
+        ZStack {
             if let image = loader.image {
+                // Показываем изображение, если оно загружено
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 80, height: 80)
                     .cornerRadius(40)
-                
             } else {
-                Color.gray
+                // Прелоадер во время загрузки
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                    .frame(width: 40, height: 40)
+                
             }
         }
         .onAppear(perform: loader.load)
         .onDisappear(perform: loader.unload)
     }
 }
+
 

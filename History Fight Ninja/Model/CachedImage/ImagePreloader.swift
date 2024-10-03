@@ -55,5 +55,3 @@ class ImagePreloader: ObservableObject {
         cache.object(forKey: imageName as NSString)
     }
 }
-
-
