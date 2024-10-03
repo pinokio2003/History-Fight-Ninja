@@ -32,17 +32,36 @@ struct PickContetntView: View {
                             .progressViewStyle(CircularProgressViewStyle(tint: .white))
                     } else {
                         VStack {
+                            Spacer()
+                            Text(selectedCountryName)
+                                .multilineTextAlignment(.leading)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .font(.custom("Chalkduster", size: geo.size.height / 15))
+                                .foregroundStyle(.white)
+                                .shadow(color: Color.black.opacity(0.8), radius: 2, x: 1, y: 1)
+                      
+                                
+                            Spacer()
                             CarouseView(views: getChildView(), xDistance: Int(geo.size.width * 1.2), onSelect: { selectedName in
                                 selectedCountryName = selectedName
                             })
                             .frame(width: geo.size.height / 4, height: geo.size.height / 4)
-                            .padding(.vertical, 80)
-                            
-                            Button("OK") {
-                                
+//                            .padding(.vertical, 40)
+                            Spacer()
+                            Button {
                                 prepareForTransition()
+                            } label: {
+                                Text("OK")
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .font(.custom("Chalkduster", size: 35))
+                                    .foregroundStyle(.red)
+                                    .shadow(color: Color.black.opacity(0.8), radius: 2, x: 1, y: 1)
+                                    
                             }
+                            Spacer()
                         }
+    
                     }
                 }
                 .edgesIgnoringSafeArea(.all)

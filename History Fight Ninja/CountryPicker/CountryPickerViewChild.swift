@@ -13,6 +13,8 @@ struct CountryPickerViewChild: View {
     @ObservedObject var preloader: ImagePreloader
 
     var body: some View {
-        CachedImage(imageName: imageName, preloader: preloader)
+        ZStack {
+                CachedImage(imageName: imageName, preloader: preloader)
+        }
     }
 }

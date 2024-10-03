@@ -28,7 +28,3 @@ struct InfoBarView: View {
         .background(Color.gray.opacity(0.5))
     }
 }
-
-#Preview {
-    InfoBarView(heroData: HeroData.shared)
-}

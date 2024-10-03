@@ -152,7 +152,3 @@ struct WorldMapView: View {
         }
     }
 }
-
-#Preview {
-    WorldMapView()
-}
