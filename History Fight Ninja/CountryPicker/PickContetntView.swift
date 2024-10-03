@@ -8,38 +8,53 @@
 import SwiftUI
 
 struct PickContetntView: View {
-    private let countriesName: [String] = CountryDataManager.shared.countryNameMap.map { $0.value }
+    private let countries: [String] = CountryDataManager.shared.countryNameMap.map { $0.value }
     @State private var tempView: [CountryPickerViewChild] = []
     @State private var shouldPresentContentView = false
-    @State private var selectedCountryName: String = "" // Для хранения выбранного изображения
-    let imageCache = NSCache<NSString, UIImage>()
-
+    @State private var selectedCountryName: String = ""
+    @StateObject private var preloader = ImagePreloader()
+    
     var body: some View {
+      //TODO: 
+        GeometryReader { geo in
         ZStack {
             Image("bg1")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .edgesIgnoringSafeArea(.all)
-            
             VStack {
                 ZStack {
-                    VStack {
-                        CarouseView(views: getChildView(), onSelect: { selectedName in
-                            selectedCountryName = selectedName
-                        })
+                    if preloader.isLoading {
+                        Color.clear.edgesIgnoringSafeArea(.all)
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                    } else {
+                        VStack {
+                            CarouseView(views: getChildView(), xDistance: Int(geo.size.width * 1.2), onSelect: { selectedName in
+                                selectedCountryName = selectedName
+                            })
+                            .frame(width: geo.size.height / 4, height: geo.size.height / 4)
+                            .padding(.vertical, 80)
+                            
+                            Button("Подтвердить выбор") {
+                                prepareForTransition()
+                            }
+                        }
                     }
                 }
-                Button("Подтвердить выбор") {
-                    prepareForTransition()
+                .edgesIgnoringSafeArea(.all)
+                .fullScreenCover(isPresented: $shouldPresentContentView) {
+                    ContentView()
                 }
             }
-            
-            .edgesIgnoringSafeArea(.all)
-            .fullScreenCover(isPresented: $shouldPresentContentView) {
-                ContentView()
+            }
+        .frame(width: geo.size.width, height: geo.size.height)
+//            .ignoresSafeArea()
+            .animation(.easeInOut, value: preloader.isLoading)
+            .onAppear {
+                preloader.preloadImages(countries)
             }
         }
-        .ignoresSafeArea()
     }
     
     private func prepareForTransition() {
@@ -49,9 +64,8 @@ struct PickContetntView: View {
     }
     
     func getChildView() -> [CountryPickerViewChild] {
-        
-        countriesName.enumerated().map { (index, country) in
-            CountryPickerViewChild(id: index, imageName: country, cache: imageCache)
+        countries.enumerated().map { (index, country) in
+            CountryPickerViewChild(id: index, imageName: country, preloader: preloader)
         }
     }
 }

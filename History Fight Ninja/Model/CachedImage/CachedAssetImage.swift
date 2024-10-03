@@ -7,18 +7,13 @@
 
 import SwiftUI
 
-struct CachedAssetImage: View {
-    @StateObject private var loader: ImageLoader
-    private let cache: NSCache<NSString, UIImage>
-
-    init(imageName: String, cache: NSCache<NSString, UIImage>) {
-        self.cache = cache
-        _loader = StateObject(wrappedValue: ImageLoader(imageName: imageName, cache: cache))
-    }
+struct CachedImage: View {
+    let imageName: String
+    @ObservedObject var preloader: ImagePreloader
 
     var body: some View {
         Group {
-            if let image = loader.image {
+            if let image = preloader.getImage(imageName) {
                 Image(uiImage: image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -26,10 +21,7 @@ struct CachedAssetImage: View {
                 Color.gray
             }
         }
-        .frame(width: 150, height: 150)
-        .shadow(color: .blue, radius: 20, x: 2, y: 2)
-//        .clipShape(RoundedRectangle(cornerRadius: 20))
-        .onAppear(perform: loader.load)
-        .onDisappear(perform: loader.unload)
+//        .frame(width: 100, height: 100)
+//        .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }

@@ -13,7 +13,7 @@ struct CarouseView: View {
     @State private var activeIndex: Int = 0
     
     var views: [CountryPickerViewChild]
-    var xDistance: Int = 920
+    var xDistance: Int //920
     var onSelect: (String) -> Void // Передаём выбранное изображение
     
     var body: some View {
