@@ -24,6 +24,8 @@
 		A75D26692C4C16E60040FC86 /* SkillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D26652C4C16E60040FC86 /* SkillModel.swift */; };
 		A75D266A2C4C16E60040FC86 /* SkillBranchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D26662C4C16E60040FC86 /* SkillBranchView.swift */; };
 		A75ECF8C2C35DB2D002DFDDC /* MiddleLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75ECF8B2C35DB2D002DFDDC /* MiddleLine.swift */; };
+		A7665DE72CAFC8E200A00538 /* StartMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7665DE62CAFC8E200A00538 /* StartMenu.swift */; };
+		A7665DE92CAFCFDC00A00538 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7665DE82CAFCFDC00A00538 /* StartButton.swift */; };
 		A767856C2C08EBFA0089E342 /* MiddleVsText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A767856B2C08EBFA0089E342 /* MiddleVsText.swift */; };
 		A7693C772C4E60B2007763C2 /* SkillTreeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7693C762C4E60B2007763C2 /* SkillTreeScreenView.swift */; };
 		A78058E02C73A6280036C54B /* SkillConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78058DF2C73A6280036C54B /* SkillConnectionView.swift */; };
@@ -93,6 +95,8 @@
 		A75D26652C4C16E60040FC86 /* SkillModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillModel.swift; sourceTree = "<group>"; };
 		A75D26662C4C16E60040FC86 /* SkillBranchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillBranchView.swift; sourceTree = "<group>"; };
 		A75ECF8B2C35DB2D002DFDDC /* MiddleLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleLine.swift; sourceTree = "<group>"; };
+		A7665DE62CAFC8E200A00538 /* StartMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMenu.swift; sourceTree = "<group>"; };
+		A7665DE82CAFCFDC00A00538 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 		A767856B2C08EBFA0089E342 /* MiddleVsText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleVsText.swift; sourceTree = "<group>"; };
 		A7693C762C4E60B2007763C2 /* SkillTreeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTreeScreenView.swift; sourceTree = "<group>"; };
 		A78058DF2C73A6280036C54B /* SkillConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillConnectionView.swift; sourceTree = "<group>"; };
@@ -200,6 +204,15 @@
 			path = SkillsTree;
 			sourceTree = "<group>";
 		};
+		A7665DE52CAFC8BA00A00538 /* StartMenu */ = {
+			isa = PBXGroup;
+			children = (
+				A7665DE62CAFC8E200A00538 /* StartMenu.swift */,
+				A7665DE82CAFCFDC00A00538 /* StartButton.swift */,
+			);
+			path = StartMenu;
+			sourceTree = "<group>";
+		};
 		A7700F982C330AFF00871FBF /* GameWin */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,7 +266,6 @@
 			isa = PBXGroup;
 			children = (
 				A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */,
-				A7302C8C2CA7E8F600932249 /* CountryPicker */,
 				A7E2C9A82BEA97CC0040B8E5 /* View */,
 				A7E2C9BF2BEAA1C70040B8E5 /* WorldMap */,
 				A7E2C9B52BEA97D50040B8E5 /* Scene */,
@@ -326,7 +338,9 @@
 		A7E2C9A82BEA97CC0040B8E5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A7665DE52CAFC8BA00A00538 /* StartMenu */,
 				A7E2C9A32BEA97CC0040B8E5 /* ContentView.swift */,
+				A7302C8C2CA7E8F600932249 /* CountryPicker */,
 				A7FEF9E32C0F023000602D30 /* GameScene */,
 				A75D26622C4C16080040FC86 /* SkillsTree */,
 				A7E2C9C02BEAA2290040B8E5 /* MapView */,
@@ -501,6 +515,7 @@
 			files = (
 				A79A579B2BED315200ED3A67 /* SideMapView.swift in Sources */,
 				A7693C772C4E60B2007763C2 /* SkillTreeScreenView.swift in Sources */,
+				A7665DE72CAFC8E200A00538 /* StartMenu.swift in Sources */,
 				A75D26692C4C16E60040FC86 /* SkillModel.swift in Sources */,
 				A79ACB012BF76DC200769EB7 /* FightButton.swift in Sources */,
 				A7167FD92C51008300E32935 /* ReturnButton.swift in Sources */,
@@ -536,6 +551,7 @@
 				A786CD6B2C455FF300EBAC6F /* DropDownPicker.swift in Sources */,
 				A7CFDACB2BF92A8500937CE0 /* FieldForButton.swift in Sources */,
 				A7BEA8DA2C3EA752001452F7 /* Constants.swift in Sources */,
+				A7665DE92CAFCFDC00A00538 /* StartButton.swift in Sources */,
 				A7502CE02CAC06720053A5B2 /* CachedAssetImage.swift in Sources */,
 				A787ADE02C8AF79800498EBD /* MoneyPanel.swift in Sources */,
 				A7B3F0C82C6E60F00099A5BE /* SkillTreeManager.swift in Sources */,

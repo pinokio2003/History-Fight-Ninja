@@ -32,6 +32,7 @@ class MapCountryModel: Identifiable, ObservableObject, Codable {
     var color: MapCountryColor
     var power: Int
     
+    
     enum CodingKeys: String, CodingKey {
         case countryCode, name, color, power
     }
@@ -66,6 +67,7 @@ class CountryDataManager: ObservableObject {
     @Published var colorMap: [String : Color] = [:]
     @Published var countryBackgroundColor: [(String, Color, String, Int)] = []
     @Published var countriesData: [MapCountryModel] = []
+    @Published var opacity: Double = 1.0 //For fade animation
     
     private let userDefaultsKey = "SavedCountriesData"
     
@@ -99,7 +101,7 @@ class CountryDataManager: ObservableObject {
         }
     }
     
-    private func loadDefaultCountriesData() {
+    func loadDefaultCountriesData() {
         // Load the default countries data here
         countriesData = [
             MapCountryModel(countryCode: "GL", name: "Greenland", color: .grey, power: 50),

@@ -11,6 +11,7 @@ import SwiftUI
 class HeroData: ObservableObject {
     static let shared = HeroData()
     private let skillManager = SkillTreeManager.sharedSkillTreeManager
+    private let mapModel = CountryDataManager.shared
     
     @Published var name: String = "" // enemy
     @Published var isCountrySelected: Bool = false
@@ -186,6 +187,7 @@ class HeroData: ObservableObject {
     
     func clearUserDefaults() {
         skillManager.resetSkills()
+        mapModel.loadDefaultCountriesData()
         playerExperience = 6000
         playerEnergyMax = 5
         playerIncome = 5

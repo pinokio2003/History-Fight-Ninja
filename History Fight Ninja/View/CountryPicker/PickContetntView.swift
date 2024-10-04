@@ -71,15 +71,22 @@ struct PickContetntView: View {
             }
             }
         .frame(width: geo.size.width, height: geo.size.height)
+        .opacity(mapModel.opacity)
 //            .ignoresSafeArea()
             .animation(.easeInOut, value: preloader.isLoading)
             .onAppear {
                 preloader.preloadImages(countries)
                 if selectedCountryName.isEmpty && !countries.isEmpty {
                     selectedCountryName = countries[1]
-                    print("Initial country set: \(selectedCountryName)")
+                    fadeIn()
                 }
             }
+        }
+    }
+    
+    private func fadeIn() {
+        withAnimation(.easeIn(duration: 0.5)) {
+            mapModel.opacity = 1.0
         }
     }
     
