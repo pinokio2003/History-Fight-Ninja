@@ -10,6 +10,7 @@
 		A70164C22BEE217E00C0D98B /* MapsModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70164C12BEE217E00C0D98B /* MapsModelData.swift */; };
 		A707A2402CA715F300829F14 /* CountryPickerViewChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = A707A23F2CA715F300829F14 /* CountryPickerViewChild.swift */; };
 		A707CE182C6F2E2E006621F5 /* SkillPopOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A707CE172C6F2E2E006621F5 /* SkillPopOver.swift */; };
+		A70BF7AF2CB5184300A47C8A /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BF7AE2CB5184300A47C8A /* CustomAlert.swift */; };
 		A7167FD92C51008300E32935 /* ReturnButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7167FD82C51008300E32935 /* ReturnButton.swift */; };
 		A72470862BFC924800E771D8 /* CountryNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72470852BFC924800E771D8 /* CountryNameView.swift */; };
 		A7302C8E2CA7EB7200932249 /* CarouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7302C8D2CA7EB7200932249 /* CarouseView.swift */; };
@@ -81,6 +82,7 @@
 		A70164C12BEE217E00C0D98B /* MapsModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsModelData.swift; sourceTree = "<group>"; };
 		A707A23F2CA715F300829F14 /* CountryPickerViewChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerViewChild.swift; sourceTree = "<group>"; };
 		A707CE172C6F2E2E006621F5 /* SkillPopOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPopOver.swift; sourceTree = "<group>"; };
+		A70BF7AE2CB5184300A47C8A /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		A7167FD82C51008300E32935 /* ReturnButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnButton.swift; sourceTree = "<group>"; };
 		A72470852BFC924800E771D8 /* CountryNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryNameView.swift; sourceTree = "<group>"; };
 		A7302C8D2CA7EB7200932249 /* CarouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouseView.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			children = (
 				A7665DE62CAFC8E200A00538 /* StartMenu.swift */,
 				A7665DE82CAFCFDC00A00538 /* StartButton.swift */,
+				A70BF7AE2CB5184300A47C8A /* CustomAlert.swift */,
 			);
 			path = StartMenu;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				A7E2C9CC2BEAA2760040B8E5 /* Centering.swift in Sources */,
 				A79705232C995C01009CC742 /* PlayerHelthModel.swift in Sources */,
 				A7ABD29F2C6231770083B96E /* Economic.swift in Sources */,
+				A70BF7AF2CB5184300A47C8A /* CustomAlert.swift in Sources */,
 				A7580F182C0898CA00B3F4B4 /* SideMapRightView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -71,3 +71,21 @@ func getColorDifficlty(difficlty: String) -> Color {
             return .black
     }
 }
+
+func presentContentView<Content: View>(with view: Content) {
+    guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+          let window = windowScene.windows.first else { return }
+    
+    let hostController = UIHostingController(rootView: view)
+    let navController = UINavigationController(rootViewController: hostController)
+    navController.setNavigationBarHidden(true, animated: false)
+    
+    UIView.animate(withDuration: 0.5, animations: {
+        window.alpha = 0
+    }) { _ in
+        window.rootViewController = navController
+        UIView.animate(withDuration: 0.5) {
+            window.alpha = 1
+        }
+    }
+}

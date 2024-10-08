@@ -14,14 +14,13 @@ struct MenuButtonView: View {
     private var countryDataManager = CountryDataManager.shared
     private let heroData = HeroData.shared
     
-    
     var body: some View {
         ZStack {
             mainButton
-                
+            
             if show {
                 CanCircleButton(show: $show, Yoffset: 60, sanimation: 0.3, imageName: "countryPicker", action: { showButtonOne.toggle() })
-                CanCircleButton(show: $show, Yoffset: 120, sanimation: 0.2, imageName: "skillPicker", action: { presentSkillTreeView() })
+                CanCircleButton(show: $show, Yoffset: 120, sanimation: 0.2, imageName: "skillPicker", action: { presentSkillTreeView()  })
                 CanCircleButton(show: $show, Yoffset: 180, sanimation: 0.1, imageName: "eriser", action: { heroData.clearUserDefaults() })
             }
         }
@@ -69,7 +68,16 @@ struct MenuButtonView: View {
         let contentView = SkillTreeScreen()
         let hostController = UIHostingController(rootView: contentView)
         let navController = UINavigationController(rootViewController: hostController)
-        window.rootViewController = navController
+//        window.rootViewController = navController
+       
+        UIView.animate(withDuration: 0.5, animations: {
+            window.alpha = 0
+        }) { _ in
+            window.rootViewController = navController
+            UIView.animate(withDuration: 0.5) {
+                window.alpha = 1
+            }
+        }
 //        heroData.isDisabled = false ??
     }
 
@@ -99,9 +107,4 @@ struct CanCircleButton: View {
         .animation(Animation.spring(response: 0.5, dampingFraction: 0.6)
             .delay(show ? sanimation : 0), value: show)
     }
-}
-
-
-#Preview {
-    MenuButtonView()
 }

@@ -147,7 +147,8 @@ struct ScoreBoardView: View {
 
                         RestartButtonView(symbolName: "globe", action: {
                             heroData.playerExperience += totalScore + (totalScore * heroData.prizeVictory / 100)
-                            presentContentView()
+                            heroData.isDisabled = false
+                            presentContentView(with: ContentView())
                         },
                                           sizeValue: geometry.size.width / 35)
                     }
@@ -187,18 +188,4 @@ struct ScoreBoardView: View {
             }
         }
     }
-    private func presentContentView() {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let window = windowScene.windows.first else { return }
-        
-        let contentView = ContentView()
-        let hostController = UIHostingController(rootView: contentView)
-        let navController = UINavigationController(rootViewController: hostController)
-        window.rootViewController = navController
-        heroData.isDisabled = false
-    }
-}
-
-#Preview {
-    ScoreBoardView()
 }

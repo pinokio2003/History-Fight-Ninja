@@ -12,7 +12,7 @@ struct History_Fight_NinjaApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            PickContetntView()
+//            CustomAlertView()
             StartMenu()
         }
     }
