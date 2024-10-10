@@ -79,7 +79,7 @@ struct ContentView: View {
                                 MenuButtonView()
                                     .frame(width: 60, height: 60)
 //                                    .padding(.bottom, 40)
-//                                    .position(x: geometry.size.width - 80, y: 40)
+                                    .position(x: geometry.size.width - 40, y: geometry.size.height / 8 + 20)
                             }
                             Spacer()
                         }

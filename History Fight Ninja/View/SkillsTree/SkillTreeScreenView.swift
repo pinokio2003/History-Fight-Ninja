@@ -13,14 +13,15 @@ struct SkillTreeScreen: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
+                
                 TabView {
-                    SkillBranchView(branch: .economy, backgroundImageName: "economyBackground")
+                    SkillBranchView(branch: .economy)
                         .tabItem {
-                            Label("Экономика", systemImage: "dollarsign.circle")
+                            Label("Economy", systemImage: "dollarsign.circle")
                         }
-                    SkillBranchView(branch: .army, backgroundImageName: "armyBackground")
+                    SkillBranchView(branch: .army)
                         .tabItem {
-                            Label("Армия", systemImage: "shield")
+                            Label("Army", systemImage: "shield")
                         }
                 }
                 
@@ -31,30 +32,35 @@ struct SkillTreeScreen: View {
                             presentContentView()
                         })
                         .frame(width: 80, height: 80)
-                        .position(x: geometry.size.width - 100, y: 60)
+                        .position(x: geometry.size.width - 40, y: 40)
                     } else {
                         ReturnButton(symbolName: "globe", action: {
                             presentContentView()
                         })
                         .frame(width: 60, height: 60)
-                        .position(x: geometry.size.width - 80, y: 40)
+                        .position(x: geometry.size.width, y: 40)
                     }
                 }
+
             }
-                }
-                .environmentObject(skillTreeManager)
-                .onAppear {
-                    skillTreeManager.loadSkills()
-                }
-            }
-            private func presentContentView() {
-                guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                      let window = windowScene.windows.first else { return }
-                
-                let contentView = ContentView()
-                let hostController = UIHostingController(rootView: contentView)
-                let navController = UINavigationController(rootViewController: hostController)
-                window.rootViewController = navController
-                //        heroData.isDisabled = false
-            }
+            
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .environmentObject(skillTreeManager)
+        .onAppear {
+            skillTreeManager.loadSkills()
+        }
+    }
+    
+    
+    private func presentContentView() {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = windowScene.windows.first else { return }
+        
+        let contentView = ContentView()
+        let hostController = UIHostingController(rootView: contentView)
+        let navController = UINavigationController(rootViewController: hostController)
+        window.rootViewController = navController
+//                heroData.isDisabled = false
+    }
+}
