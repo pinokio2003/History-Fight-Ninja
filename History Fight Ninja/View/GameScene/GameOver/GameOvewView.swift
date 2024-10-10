@@ -29,7 +29,6 @@ struct GameOvewView: View {
                 
                 Text("YOU LOSE BATTLE")
                     .font(.custom("MarkerFelt-Thin", size: 50))
-                
                     .foregroundColor(.red)
                     .opacity(isVisible ? 1 : 0.1)
                     .animation(.easeInOut(duration: 2), value: isVisible)
@@ -55,7 +54,9 @@ struct GameOvewView: View {
                     Spacer()
                     
                     RestartButtonView(symbolName: "globe", action: {
-                        presentContentView()
+//                        presentContentView()
+                        heroData.isDisabled = false
+                        presentContentView(with: ContentView())
                         heroData.resetAllData()
                     }, sizeValue: 32)
                     
@@ -74,6 +75,7 @@ struct GameOvewView: View {
         )
         .environmentObject(heroData)
         .ignoresSafeArea()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onDisappear {
             game = nil
         }
@@ -88,19 +90,4 @@ struct GameOvewView: View {
         }
         heroData.isDisabled = false
     }
-    
-    private func presentContentView() {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let window = windowScene.windows.first else { return }
-        
-        let contentView = ContentView()
-        let hostController = UIHostingController(rootView: contentView)
-        let navController = UINavigationController(rootViewController: hostController)
-        window.rootViewController = navController
-        heroData.isDisabled = false
-    }
-}
-
-#Preview {
-    GameOvewView()
 }

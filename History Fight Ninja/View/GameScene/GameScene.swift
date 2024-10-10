@@ -8,8 +8,7 @@ class GameScene: SKScene {
     let heroData = HeroData.shared
     //For callback ContentView
     var levelCompleteCallback: (() -> Void)?
-    //Devices
-    let device = UIDevice.current
+ 
     var cameraNode: SKCameraNode!
     //main
     private let smokeEffect = SKEmitterNode(fileNamed: "smoke")
@@ -291,13 +290,15 @@ class GameScene: SKScene {
                     let navController = UINavigationController(rootViewController: hostController)
                     window.rootViewController = navController
                 }, completion: { _ in
-                    // Explicitly release the current scene to free up memory
+//                    // Explicitly release the current scene to free up memory
+//        presentContentView(with: GameOvewView())
                     self.removeAllActions()
                     self.removeAllChildren()
                     self.removeFromParent()
                 })
             }
         }
+        
     }
     
     func startNewGame() {

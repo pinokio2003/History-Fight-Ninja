@@ -15,30 +15,42 @@ struct MenuButtonView: View {
     private let heroData = HeroData.shared
     
     var body: some View {
-        ZStack {
-            mainButton
-            
-            if show {
-                CanCircleButton(show: $show, Yoffset: 60, sanimation: 0.3, imageName: "countryPicker", action: { showButtonOne.toggle() })
-                CanCircleButton(show: $show, Yoffset: 120, sanimation: 0.2, imageName: "skillPicker", action: { presentSkillTreeView()  })
-                CanCircleButton(show: $show, Yoffset: 180, sanimation: 0.1, imageName: "eriser", action: { heroData.clearUserDefaults() })
+        GeometryReader { geo in
+            ZStack {
+                mainButton
+                if show {
+                    CanCircleButton(show: $show, Yoffset: 60,
+                                    sanimation: 0.3,
+                                    imageName: "countryPicker",
+                                    action: { showButtonOne.toggle() })
+                    CanCircleButton(show: $show,
+                                    Yoffset: 120,
+                                    sanimation: 0.2,
+                                    imageName: "skillPicker",
+                                    action: { presentContentView(with: SkillTreeScreen())})
+                    CanCircleButton(show: $show,
+                                    Yoffset: 180,
+                                    sanimation: 0.1,
+                                    imageName: "eriser",
+                                    action: { heroData.clearUserDefaults() })
+                }
             }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        
-        if showButtonOne && show {
-            DropDownPicker(
-                hint: "Select Country",
-                options: countryDataManager.countryBackgroundColor.map { $0.0 }, // массив имён стран
-                maxWidth: 180,
-                cornerRadius: 15,
-                selection: $selection,
-                color: .constant(.gray), // или любой другой цвет по умолчанию
-                countryDataManager: countryDataManager // передача объекта CountryDataManager
-            )
-            .transition(.opacity)
-            .animation(.easeInOut, value: showButtonOne)
-            .offset(x: -120, y: 60)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            if showButtonOne && show {
+                DropDownPicker(
+                    hint: "Select Country",
+                    options: countryDataManager.countryBackgroundColor.map { $0.0 }, // массив имён стран
+                    maxWidth: 180,
+                    cornerRadius: 15,
+                    selection: $selection,
+                    color: .constant(.gray),
+                    countryDataManager: countryDataManager // передача объекта CountryDataManager
+                )
+                .transition(.opacity)
+                .animation(.easeInOut, value: showButtonOne)
+                .offset(x: geo.size.width - 260, y: geo.size.height)
+            }
         }
     }
     
@@ -58,29 +70,7 @@ struct MenuButtonView: View {
                     .frame(width: 60, height: 60)
             }
         }
-//        .offset(x: -120, y: -120)
     }
-    
-    private func presentSkillTreeView() {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let window = windowScene.windows.first else { return }
-        
-        let contentView = SkillTreeScreen()
-        let hostController = UIHostingController(rootView: contentView)
-        let navController = UINavigationController(rootViewController: hostController)
-//        window.rootViewController = navController
-       
-        UIView.animate(withDuration: 0.5, animations: {
-            window.alpha = 0
-        }) { _ in
-            window.rootViewController = navController
-            UIView.animate(withDuration: 0.5) {
-                window.alpha = 1
-            }
-        }
-//        heroData.isDisabled = false ??
-    }
-
 }
 
 struct CanCircleButton: View {

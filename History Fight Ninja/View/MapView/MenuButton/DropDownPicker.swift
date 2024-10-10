@@ -52,6 +52,7 @@ struct DropDownPicker: View {
             )
         }
         .frame(width: maxWidth, height: 50)
+        .padding(.trailing, maxWidth + 120)
     }
     
     // Option View

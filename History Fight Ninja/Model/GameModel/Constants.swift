@@ -32,7 +32,8 @@ struct Constants {
         static let backgroundColor: UIColor = .gray
     }
 }
-
+//Devices
+let device = UIDevice.current
 //Colors:
 let innerPurple = Color(red: 151 / 255, green: 71 / 255, blue: 255 / 255)
 let innerGreen = Color(red: 161 / 255, green: 255 / 255, blue: 0 / 255)
