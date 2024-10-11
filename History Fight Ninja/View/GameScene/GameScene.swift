@@ -8,7 +8,7 @@ class GameScene: SKScene {
     let heroData = HeroData.shared
     //For callback ContentView
     var levelCompleteCallback: (() -> Void)?
- 
+    
     var cameraNode: SKCameraNode!
     //main
     private let smokeEffect = SKEmitterNode(fileNamed: "smoke")
@@ -49,7 +49,7 @@ class GameScene: SKScene {
     private var badaBoomCount: Int = 1
     private var restoreHealthCount = 3
     var damageEffectNode: SKSpriteNode?
-
+    
     override func didMove(to view: SKView) {
         
         isUserInteractionEnabled = true
@@ -170,7 +170,7 @@ class GameScene: SKScene {
             line.run(sequence)
         }
     }
-   
+    
     //MARK: - Spawn additional objects
     override func update(_ currentTime: TimeInterval) {
         // Additional Time
@@ -243,16 +243,15 @@ class GameScene: SKScene {
         } else {
             self.scaleMode = .aspectFill
         }
-            addChild(cameraNode)
-            camera = cameraNode
-            cameraNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        addChild(cameraNode)
+        camera = cameraNode
+        cameraNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
         //main
         anchorPoint = .zero
         physicsWorld.gravity = CGVector(dx: 0, dy: -2)
         heroHealthBar.position = CGPoint(x: size.height * 0.15, y: size.width / 4)
         addChild(heroHealthBar)
         //damage overlay
-        //TODO: increase area of damage effect
         damageEffectNode = additionalObjectsModel.createSmoothDamageEffect(for: self)
         if let effectNode = damageEffectNode {
             addChild(effectNode)
@@ -290,8 +289,8 @@ class GameScene: SKScene {
                     let navController = UINavigationController(rootViewController: hostController)
                     window.rootViewController = navController
                 }, completion: { _ in
-//                    // Explicitly release the current scene to free up memory
-//        presentContentView(with: GameOvewView())
+                    //                    // Explicitly release the current scene to free up memory
+                    //        presentContentView(with: GameOvewView())
                     self.removeAllActions()
                     self.removeAllChildren()
                     self.removeFromParent()
@@ -308,15 +307,15 @@ class GameScene: SKScene {
     
     private func showSmoothDamageEffect() {
         guard let effectNode = damageEffectNode else { return }
-
+        
         // Анимация появления и исчезновения эффекта
         let fadeIn = SKAction.fadeAlpha(to: 1.0, duration: 0.2)
         let hold = SKAction.wait(forDuration: 0.1)
         let fadeOut = SKAction.fadeAlpha(to: 0, duration: 0.3)
         let sequence = SKAction.sequence([fadeIn, hold, fadeOut])
-
+        
         effectNode.run(sequence)
-
+        
         // Мягкая пульсация
         let scaleUp = SKAction.scale(to: 1.03, duration: 0.1)
         let scaleDown = SKAction.scale(to: 1.0, duration: 0.1)
@@ -324,7 +323,7 @@ class GameScene: SKScene {
         
         self.run(pulseSequence)
     }
-
+    
     //MARK: level complete
     func levelComplete() {
         let heroData = HeroData.shared
@@ -360,28 +359,28 @@ class GameScene: SKScene {
         print(heroAttack)
         print(heroLives)
     }
-  //MARK: - Scores, streaks and others:
+    //MARK: - Scores, streaks and others:
     
     func addStreak() {
-            if Int(streakCount) % 5 == 1 && score > 5 {
-                let indx = Int(streakCount) / 5 + 1
-                if streakIndex >= heroData.maxStreak {
-                    streakIndex = heroData.maxStreak
-                    print("streak index < maxStreak: \(streakIndex), max streak : \(heroData.maxStreak)")
-                } else {
-                    streakIndex = indx
-                    print("streak index else: \(streakIndex)")
-                }
-
-                if let streak = streakPool.first(where: { $0.isHidden }) {
-                    let newText = "X-\(String(streakIndex))"
-                    streak.updateText(newText)
-                    streak.isHidden = false
-                    streak.showFor(duration: 2, in: self, at: CGPoint(x: size.height/1.2, y: size.width/4))
-                }
+        if Int(streakCount) % 5 == 1 && score > 5 {
+            let indx = Int(streakCount) / 5 + 1
+            if streakIndex >= heroData.maxStreak {
+                streakIndex = heroData.maxStreak
+                print("streak index < maxStreak: \(streakIndex), max streak : \(heroData.maxStreak)")
+            } else {
+                streakIndex = indx
+                print("streak index else: \(streakIndex)")
+            }
+            
+            if let streak = streakPool.first(where: { $0.isHidden }) {
+                let newText = "X-\(String(streakIndex))"
+                streak.updateText(newText)
+                streak.isHidden = false
+                streak.showFor(duration: 2, in: self, at: CGPoint(x: size.height/1.2, y: size.width/4))
             }
         }
-//MARK: - Health Player:
+    }
+    //MARK: - Health Player:
     func setupPlayerHealth() {
         let maxHealthCount = heroData.playerHealth - 3
         var healthPosition = CGPoint(x: size.width, y: size.height)
@@ -391,7 +390,7 @@ class GameScene: SKScene {
         } else {
             healthPosition = CGPoint(x: size.width - 80, y: size.height / 2 - CGFloat(maxHealthCount * 40))
         }
-
+        
         playerHealth = PlayerHealth(maxHealth: heroData.playerHealth,
                                     parentNode: self,
                                     healthImageName: "healthNew",
@@ -399,7 +398,7 @@ class GameScene: SKScene {
                                     spriteSize: 40,
                                     spacing: 5)
     }
-     
+    
     func minusLives() {
         playerHealth.decreaseHealth()
         streakCount = 1

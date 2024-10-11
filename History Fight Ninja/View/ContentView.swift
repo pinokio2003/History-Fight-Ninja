@@ -13,7 +13,7 @@ struct ContentView: View {
     @StateObject var heroData = HeroData.shared
     @StateObject var mapsDict = CountryDataManager()
     @State var isInfoBarVisible = false
-
+    
     let game = GameScene(fileNamed: "game")
 
     var body: some View {
@@ -22,6 +22,7 @@ struct ContentView: View {
                 ZStack(alignment: .leading) {
 
                     if !heroData.isFightStartButton {
+                    
                         WorldMapView()
                     }
 

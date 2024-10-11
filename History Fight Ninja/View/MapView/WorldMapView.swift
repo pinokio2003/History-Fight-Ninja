@@ -26,9 +26,13 @@ struct WorldMapView: View {
 
     var body: some View {
         ZStack() {
+        
             GeometryReader { geo in
                 let size = geo.size
 //View MAP:
+//                WaterView()
+//                    .frame(width: geo.size.width * 2, height: geo.size.height * 2) // Увеличим размеры в 2 раза
+                (Color(red: 20/255, green: 195/255, blue: 255/255)).edgesIgnoringSafeArea(.all)
                 InteractiveMap(svgName: "world-low") { pathData in
                                     let attributes = InteractiveShape.Attributes(
                                         strokeWidth: 0.5,
@@ -78,9 +82,7 @@ struct WorldMapView: View {
                             }
                     }
                 }
-                .background(Color.blue.opacity(0.001))
             }
-       
                 //Scale gesture:
                 .scaleEffect(scale)
                 .offset(offset)
@@ -119,7 +121,7 @@ struct WorldMapView: View {
         .onAppear {
             countryManager.addColorArray()
         }
-        .background(Color.blue.opacity(0.5))
+        .background(Color(red: 20/255, green: 195/255, blue: 255/255))
     }
     
     func printAllPathNames() {
