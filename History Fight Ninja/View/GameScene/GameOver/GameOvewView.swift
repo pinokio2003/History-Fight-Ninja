@@ -13,81 +13,69 @@ struct GameOvewView: View {
     @ObservedObject var heroData = HeroData.shared
     @State private var isVisible: Bool = false
     @State private var game: GameScene? = nil
-    
-    
+
     //background gradient colors
     private let first: Color = Color(red: 43 / 255, green: 44 / 255, blue: 49 / 255)
     private let second: Color = Color(red: 56 / 255, green: 57 / 255, blue: 63 / 255)
     
     var body: some View {
+        GeometryReader { geo in
         ZStack {
-            LinearGradient(colors: [first, second],
-                           startPoint: .topLeading,
-                           endPoint: .bottomTrailing) // background
-            .background(.quaternary)
-            VStack {
+            Image("BackgroundGameOver")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .background(.quaternary)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+            
+            ZStack {
+
+                VStack {
+                    AnimationTableDefeat(width: geo.size.width / 3,
+                                         height: geo.size.width / 3)
+                    .padding(.top, -50)
+                                    
+                    Spacer()
+//                        .padding(.bottom, 150)
+                }
+
                 
-                Text("YOU LOSE BATTLE")
-                    .font(.custom("MarkerFelt-Thin", size: 50))
-                    .foregroundColor(.red)
-                    .opacity(isVisible ? 1 : 0.1)
-                    .animation(.easeInOut(duration: 2), value: isVisible)
-                    .onAppear {
-                        withAnimation {
-                            self.isVisible.toggle()
-                        }
+                VStack {
+                    Spacer()
+                   
+                    HStack {
+                        StartButton(action: {
+                            presentGameScene()
+                            heroData.isDisabled = false
+                        }, text: "TRY AGAIN",
+                                    isUpBubble: true)
+                        .frame(width: 200, height: 70)
+//                        .padding(.top, 40)
+                        
+                        StartButton(action: {
+                            heroData.isDisabled = false
+                            presentContentView(with: ContentView())
+                            heroData.resetAllData()
+                          
+                        }, text: "TO MAP",
+                                    isUpBubble: false)
+                        .frame(width: 200, height: 70)
+                       
                     }
-                
-                Text("BUT NOT A WAR")
-                    .font(.custom("MarkerFelt-Thin", size: 40))
-                    .foregroundColor(.red)
-                    .opacity(isVisible ? 1 : 0.1)
-                    .animation(.easeIn(duration: 4), value: isVisible)
-                
-                
-                HStack {
-                    Spacer()
-                    RestartButtonView(symbolName: "arrow.clockwise", action: {
-                        restartGame()
-                    }, sizeValue: 32)
-                    
-                    Spacer()
-                    
-                    RestartButtonView(symbolName: "globe", action: {
-//                        presentContentView()
-                        heroData.isDisabled = false
-                        presentContentView(with: ContentView())
-                        heroData.resetAllData()
-                    }, sizeValue: 32)
-                    
-                    Spacer()
+//                    .padding(.top, geo.size.width / 3.5)
+//                    Spacer()
                 }
             }
-            
-            if heroData.isRestartPushing, let game = game {
-                SpriteView(scene: game)
-                    .ignoresSafeArea()
             }
-        }
         .disabled(heroData.isDisabled)
-        .background(
-            Color.black
-        )
         .environmentObject(heroData)
-        .ignoresSafeArea()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onDisappear {
             game = nil
         }
-    }
-    
-    private func restartGame() {
-        heroData.isRestartPushing.toggle()
-        if heroData.isRestartPushing {
-            game = GameScene(fileNamed: "game")
-        } else {
-            game = nil
         }
-        heroData.isDisabled = false
+        .ignoresSafeArea()
     }
+}
+
+#Preview {
+    GameOvewView()
 }

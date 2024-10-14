@@ -20,7 +20,7 @@ class HeroData: ObservableObject {
     @Published var isRestartPushing: Bool = false
     @Published var isDisabled: Bool = false
     @Published var isDisabledSkill : Bool = false
-    // если дата уже есть :
+    // If data is consistent:
     @Published var isDataConsistent: Bool = {
         let key = "isDataConsistent"
         if UserDefaults.standard.object(forKey: key) == nil {
@@ -32,11 +32,12 @@ class HeroData: ObservableObject {
             UserDefaults.standard.set(isDataConsistent, forKey: "isDataConsistent")
         }
     }
-    
     //For Score:
     @Published var gameTime: Int = 0
     @Published var playerScore: Int = 0
-    
+    // For AnimationTableDefeat
+    @Published var swing = true
+    @Published var stopped = true
 //MARK: - player info:
     @Published var playerPower: Int =  {
         let key = "playerPower"

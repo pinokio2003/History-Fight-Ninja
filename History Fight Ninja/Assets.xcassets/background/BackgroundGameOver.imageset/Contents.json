@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "mainMap.png",
+      "filename" : "gameOverBG.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

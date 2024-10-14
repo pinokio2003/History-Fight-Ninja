@@ -22,7 +22,6 @@ struct ContentView: View {
                 ZStack(alignment: .leading) {
 
                     if !heroData.isFightStartButton {
-                    
                         WorldMapView()
                     }
 
@@ -65,7 +64,6 @@ struct ContentView: View {
                         }
                         Spacer()
                     }
-
                     // MenuButtonView (separated for iPad and others)
                     HStack {
                         Spacer()

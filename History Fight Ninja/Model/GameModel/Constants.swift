@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import SpriteKit
 
 struct Constants {
     static let spawnMinValue = 3
@@ -87,6 +88,35 @@ func presentContentView<Content: View>(with view: Content) {
         window.rootViewController = navController
         UIView.animate(withDuration: 0.5) {
             window.alpha = 1
+        }
+    }
+}
+
+func presentGameScene() {
+    guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+          let window = windowScene.windows.first else { return }
+    
+    // Создаем экземпляр GameScene
+    if let gameScene = GameScene(fileNamed: "game") {
+        gameScene.scaleMode = .resizeFill
+        
+        // Создаем SKView и добавляем сцену
+        let skView = SKView()
+        skView.presentScene(gameScene)
+        
+        let hostController = UIViewController()
+        hostController.view = skView
+        
+        let navController = UINavigationController(rootViewController: hostController)
+        navController.setNavigationBarHidden(true, animated: false)
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            window.alpha = 0
+        }) { _ in
+            window.rootViewController = navController
+            UIView.animate(withDuration: 0.5) {
+                window.alpha = 1
+            }
         }
     }
 }

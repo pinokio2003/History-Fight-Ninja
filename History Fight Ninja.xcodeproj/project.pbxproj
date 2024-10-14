@@ -41,6 +41,7 @@
 		A79A579B2BED315200ED3A67 /* SideMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A579A2BED315200ED3A67 /* SideMapView.swift */; };
 		A79A579D2BED39CF00ED3A67 /* PlayerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A579C2BED39CF00ED3A67 /* PlayerDataModel.swift */; };
 		A79ACB012BF76DC200769EB7 /* FightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79ACB002BF76DC200769EB7 /* FightButton.swift */; };
+		A79C41A02CBA83BA00C3CF76 /* AnimationTableDefeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79C419F2CBA83BA00C3CF76 /* AnimationTableDefeat.swift */; };
 		A79C62362C3569C000C64772 /* CustomBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79C62352C3569C000C64772 /* CustomBackground.swift */; };
 		A7A21FF42BB5BE0E005D062B /* History_Fight_NinjaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */; };
 		A7A21FF82BB5BE10005D062B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A21FF72BB5BE10005D062B /* Assets.xcassets */; };
@@ -113,6 +114,7 @@
 		A79A579A2BED315200ED3A67 /* SideMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMapView.swift; sourceTree = "<group>"; };
 		A79A579C2BED39CF00ED3A67 /* PlayerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDataModel.swift; sourceTree = "<group>"; };
 		A79ACB002BF76DC200769EB7 /* FightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightButton.swift; sourceTree = "<group>"; };
+		A79C419F2CBA83BA00C3CF76 /* AnimationTableDefeat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTableDefeat.swift; sourceTree = "<group>"; };
 		A79C62352C3569C000C64772 /* CustomBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackground.swift; sourceTree = "<group>"; };
 		A7A21FF02BB5BE0E005D062B /* History Fight Ninja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "History Fight Ninja.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History_Fight_NinjaApp.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 			children = (
 				A7E6AC3D2C1892EA00572030 /* GameOvewView.swift */,
 				A7FC90DF2C2AB9AD00A9790B /* RestartButtonView.swift */,
+				A79C419F2CBA83BA00C3CF76 /* AnimationTableDefeat.swift */,
 			);
 			path = GameOver;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				A7FEF9E52C0F042000602D30 /* GameOverTimer.swift in Sources */,
 				A7E6AC3E2C1892EA00572030 /* GameOvewView.swift in Sources */,
 				A787ADDE2C8AE93300498EBD /* EnergyPanel.swift in Sources */,
+				A79C41A02CBA83BA00C3CF76 /* AnimationTableDefeat.swift in Sources */,
 				A7E2C9C52BEAA25F0040B8E5 /* MapModel.swift in Sources */,
 				A735DB7B2CABE19A0059934F /* PickContetntView.swift in Sources */,
 				A7E2C9AB2BEA97CC0040B8E5 /* GameScene.swift in Sources */,
