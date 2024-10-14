@@ -14,6 +14,7 @@ struct History_Fight_NinjaApp: App {
         WindowGroup {
             
             StartMenu()
+                .preferredColorScheme(.light)
         }
     }
 }

@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct SideMapView: View {
-//    var heroData = HeroData.shared
+    //    var heroData = HeroData.shared
     @EnvironmentObject var heroData: HeroData
     @EnvironmentObject var countryDataManager: CountryDataManager
-
+    
     @State private var currentSize: CGFloat = UIScreen.main.bounds.width / 4
     @State private var maxSize: CGFloat = UIScreen.main.bounds.width / 2
     @State private var fightSize: CGFloat = UIScreen.main.bounds.width / 2
@@ -24,40 +24,62 @@ struct SideMapView: View {
                 VStack(alignment: .center) {
                     if let countryName = countryDataManager.countryNameMap[heroData.name] {
                         let power = countryDataManager.countryPowerMap[heroData.name]
+                        let color = countryDataManager.colorMap[heroData.name]
                         let difficlty: String = difficltyLevel(enemyPower: power ?? 0, playerPower: heroData.playerPower)
-                        
+               
                         Image(countryName)
                             .resizable()
                             .scaledToFill()
                             .frame(width: UIScreen.main.bounds.height / 4,height: UIScreen.main.bounds.height / 4)
                             .padding()
-                       
-                        Text("Power: \(power ?? 0)")
-                            .multilineTextAlignment(.leading)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .font(.custom("Chalkduster", size: 15))
-                            .foregroundStyle(.black)
-                            .shadow(color: Color.white.opacity(0.8), radius: 2, x: 1, y: 1)
-                        
-                        HStack {
-                            Text("Difficulty: ")
+                        //MARK: - Enemy:
+                        if color != Color.green {
+                            
+                            Text("Power: \(power ?? 0)")
                                 .multilineTextAlignment(.leading)
                                 .fixedSize(horizontal: false, vertical: true)
                                 .font(.custom("Chalkduster", size: 15))
                                 .foregroundStyle(.black)
                                 .shadow(color: Color.white.opacity(0.8), radius: 2, x: 1, y: 1)
                             
-                            Text(difficlty)
+                            HStack {
+                                Text("Difficulty: ")
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .font(.custom("Chalkduster", size: 15))
+                                    .foregroundStyle(.black)
+                                    .shadow(color: Color.white.opacity(0.8), radius: 2, x: 1, y: 1)
+                                
+                                Text(difficlty)
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .font(.custom("Chalkduster", size: 15))
+                                    .foregroundStyle(getColorDifficlty(difficlty: difficlty))
+                                    .shadow(color: Color.black, radius: 2, x: 1, y: 1)
+                            }
+                            
+                            FightButton(heroData: heroData)
+                        } else {
+                            //MARK: - Colony:
+                            Text("This is your colony")
                                 .multilineTextAlignment(.leading)
                                 .fixedSize(horizontal: false, vertical: true)
                                 .font(.custom("Chalkduster", size: 15))
-                                .foregroundStyle(getColorDifficlty(difficlty: difficlty))
-                                .shadow(color: Color.black, radius: 2, x: 1, y: 1)
+                                .foregroundStyle(.black)
+                                .shadow(color: Color.white.opacity(0.8), radius: 2, x: 1, y: 1)
+                                .padding(.bottom, 20)
+                            
+                            RoundedRectangle(cornerRadius: 30)
+                                .fill(
+                                    Color.clear
+                                )
+                                .frame(width: 155, height: 155)
+                            
                         }
                     } else {
-                        Text("   ")
+                        Text("")
                     }
-                    FightButton(heroData: heroData)
+                    
                 }
                 Spacer()
             }
