@@ -43,7 +43,7 @@
 		A79ACB012BF76DC200769EB7 /* FightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79ACB002BF76DC200769EB7 /* FightButton.swift */; };
 		A79C41A02CBA83BA00C3CF76 /* AnimationTableDefeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79C419F2CBA83BA00C3CF76 /* AnimationTableDefeat.swift */; };
 		A79C62362C3569C000C64772 /* CustomBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79C62352C3569C000C64772 /* CustomBackground.swift */; };
-		A7A21FF42BB5BE0E005D062B /* History_Fight_NinjaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */; };
+		A7A21FF42BB5BE0E005D062B /* CountryBall_Domination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A21FF32BB5BE0E005D062B /* CountryBall_Domination.swift */; };
 		A7A21FF82BB5BE10005D062B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A21FF72BB5BE10005D062B /* Assets.xcassets */; };
 		A7A21FFB2BB5BE10005D062B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A21FFA2BB5BE10005D062B /* Preview Assets.xcassets */; };
 		A7ABD29F2C6231770083B96E /* Economic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ABD29E2C6231770083B96E /* Economic.swift */; };
@@ -116,8 +116,8 @@
 		A79ACB002BF76DC200769EB7 /* FightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightButton.swift; sourceTree = "<group>"; };
 		A79C419F2CBA83BA00C3CF76 /* AnimationTableDefeat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTableDefeat.swift; sourceTree = "<group>"; };
 		A79C62352C3569C000C64772 /* CustomBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackground.swift; sourceTree = "<group>"; };
-		A7A21FF02BB5BE0E005D062B /* History Fight Ninja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "History Fight Ninja.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History_Fight_NinjaApp.swift; sourceTree = "<group>"; };
+		A7A21FF02BB5BE0E005D062B /* CountryBall Domination.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CountryBall Domination.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7A21FF32BB5BE0E005D062B /* CountryBall_Domination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryBall_Domination.swift; sourceTree = "<group>"; };
 		A7A21FF72BB5BE10005D062B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7A21FFA2BB5BE10005D062B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A7ABD29E2C6231770083B96E /* Economic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Economic.swift; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 		A7A21FE72BB5BE0E005D062B = {
 			isa = PBXGroup;
 			children = (
-				A7A21FF22BB5BE0E005D062B /* History Fight Ninja */,
+				A7A21FF22BB5BE0E005D062B /* CountryBall Domination */,
 				A7A21FF12BB5BE0E005D062B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -262,15 +262,15 @@
 		A7A21FF12BB5BE0E005D062B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A7A21FF02BB5BE0E005D062B /* History Fight Ninja.app */,
+				A7A21FF02BB5BE0E005D062B /* CountryBall Domination.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A7A21FF22BB5BE0E005D062B /* History Fight Ninja */ = {
+		A7A21FF22BB5BE0E005D062B /* CountryBall Domination */ = {
 			isa = PBXGroup;
 			children = (
-				A7A21FF32BB5BE0E005D062B /* History_Fight_NinjaApp.swift */,
+				A7A21FF32BB5BE0E005D062B /* CountryBall_Domination.swift */,
 				A7E2C9A82BEA97CC0040B8E5 /* View */,
 				A7E2C9BF2BEAA1C70040B8E5 /* WorldMap */,
 				A7E2C9B52BEA97D50040B8E5 /* Scene */,
@@ -278,7 +278,7 @@
 				A7A21FF72BB5BE10005D062B /* Assets.xcassets */,
 				A7A21FF92BB5BE10005D062B /* Preview Content */,
 			);
-			path = "History Fight Ninja";
+			path = "CountryBall Domination";
 			sourceTree = "<group>";
 		};
 		A7A21FF92BB5BE10005D062B /* Preview Content */ = {
@@ -444,9 +444,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A7A21FEF2BB5BE0E005D062B /* History Fight Ninja */ = {
+		A7A21FEF2BB5BE0E005D062B /* CountryBall Domination */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A7A21FFE2BB5BE10005D062B /* Build configuration list for PBXNativeTarget "History Fight Ninja" */;
+			buildConfigurationList = A7A21FFE2BB5BE10005D062B /* Build configuration list for PBXNativeTarget "CountryBall Domination" */;
 			buildPhases = (
 				A7A21FEC2BB5BE0E005D062B /* Sources */,
 				A7A21FED2BB5BE0E005D062B /* Frameworks */,
@@ -456,9 +456,9 @@
 			);
 			dependencies = (
 			);
-			name = "History Fight Ninja";
+			name = "CountryBall Domination";
 			productName = "History Fight Ninja";
-			productReference = A7A21FF02BB5BE0E005D062B /* History Fight Ninja.app */;
+			productReference = A7A21FF02BB5BE0E005D062B /* CountryBall Domination.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -476,7 +476,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A7A21FEB2BB5BE0E005D062B /* Build configuration list for PBXProject "History Fight Ninja" */;
+			buildConfigurationList = A7A21FEB2BB5BE0E005D062B /* Build configuration list for PBXProject "CountryBall Domination" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -489,7 +489,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A7A21FEF2BB5BE0E005D062B /* History Fight Ninja */,
+				A7A21FEF2BB5BE0E005D062B /* CountryBall Domination */,
 			);
 		};
 /* End PBXProject section */
@@ -535,7 +535,7 @@
 				A75D266A2C4C16E60040FC86 /* SkillBranchView.swift in Sources */,
 				A78F38CD2C34667200BF63EE /* TextAnimationScore.swift in Sources */,
 				A7CFDACD2BF92ABF00937CE0 /* AttacButton.swift in Sources */,
-				A7A21FF42BB5BE0E005D062B /* History_Fight_NinjaApp.swift in Sources */,
+				A7A21FF42BB5BE0E005D062B /* CountryBall_Domination.swift in Sources */,
 				A7E2C9CE2BEAA2760040B8E5 /* MapRenderer.swift in Sources */,
 				A7514FCD2CAD5AC10076C38D /* CashedAssetImageSkills.swift in Sources */,
 				A74FA5342C9344B90064AF8E /* Difficulty.swift in Sources */,
@@ -711,7 +711,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"History Fight Ninja/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"CountryBall Domination/Preview Content\"";
 				DEVELOPMENT_TEAM = 75J6R9JM9Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -727,7 +727,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.HistoryFightNinja.Ak.History-Fight-Ninja";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CountryBallDomination.Ak.CountryBall-Domination";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -745,7 +745,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"History Fight Ninja/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"CountryBall Domination/Preview Content\"";
 				DEVELOPMENT_TEAM = 75J6R9JM9Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -761,7 +761,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.HistoryFightNinja.Ak.History-Fight-Ninja";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CountryBallDomination.Ak.CountryBall-Domination";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -775,7 +775,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A7A21FEB2BB5BE0E005D062B /* Build configuration list for PBXProject "History Fight Ninja" */ = {
+		A7A21FEB2BB5BE0E005D062B /* Build configuration list for PBXProject "CountryBall Domination" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A7A21FFC2BB5BE10005D062B /* Debug */,
@@ -784,7 +784,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A7A21FFE2BB5BE10005D062B /* Build configuration list for PBXNativeTarget "History Fight Ninja" */ = {
+		A7A21FFE2BB5BE10005D062B /* Build configuration list for PBXNativeTarget "CountryBall Domination" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A7A21FFF2BB5BE10005D062B /* Debug */,

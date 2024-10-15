@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A7A21FEF2BB5BE0E005D062B"
-               BuildableName = "History Fight Ninja.app"
-               BlueprintName = "History Fight Ninja"
-               ReferencedContainer = "container:History Fight Ninja.xcodeproj">
+               BuildableName = "CountryBall Domination.app"
+               BlueprintName = "CountryBall Domination"
+               ReferencedContainer = "container:CountryBall Domination.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A7A21FEF2BB5BE0E005D062B"
-            BuildableName = "History Fight Ninja.app"
-            BlueprintName = "History Fight Ninja"
-            ReferencedContainer = "container:History Fight Ninja.xcodeproj">
+            BuildableName = "CountryBall Domination.app"
+            BlueprintName = "CountryBall Domination"
+            ReferencedContainer = "container:CountryBall Domination.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A7A21FEF2BB5BE0E005D062B"
-            BuildableName = "History Fight Ninja.app"
-            BlueprintName = "History Fight Ninja"
-            ReferencedContainer = "container:History Fight Ninja.xcodeproj">
+            BuildableName = "CountryBall Domination.app"
+            BlueprintName = "CountryBall Domination"
+            ReferencedContainer = "container:CountryBall Domination.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

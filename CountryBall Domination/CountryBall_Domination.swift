@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct History_Fight_NinjaApp: App {
+struct CountryBall_Domination: App {
     
     var body: some Scene {
         WindowGroup {
