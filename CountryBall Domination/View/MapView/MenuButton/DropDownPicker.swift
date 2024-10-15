@@ -60,13 +60,17 @@ struct DropDownPicker: View {
     func OptionView() -> some View {
         ScrollView {
             VStack(spacing: 1) {
-                ForEach(countryDataManager.countryBackgroundColor, id: \.0) { (countryName, countryColor, countryCode, countryPower) in
+                ForEach(countryDataManager.countryBackgroundColorDifficlty, id: \.0) { (countryName, countryColor, countryCode, countryPower) in
                     HStack(spacing: 0) {
                         Text(countryName)
+                            .font(.custom("Chalkduster", size: 15))
+//                            .bold()
+//                            .foregroundColor(Color(red: 1.0, green: 0.84, blue: 0.0))
+                            .foregroundColor(transformedColor(color: countryColor))
                             .lineLimit(1)
                             .frame(width: maxWidth, height: 40)
                             .contentShape(Rectangle())
-                            .background(countryColor.opacity(0.7))
+                            .background(countryColor)
                             .onTapGesture {
                                 selection = countryName
                                 showOption = false

@@ -15,7 +15,6 @@
 		A72470862BFC924800E771D8 /* CountryNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72470852BFC924800E771D8 /* CountryNameView.swift */; };
 		A7302C8E2CA7EB7200932249 /* CarouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7302C8D2CA7EB7200932249 /* CarouseView.swift */; };
 		A735DB7B2CABE19A0059934F /* PickContetntView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A735DB7A2CABE1990059934F /* PickContetntView.swift */; };
-		A74FA5342C9344B90064AF8E /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74FA5332C9344B90064AF8E /* Difficulty.swift */; };
 		A7502CDD2CABF58E0053A5B2 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7502CDC2CABF58E0053A5B2 /* ImageLoader.swift */; };
 		A7502CE02CAC06720053A5B2 /* CachedAssetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7502CDF2CAC06720053A5B2 /* CachedAssetImage.swift */; };
 		A7514FCD2CAD5AC10076C38D /* CashedAssetImageSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7514FCC2CAD5AC10076C38D /* CashedAssetImageSkills.swift */; };
@@ -88,7 +87,6 @@
 		A72470852BFC924800E771D8 /* CountryNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryNameView.swift; sourceTree = "<group>"; };
 		A7302C8D2CA7EB7200932249 /* CarouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouseView.swift; sourceTree = "<group>"; };
 		A735DB7A2CABE1990059934F /* PickContetntView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickContetntView.swift; sourceTree = "<group>"; };
-		A74FA5332C9344B90064AF8E /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
 		A7502CDC2CABF58E0053A5B2 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		A7502CDF2CAC06720053A5B2 /* CachedAssetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAssetImage.swift; sourceTree = "<group>"; };
 		A7514FCC2CAD5AC10076C38D /* CashedAssetImageSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashedAssetImageSkills.swift; sourceTree = "<group>"; };
@@ -302,7 +300,6 @@
 			isa = PBXGroup;
 			children = (
 				A7BEA8D92C3EA752001452F7 /* Constants.swift */,
-				A74FA5332C9344B90064AF8E /* Difficulty.swift */,
 			);
 			path = GameModel;
 			sourceTree = "<group>";
@@ -538,7 +535,6 @@
 				A7A21FF42BB5BE0E005D062B /* CountryBall_Domination.swift in Sources */,
 				A7E2C9CE2BEAA2760040B8E5 /* MapRenderer.swift in Sources */,
 				A7514FCD2CAD5AC10076C38D /* CashedAssetImageSkills.swift in Sources */,
-				A74FA5342C9344B90064AF8E /* Difficulty.swift in Sources */,
 				A75D26672C4C16E60040FC86 /* SkillView.swift in Sources */,
 				A79C62362C3569C000C64772 /* CustomBackground.swift in Sources */,
 				A79A579D2BED39CF00ED3A67 /* PlayerDataModel.swift in Sources */,
@@ -715,6 +711,7 @@
 				DEVELOPMENT_TEAM = 75J6R9JM9Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.strategy-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -749,6 +746,7 @@
 				DEVELOPMENT_TEAM = 75J6R9JM9Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.strategy-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

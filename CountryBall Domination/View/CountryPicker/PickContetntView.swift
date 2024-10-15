@@ -94,7 +94,7 @@ struct PickContetntView: View {
         tempView.removeAll() // Clear the array before transition
         heroData.isDataConsistent = true
         heroData.playerCountry = selectedCountryName
-        mapModel.updateCountryColor(byName: selectedCountryName, newColor: .green, newPower: heroData.playerPower)
+        mapModel.updateCountryColor(byName: selectedCountryName, newColor: .green, newPower: heroData.playerPower, playerPower: heroData.playerPower)
         print("Выбранное изображение: \(selectedCountryName)")
         shouldPresentContentView = true
     }

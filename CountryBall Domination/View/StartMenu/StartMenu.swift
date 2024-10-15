@@ -10,6 +10,7 @@ import SwiftUI
 struct StartMenu: View {
     @StateObject private var transitionState = CountryDataManager.shared
     private let heroData = HeroData.shared
+    private let mapModel = CountryDataManager.shared
     @State private var showAlert: Bool = false
     
     
@@ -61,6 +62,9 @@ struct StartMenu: View {
                         .padding(.top, 100)
                 }
             }
+        }
+        .onAppear {
+            mapModel.updateCountryBackgroundColor(playerPower: HeroData.shared.playerPower)
         }
     }
     

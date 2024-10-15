@@ -332,8 +332,8 @@ class GameScene: SKScene {
         let newPower = heroData.playerPower // if needed
         removeAllCountries()
         cancelTimers()
-        countryManager.updateCountryColor(byName: heroData.enemyName, newColor: .green, newPower: newPower)
-        countryManager.updateCountryBackgroundColor()
+        countryManager.updateCountryColor(byName: heroData.enemyName, newColor: .green, newPower: newPower, playerPower: heroData.playerPower)
+        countryManager.updateCountryBackgroundColor(playerPower: heroData.playerPower)
         heroData.resetAllData()
         
         if let view = view, let window = view.window {

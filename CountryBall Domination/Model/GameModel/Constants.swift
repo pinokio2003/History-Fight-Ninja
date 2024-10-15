@@ -39,7 +39,7 @@ let device = UIDevice.current
 let innerPurple = Color(red: 151 / 255, green: 71 / 255, blue: 255 / 255)
 let innerGreen = Color(red: 161 / 255, green: 255 / 255, blue: 0 / 255)
 
-//difficlty:
+//MARK: - difficlty:
 func difficltyLevel(enemyPower: Int, playerPower: Int) -> String {
     let difference = enemyPower - playerPower
     
@@ -73,7 +73,28 @@ func getColorDifficlty(difficlty: String) -> Color {
             return .black
     }
 }
+// Метод для определения порядка сложности по цвету
+func difficultyOrder(color: Color) -> Int {
+    switch color {
+    case .blue: return 1 // Easy
+    case .yellow: return 2 // Normal
+    case .orange: return 3 // Hard
+    case .red: return 4 // Very Hard
+    default: return 5 // Для любых других цветов
+    }
+}
 
+func transformedColor(color: Color) -> Color {
+    switch color {
+        case.green: return .red
+        case .blue: return .red
+        case .yellow: return .red
+        case .orange: return .black
+        case .red: return .black
+        default: return .white
+    }
+}
+// MARK: - Presents:
 func presentContentView<Content: View>(with view: Content) {
     guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
           let window = windowScene.windows.first else { return }

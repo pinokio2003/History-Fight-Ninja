@@ -20,11 +20,9 @@ struct ContentView: View {
         GeometryReader { geometry in
             ZStack {
                 ZStack(alignment: .leading) {
-
                     if !heroData.isFightStartButton {
                         WorldMapView()
                     }
-
                     if heroData.isCountrySelected && !heroData.isFightStartButton {
                         HStack {
                             SideMapView()
@@ -56,7 +54,7 @@ struct ContentView: View {
                 }
 
                 if heroData.isMenuButtonPushed {
-                    // InfoBarView
+// InfoBarView
                     VStack {
                         if heroData.isCountrySelected != true {
                             InfoBarView(heroData: heroData)
@@ -64,25 +62,23 @@ struct ContentView: View {
                         }
                         Spacer()
                     }
-                    // MenuButtonView (separated for iPad and others)
+// MenuButtonView (separated for iPad and others)
                     HStack {
                         Spacer()
                         VStack {
                             if UIDevice.current.userInterfaceIdiom == .pad {
-                                // iPad-specific layout
+// iPad-specific layout
                                 MenuButtonView()
                                     .frame(width: 80, height: 80)
                                     .position(x: geometry.size.width - 50, y: 120)
                             } else {
-                                // Layout for other devices (iPhone)
+// Layout for other devices (iPhone)
                                 MenuButtonView()
                                     .frame(width: 60, height: 60)
-//                                    .padding(.bottom, 40)
                                     .position(x: geometry.size.width - 40, y: geometry.size.height / 8 + 20)
                             }
                             Spacer()
                         }
-//                        .padding(.top, 40)
                     }
                     .padding(.trailing, 40)
                 }

@@ -66,6 +66,7 @@ class CountryDataManager: ObservableObject {
     
     @Published var colorMap: [String : Color] = [:]
     @Published var countryBackgroundColor: [(String, Color, String, Int)] = []
+    @Published var countryBackgroundColorDifficlty: [(String, Color, String, Int)] = []
     @Published var countriesData: [MapCountryModel] = []
     @Published var opacity: Double = 1.0 //For fade animation
     
@@ -74,7 +75,6 @@ class CountryDataManager: ObservableObject {
     init() {
         loadCountriesData()
         addColorArray()
-        updateCountryBackgroundColor()
     }
     
     func saveCountriesData() {
@@ -306,7 +306,7 @@ class CountryDataManager: ObservableObject {
         return map
     }
 
-    func updateCountryColor(byName name: String, newColor: MapCountryColor, newPower: Int) {
+    func updateCountryColor(byName name: String, newColor: MapCountryColor, newPower: Int, playerPower: Int) {
             for index in countriesData.indices {
                 if countriesData[index].name == name {
                     countriesData[index].color = newColor
@@ -315,7 +315,7 @@ class CountryDataManager: ObservableObject {
             }
             saveCountriesData()
             addColorArray()
-            updateCountryBackgroundColor()
+        updateCountryBackgroundColor(playerPower: playerPower)
         }
     
     func addColorArray() {
@@ -324,7 +324,7 @@ class CountryDataManager: ObservableObject {
         }
     }
     
-    func updateCountryBackgroundColor() {
+    func updateCountryBackgroundColor(playerPower: Int) {
         let sortedCountries = countriesData.sorted { country1, country2 in
             // Сортировка так, чтобы страны с зелёным цветом шли первыми
             if country1.color == .green && country2.color != .green {
@@ -336,15 +336,47 @@ class CountryDataManager: ObservableObject {
             }
         }
         
+        // Обновление обычного массива countryBackgroundColor
         countryBackgroundColor = sortedCountries.compactMap { country in
+            guard let name = country.name else { return nil }
+            let color = country.color.toSwiftUIColor()
+            let countryCode = country.countryCode
+            let power = country.power
+            return (name, color, countryCode, power)
+        }
+        
+        // Обновление массива с учётом сложности и проверкой на зелёный цвет
+        countryBackgroundColorDifficlty = sortedCountries.compactMap { country in
             guard let name = country.name else { return nil }
             let power = country.power
             let countryCode = country.countryCode
-//            let countryPower = country.power
-            return (name, country.color.toSwiftUIColor(), countryCode, power)
+           
+            // Если цвет зелёный, оставляем его
+            let color: Color
+            if country.color == .green {
+                color = .green
+            } else {
+                color = getCountryColorBasedOnDifficulty(countryPower: power, playerPower: playerPower)
+            }
+            
+            return (name, color, countryCode, power)
+        }.sorted { (entry1, entry2) in
+            // Сортировка по цветам
+            if entry1.1 == .green && entry2.1 != .green {
+                return true // зелёный цвет всегда первее
+            } else if entry1.1 != .green && entry2.1 == .green {
+                return false
+            }
+            
+            // Сортируем остальные цвета по сложности
+            return difficultyOrder(color: entry1.1) < difficultyOrder(color: entry2.1)
         }
     }
         
+    func getCountryColorBasedOnDifficulty(countryPower: Int, playerPower: Int) -> Color {
+        let difficulty = difficltyLevel(enemyPower: countryPower, playerPower: playerPower)
+        return getColorDifficlty(difficlty: difficulty)
+    }
     private func mapCountryColorToSwiftUIColor(_ mapColor: MapCountryColor) -> Color {
         mapColor.toSwiftUIColor()
     }
