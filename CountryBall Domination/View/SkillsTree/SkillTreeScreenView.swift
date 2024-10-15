@@ -54,6 +54,7 @@ struct SkillTreeScreen: View {
     
     
     private func presentContentView() {
+        let mapModel = CountryDataManager.shared
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let window = windowScene.windows.first else { return }
         
@@ -62,5 +63,6 @@ struct SkillTreeScreen: View {
         let navController = UINavigationController(rootViewController: hostController)
         window.rootViewController = navController
 //                heroData.isDisabled = false
+                mapModel.updateCountryBackgroundColor(playerPower: HeroData.shared.playerPower)
     }
 }

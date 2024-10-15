@@ -25,6 +25,7 @@ struct DropDownPicker: View {
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
                     Text(selection ?? hint)
+                        .font(.custom("Eracake", size: 15))
                         .foregroundStyle(selection == nil ? .gray : .primary)
                         .lineLimit(1)
                     
@@ -46,6 +47,10 @@ struct DropDownPicker: View {
                     OptionView()
                 }
             }
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(.black, lineWidth: 2)
+            )
             .background(
                 RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                     .fill(.ultraThinMaterial)
@@ -59,7 +64,7 @@ struct DropDownPicker: View {
     @ViewBuilder
     func OptionView() -> some View {
         ScrollView {
-            VStack(spacing: 1) {
+            VStack(spacing: 3) {
                 ForEach(countryDataManager.countryBackgroundColorDifficlty, id: \.0) { (countryName, countryColor, countryCode, countryPower) in
                     HStack(spacing: 0) {
                         Text(countryName)
@@ -80,6 +85,10 @@ struct DropDownPicker: View {
                                 heroData.isCountrySelected = true
                             }
                     }
+                    .cornerRadius(10)
+                    .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        .stroke(transformColorForStroke(color: countryColor), lineWidth: 2)
+                    )
                 }
             }
         }

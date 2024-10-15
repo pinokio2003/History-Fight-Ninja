@@ -94,6 +94,17 @@ func transformedColor(color: Color) -> Color {
         default: return .white
     }
 }
+
+func transformColorForStroke(color: Color) -> Color {
+    switch color {
+        case.green: return .black
+        case .blue: return .black
+        case .yellow: return .black
+        case .orange: return .black
+        case .red: return .black
+        default: return .white
+    }
+}
 // MARK: - Presents:
 func presentContentView<Content: View>(with view: Content) {
     guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,

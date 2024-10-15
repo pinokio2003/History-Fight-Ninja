@@ -202,7 +202,7 @@ class HeroData: ObservableObject {
     func clearUserDefaults() {
         skillManager.resetSkills()
         mapModel.loadDefaultCountriesData()
-        playerExperience = 6000
+        playerExperience = 0
         playerEnergyMax = 5
         playerIncome = 5
         maxStreak = 2
