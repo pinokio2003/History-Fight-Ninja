@@ -13,6 +13,7 @@
 		A70BF7AF2CB5184300A47C8A /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BF7AE2CB5184300A47C8A /* CustomAlert.swift */; };
 		A7167FD92C51008300E32935 /* ReturnButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7167FD82C51008300E32935 /* ReturnButton.swift */; };
 		A72470862BFC924800E771D8 /* CountryNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72470852BFC924800E771D8 /* CountryNameView.swift */; };
+		A7254E7A2CBEEB570055EC63 /* Eracake.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7254E792CBEEB570055EC63 /* Eracake.ttf */; };
 		A7302C8E2CA7EB7200932249 /* CarouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7302C8D2CA7EB7200932249 /* CarouseView.swift */; };
 		A735DB7B2CABE19A0059934F /* PickContetntView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A735DB7A2CABE1990059934F /* PickContetntView.swift */; };
 		A7502CDD2CABF58E0053A5B2 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7502CDC2CABF58E0053A5B2 /* ImageLoader.swift */; };
@@ -85,6 +86,8 @@
 		A70BF7AE2CB5184300A47C8A /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		A7167FD82C51008300E32935 /* ReturnButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnButton.swift; sourceTree = "<group>"; };
 		A72470852BFC924800E771D8 /* CountryNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryNameView.swift; sourceTree = "<group>"; };
+		A7254E792CBEEB570055EC63 /* Eracake.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Eracake.ttf; sourceTree = "<group>"; };
+		A7254E7B2CBEF03F0055EC63 /* CountryBall-Domination-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CountryBall-Domination-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A7302C8D2CA7EB7200932249 /* CarouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouseView.swift; sourceTree = "<group>"; };
 		A735DB7A2CABE1990059934F /* PickContetntView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickContetntView.swift; sourceTree = "<group>"; };
 		A7502CDC2CABF58E0053A5B2 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
@@ -168,6 +171,14 @@
 				A72470852BFC924800E771D8 /* CountryNameView.swift */,
 			);
 			path = CountryNameView;
+			sourceTree = "<group>";
+		};
+		A7254E782CBEE9AC0055EC63 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A7254E792CBEEB570055EC63 /* Eracake.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		A7302C8C2CA7E8F600932249 /* CountryPicker */ = {
@@ -273,8 +284,10 @@
 				A7E2C9BF2BEAA1C70040B8E5 /* WorldMap */,
 				A7E2C9B52BEA97D50040B8E5 /* Scene */,
 				A7E2C9A02BEA97BA0040B8E5 /* Model */,
-				A7A21FF72BB5BE10005D062B /* Assets.xcassets */,
 				A7A21FF92BB5BE10005D062B /* Preview Content */,
+				A7254E782CBEE9AC0055EC63 /* Fonts */,
+				A7254E7B2CBEF03F0055EC63 /* CountryBall-Domination-Info.plist */,
+				A7A21FF72BB5BE10005D062B /* Assets.xcassets */,
 			);
 			path = "CountryBall Domination";
 			sourceTree = "<group>";
@@ -340,8 +353,8 @@
 		A7E2C9A82BEA97CC0040B8E5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A7665DE52CAFC8BA00A00538 /* StartMenu */,
 				A7E2C9A32BEA97CC0040B8E5 /* ContentView.swift */,
+				A7665DE52CAFC8BA00A00538 /* StartMenu */,
 				A7302C8C2CA7E8F600932249 /* CountryPicker */,
 				A7FEF9E32C0F023000602D30 /* GameScene */,
 				A75D26622C4C16080040FC86 /* SkillsTree */,
@@ -498,6 +511,7 @@
 			files = (
 				A7A21FFB2BB5BE10005D062B /* Preview Assets.xcassets in Resources */,
 				A7E2C9B92BEA97D50040B8E5 /* GameOver.sks in Resources */,
+				A7254E7A2CBEEB570055EC63 /* Eracake.ttf in Resources */,
 				A78560792C47B20300AE3004 /* world-low.svg in Resources */,
 				A7E2C9B62BEA97D50040B8E5 /* Assets.xcassets in Resources */,
 				A7E2C9B82BEA97D50040B8E5 /* game.sks in Resources */,
@@ -711,6 +725,7 @@
 				DEVELOPMENT_TEAM = 75J6R9JM9Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CountryBall-Domination-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.strategy-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -746,6 +761,7 @@
 				DEVELOPMENT_TEAM = 75J6R9JM9Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CountryBall-Domination-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.strategy-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
