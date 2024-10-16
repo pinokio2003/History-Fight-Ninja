@@ -25,7 +25,7 @@ struct DropDownPicker: View {
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
                     Text(selection ?? hint)
-                        .font(.custom("Eracake", size: 13))
+                        .font(.custom("Eracake", size: 14))
                         .foregroundStyle(selection == nil ? .gray : .primary)
                         .lineLimit(1)
                     
