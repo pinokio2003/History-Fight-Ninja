@@ -12,6 +12,7 @@
 		A707CE182C6F2E2E006621F5 /* SkillPopOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A707CE172C6F2E2E006621F5 /* SkillPopOver.swift */; };
 		A70BF7AF2CB5184300A47C8A /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BF7AE2CB5184300A47C8A /* CustomAlert.swift */; };
 		A7167FD92C51008300E32935 /* ReturnButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7167FD82C51008300E32935 /* ReturnButton.swift */; };
+		A71730892CC00271004089C0 /* FallingLetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71730882CC00271004089C0 /* FallingLetterView.swift */; };
 		A72470862BFC924800E771D8 /* CountryNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72470852BFC924800E771D8 /* CountryNameView.swift */; };
 		A7254E7A2CBEEB570055EC63 /* Eracake.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7254E792CBEEB570055EC63 /* Eracake.ttf */; };
 		A7302C8E2CA7EB7200932249 /* CarouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7302C8D2CA7EB7200932249 /* CarouseView.swift */; };
@@ -85,6 +86,7 @@
 		A707CE172C6F2E2E006621F5 /* SkillPopOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPopOver.swift; sourceTree = "<group>"; };
 		A70BF7AE2CB5184300A47C8A /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		A7167FD82C51008300E32935 /* ReturnButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnButton.swift; sourceTree = "<group>"; };
+		A71730882CC00271004089C0 /* FallingLetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallingLetterView.swift; sourceTree = "<group>"; };
 		A72470852BFC924800E771D8 /* CountryNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryNameView.swift; sourceTree = "<group>"; };
 		A7254E792CBEEB570055EC63 /* Eracake.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Eracake.ttf; sourceTree = "<group>"; };
 		A7254E7B2CBEF03F0055EC63 /* CountryBall-Domination-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CountryBall-Domination-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -223,6 +225,7 @@
 				A7665DE62CAFC8E200A00538 /* StartMenu.swift */,
 				A7665DE82CAFCFDC00A00538 /* StartButton.swift */,
 				A70BF7AE2CB5184300A47C8A /* CustomAlert.swift */,
+				A71730882CC00271004089C0 /* FallingLetterView.swift */,
 			);
 			path = StartMenu;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				A786CD6B2C455FF300EBAC6F /* DropDownPicker.swift in Sources */,
 				A7CFDACB2BF92A8500937CE0 /* FieldForButton.swift in Sources */,
 				A7BEA8DA2C3EA752001452F7 /* Constants.swift in Sources */,
+				A71730892CC00271004089C0 /* FallingLetterView.swift in Sources */,
 				A7665DE92CAFCFDC00A00538 /* StartButton.swift in Sources */,
 				A7502CE02CAC06720053A5B2 /* CachedAssetImage.swift in Sources */,
 				A787ADE02C8AF79800498EBD /* MoneyPanel.swift in Sources */,

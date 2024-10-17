@@ -21,6 +21,10 @@ struct StartMenu: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .edgesIgnoringSafeArea(.all)
+            
+                FallingTextView()
+//            .zIndex(1)
+            
             VStack {
                 Spacer()
                 // Show buttons or alarm:
